@@ -19,7 +19,7 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link text-danger" href="{{ route('logout') }}" wire:navigate>
+            <a class="nav-link text-danger text-bold" href="{{ route('logout') }}" wire:navigate>
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </li>
