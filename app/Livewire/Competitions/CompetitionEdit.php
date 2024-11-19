@@ -35,7 +35,11 @@ class CompetitionEdit extends Component
 
         $competition = Competition::findOrFail($this->id);
 
-         if ($this->image) {
+        if($this->status == 'active'){
+            Competition::where('status','active')->update(['status'=>'inactive']);
+        }
+
+        if ($this->image) {
             if ($competition->image && file_exists(public_path($competition->image))) {
                 unlink(public_path($competition->image));
             }
