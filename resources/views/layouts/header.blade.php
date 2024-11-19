@@ -1,7 +1,3 @@
-<!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ URL::asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
-    height="60" width="60">
-</div> -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -19,7 +15,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a href="{{ route('profile.edit') }}" class="nav-link" wire:navigate>
-                <i class="far fa-user"></i> {{ Auth::check() ? Auth::user()->fullname : '' }} {{ Auth::check() ? '('.ucwords(str_replace("_", " ", Auth::user()->role)).')' : '' }}
+                <i class="far fa-user"></i> {{ Auth::check() ? Auth::user()->fullname : '' }}
             </a>
         </li>
         <li class="nav-item dropdown">

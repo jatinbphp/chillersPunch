@@ -18,6 +18,13 @@
     <body class="hold-transition login-page" id="app" style="background-image: url('{{ asset('assets/dist/img/login-img.png') }}'); background-repeat: no-repeat; background-size: cover;background-position: bottom center;">
 
         <div class="login-box">
+
+            <div class="login-logo">
+                <a href="{{ URL::to('/admin') }}">
+                    <img src="{{url('assets/dist/img/logo.png')}}?{{ time() }}"/>
+                </a>
+            </div>
+            
             <div class="card card-outline card-primary">
                 @yield('content')   
             </div>

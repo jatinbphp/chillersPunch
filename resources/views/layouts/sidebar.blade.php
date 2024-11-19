@@ -16,7 +16,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview"
             role="menu" data-accordion="false">
-                @if(Auth::user() && Auth::user()->role == 'super_admin'):
+                @if(Auth::user() && Auth::user()->role == 'super_admin')
                     <li class="nav-item">
                         <a href="{{ route('dashboard') }}" class="nav-link @if(isset($menu) && $menu=='Dashboard') active @endif" wire:navigate>
                             <i class="nav-icon far fa-image"></i>

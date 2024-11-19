@@ -9,6 +9,8 @@ use App\Livewire\Dashboard;
 use App\Livewire\EditProfile;
 use App\Livewire\Logout;
 use App\Livewire\PageNotFound;
+use App\Livewire\Front\Home;
+use App\Livewire\Front\Competition;
 use App\Http\Controllers\CacheController;
 
 Route::get('/clear-cache', [CacheController::class, 'clearAllCache']);
@@ -26,25 +28,28 @@ if (App::environment('production')) {
 }
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('home');
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('login', Login::class)->name('login');
-    Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
-    Route::get('reset-password/{token}', ResetPassword::class)->name('password.reset');
+    Route::get('admin/login', Login::class)->name('login');
+    Route::get('admin/forgot-password', ForgotPassword::class)->name('forgot-password');
+    Route::get('admin/reset-password/{token}', ResetPassword::class)->name('password.reset');
+
+    Route::get('/', Home::class)->name('home');
+    Route::get('competition', Competition::class)->name('competition');
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile/edit', EditProfile::class)->name('profile.edit');
+    Route::get('admin/profile/edit', EditProfile::class)->name('profile.edit');
     Route::middleware('role:super_admin')->group(function () {
-        Route::get('/dashboard', Dashboard::class)->name('dashboard');
+        Route::get('admin/dashboard', Dashboard::class)->name('dashboard');
     });
 
-    Route::get('/logout', Logout::class)->name('logout');
+    Route::get('admin/logout', Logout::class)->name('logout');
 });
 
-Route::get('404', PageNotFound::class)->name('errors.404');
+Route::get('admin/404', PageNotFound::class)->name('errors.404');
 
 Route::fallback(function () {
     if (auth()->check()) {
