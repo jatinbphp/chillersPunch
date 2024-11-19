@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('votings', function (Blueprint $table) {
             $table->id();
             $table->integer('competitionId')->default(0);
+            $table->integer('submissionId')->default(0);
             $table->string('ipAdress')->nullable();
             $table->timestamps();
         });

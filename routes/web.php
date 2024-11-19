@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/view', CompetitionShow::class)->name('show');
         Route::delete('/{id}/delete', [CompetitionList::class, 'deleteRecord'])->name('destroy');
         Route::get('/competitions-data', [CompetitionList::class, 'getCompetitionsData'])->name('data');
+        Route::get('/submission-data/{id}', [CompetitionShow::class, 'getSubmissionData'])->name('submissionData');
     });
 });
 
