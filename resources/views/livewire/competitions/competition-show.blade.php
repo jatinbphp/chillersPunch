@@ -36,10 +36,10 @@
                                     <b>Created Data</b> <a class="float-right">{{$competition->created_at}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Submissions</b> <a class="float-right">{{$totalSubmission}}</a>
+                                    <b>Total Submissions</b> <a class="float-right">{{number_format($totalSubmission)}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Votes</b> <a class="float-right">{{$totalVoting}}</a>
+                                    <b>Total Votes</b> <a class="float-right">{{number_format($totalVoting)}}</a>
                                 </li>
                             </ul>  
                         </div>
@@ -49,9 +49,9 @@
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link text-bold active" href="#informations" data-toggle="tab">Informations</a></li>
-                                <li class="nav-item"><a class="nav-link text-bold" href="#submissions" data-toggle="tab">Submissions</a></li>
-                                <li class="nav-item"><a class="nav-link text-bold" href="#votes" data-toggle="tab">Votes</a></li>
+                                <li class="nav-item"><a class="nav-link text-bold active" href="#informations" data-toggle="tab">Overview</a></li>
+                                <li class="nav-item"><a class="nav-link text-bold" href="#submissions" data-toggle="tab">User Submissions ({{number_format($totalSubmission)}})</a></li>
+                                <li class="nav-item"><a class="nav-link text-bold" href="#votes" data-toggle="tab">Voting Summary ({{number_format($totalVoting)}})</a></li>
                             </ul>
                         </div>
                         <div class="card-body">
