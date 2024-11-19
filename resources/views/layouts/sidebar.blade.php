@@ -8,7 +8,7 @@
             <img src="{{ URL::asset('assets/dist/img/AdminLTELogo.png') }}" class="brand-image img-circle elevation-3" style="opacity: .8">
         @endif
 
-        <span class="brand-text font-weight-light">
+        <span class="brand-text text-bold">
             {{ config('app.name', 'Laravel') }}
         </span>
     </a>
@@ -18,28 +18,26 @@
             role="menu" data-accordion="false">
                 @if(Auth::user() && Auth::user()->role == 'super_admin')
                     <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link @if(isset($menu) && $menu=='Dashboard') active @endif" wire:navigate>
+                        <a href="{{ route('dashboard') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Dashboard') active @endif" wire:navigate>
                             <i class="nav-icon far fa-image"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a href="{{ route('profile.edit') }}" class="nav-link @if(isset($menu) && $menu=='Edit Profile') active @endif" wire:navigate>
+                    <a href="{{ route('competitions.list') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Competitions') active @endif" wire:navigate>
+                        <i class="nav-icon fas fa-trophy"></i>
+                        <p>Competitions</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('profile.edit') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Edit Profile') active @endif" wire:navigate>
                         <i class="nav-icon far fa-edit"></i>
                         <p>Edit Profile</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
-                    <a href="{{ route('competitions.list') }}" class="nav-link @if(isset($menu) && $menu=='Competitions') active @endif" wire:navigate>
-                        <i class="nav-icon fa fa-th-list"></i>
-                        <p>Competitions</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link text-danger" wire:navigate>
+                    <a href="{{ route('logout') }}" class="nav-link text-bold text-danger" wire:navigate>
                         <i class="nav-icon fa fa-sign-out-alt"></i>
                         <p>Log out</p>
                     </a>

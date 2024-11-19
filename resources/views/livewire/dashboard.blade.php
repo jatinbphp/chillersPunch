@@ -13,10 +13,10 @@
                     <div class="small-box bg-orange">
                         <div class="inner">
                             <h3>{{ $totalCompetitions }}</h3>
-                            <p>Total Cometitions</p>
+                            <p class="text-bold">Total Cometitions</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-th-list"></i>
+                            <i class="fas fa-trophy"></i>
                         </div>
                         <a href="{{route('competitions.list')}}" class="small-box-footer" wire:navigate>
                             More info
@@ -28,12 +28,12 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{ $totalSubmission }}</h3>
-                            <p>Total Submissions</p>
+                            <p class="text-bold">Total Submissions</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-paper-plane"></i>
                         </div>
-                        <a href="javascript:void(0)" class="small-box-footer" wire:navigate>
+                        <a href="#" class="small-box-footer" wire:navigate>
                             More info
                             <i class="fas fa-arrow-circle-right"></i>
                         </a>
@@ -43,12 +43,12 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $totalVoting }}</h3>
-                            <p>Total Votes</p>
+                            <p class="text-bold">Total Votes</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-vote-yea"></i>
                         </div>
-                        <a href="javascript:void(0)" class="small-box-footer" wire:navigate>
+                        <a href="#" class="small-box-footer" wire:navigate>
                             More info
                             <i class="fas fa-arrow-circle-right"></i>
                         </a>

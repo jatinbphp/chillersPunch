@@ -4,9 +4,9 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Models\Competition;
 use App\Models\Submission;
 use App\Models\Voting;
-use App\Models\Competition;
 use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Component
@@ -15,8 +15,16 @@ class Dashboard extends Component
 
     public function mount(){
         $this->menu = "Dashboard";
-        $this->totalSubmission = Submission::count();
-        $this->totalVoting = Voting::count();
+
+        $competition = Competition::where('status', 'active')->first();
+
+        if ($competition) {
+            $this->totalSubmission = Submission::where('competitionId', $competition->id)->count();
+            $this->totalVoting = Voting::where('competitionId', $competition->id)->count();
+        } else {
+            $this->totalSubmission = 0;
+            $this->totalVoting = 0;
+        }
         $this->totalCompetitions = Competition::count();
     }
 

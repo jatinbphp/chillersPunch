@@ -49,9 +49,9 @@
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Informations</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Submissions</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Votes</a></li>
+                                <li class="nav-item"><a class="nav-link active text-bold" href="#activity" data-toggle="tab">Informations</a></li>
+                                <li class="nav-item"><a class="nav-link text-bold" href="#timeline" data-toggle="tab">Submissions</a></li>
+                                <li class="nav-item"><a class="nav-link text-bold" href="#settings" data-toggle="tab">Votes</a></li>
                             </ul>
                         </div>
                         <div class="card-body">
@@ -61,96 +61,43 @@
                                 </div>
                                 <div class="tab-pane" id="timeline">
                                     <section class="content">
-                                        <div class="card card-solid">
-                                            <div class="card-body pb-0">
+                                        <div class="card-solid">
+                                            <div class="pb-0">
                                                 <div class="row">
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
+                                                    @for ($i = 0; $i < 12; $i++)
+                                                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                                                            <div class="card d-flex flex-fill">
+                                                                
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                                                            
+                                                                            <ul class="ml-0 mb-0 fa-ul text-muted">
+                                                                                <li>
+                                                                                    Email: chillers-punch@info.com
+                                                                                </li>
+                                                                                <li>
+                                                                                    Phone: + 800 - 12 12 23 52
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col-12 mt-3">
+                                                                            <iframe class="embed-responsive-item w-100" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen></iframe>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-footer">
+                                                                    <div class="text-right">
+                                                                        <a href="#" class="btn btn-sm bg-teal">
+                                                                            <i class="fas fa-comments"></i>
+                                                                        </a>
+                                                                        <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @endfor
                                                 </div>
                                             </div>
                                             <div class="card-footer">

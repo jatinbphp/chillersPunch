@@ -15,7 +15,6 @@ class CompetitionList extends Component
     }
 
     public function deleteRecord($competitionId){
-
         $competition = Competition::find($competitionId);
         if ($competition) {
             $competition->delete();
@@ -40,8 +39,7 @@ class CompetitionList extends Component
             ->make(true);
     }
 
-    public function render()
-    {
+    public function render(){
         return view('livewire.competitions.competition-list')->extends('layouts.app', ['menu' => $this->menu])->section('content');
     }
 }
