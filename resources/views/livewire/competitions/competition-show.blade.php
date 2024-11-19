@@ -36,10 +36,10 @@
                                     <b>Created Data</b> <a class="float-right">{{$competition->created_at}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Submissions</b> <a class="float-right">1,322</a>
+                                    <b>Total Submissions</b> <a class="float-right">{{$totalSubmission}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Votes</b> <a class="float-right">543</a>
+                                    <b>Total Votes</b> <a class="float-right">{{$totalVoting}}</a>
                                 </li>
                             </ul>  
                         </div>
@@ -49,128 +49,37 @@
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Informations</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Submissions</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Votes</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#informations" data-toggle="tab">Informations</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#submissions" data-toggle="tab">Submissions</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#votes" data-toggle="tab">Votes</a></li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
-                                <div class="active tab-pane" id="activity">
+                                <div class="active tab-pane" id="informations">
                                     {{$competition->description}}
                                 </div>
-                                <div class="tab-pane" id="timeline">
-                                    <section class="content">
-                                        <div class="card card-solid">
-                                            <div class="card-body pb-0">
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                                                        <div class="card bg-light d-flex flex-fill">
-                                                            
-                                                            <div class="card-body pt-0">
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <h2 class="lead"><b>Nicole Pearson</b></h2>
-                                                                        
-                                                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ
-                                                                            </li>
-                                                                            <li class="small">
-                                                                                <span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-footer">
-                                                                <div class="text-right">
-                                                                    <a href="#" class="btn btn-sm bg-teal">
-                                                                        <i class="fas fa-comments"></i>
-                                                                    </a>
-                                                                    <a href="#" class="btn btn-sm btn-primary"> <i class="fas fa-user"></i> View Profile </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer">
-                                                <nav aria-label="Contacts Page Navigation">
-                                                    <ul class="pagination justify-content-center m-0">
-                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>                                        
-                                    </section>
+                                <div class="tab-pane" id="submissions">
+                                  <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissionData',['id' => $competition->id]) }}">
+                                  <section class="content">
+                                      <div class="card-solid">
+                                          <div class="pb-0">
+                                            <div id="cardGrid" class="row"></div>
+                                            <nav>
+                                                <ul class="pagination justify-content-center" id="pagination"></ul>
+                                            </nav>
+                                          </div>
+                                          <div class="card-footer">
+                                              <nav aria-label="Contacts Page Navigation">
+                                                  <ul class="pagination justify-content-center m-0" id="pagination-links">
+                                                      <!-- Pagination links will be dynamically added -->
+                                                  </ul>
+                                              </nav>
+                                          </div>
+                                      </div>
+                                  </section>
                                 </div>
-                                <div class="tab-pane" id="settings">
+                                <div class="tab-pane" id="votes">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -223,7 +132,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>
