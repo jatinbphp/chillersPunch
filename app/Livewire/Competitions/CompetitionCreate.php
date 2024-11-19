@@ -34,6 +34,10 @@ class CompetitionCreate extends Component
             $imagePath = null;
         }
 
+        if($this->status == 'active'){
+            Competition::where('status','active')->update(['status'=>'inactive']);
+        }
+
         $institution = Competition::create([
             'title' => $this->title,
             'description' => $this->description,
