@@ -32,6 +32,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('competitions.list') }}" class="nav-link @if(isset($menu) && $menu=='Competitions') active @endif" wire:navigate>
+                        <i class="nav-icon fa fa-th-list"></i>
+                        <p>Competitions</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link text-danger" wire:navigate>
                         <i class="nav-icon fa fa-sign-out-alt"></i>
                         <p>Log out</p>

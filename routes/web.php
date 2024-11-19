@@ -8,6 +8,10 @@ use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Dashboard;
 use App\Livewire\EditProfile;
 use App\Livewire\Logout;
+use App\Livewire\Competitions\CompetitionList;
+use App\Livewire\Competitions\CompetitionCreate;
+use App\Livewire\Competitions\CompetitionEdit;
+use App\Livewire\Competitions\CompetitionShow;
 use App\Livewire\PageNotFound;
 use App\Livewire\Front\Home;
 use App\Livewire\Front\Competition;
@@ -47,6 +51,15 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('admin/logout', Logout::class)->name('logout');
+
+    Route::prefix('admin/competitions')->name('competitions.')->group(function () {
+        Route::get('/', CompetitionList::class)->name('list'); 
+        Route::get('/create', CompetitionCreate::class)->name('create');
+        Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
+        Route::get('/{id}/view', CompetitionShow::class)->name('show');
+        Route::delete('/{id}/delete', [CompetitionList::class, 'deleteRecord'])->name('destroy');
+        Route::get('/competitions-data', [CompetitionList::class, 'getCompetitionsData'])->name('data');
+    });
 });
 
 Route::get('admin/404', PageNotFound::class)->name('errors.404');

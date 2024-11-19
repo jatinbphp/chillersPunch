@@ -30,9 +30,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-    ];
-
-    public function institution(){
-        return $this->belongsTo(Institution::class, 'institution_id');
-    }
+    ];    
 }

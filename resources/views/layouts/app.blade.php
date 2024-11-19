@@ -52,7 +52,7 @@
         <script src="{{ URL('assets/dist/plugins/moment/moment.min.js') }}"></script>
         <script src="{{ URL('assets/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
         <script src="{{ URL('assets/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-        <script src="{{ URL('assets/dist/plugins/summernote/summernote-bs4.min.js') }}"></script>
+        <script src="{{ URL('assets/dist/plugins/summernote/summernote-bs4.min.js') }}" data-navigate-once></script>
         <script src="{{ URL('assets/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
         <script src="{{ URL('assets/dist/js/adminlte.js') }}"></script>
         <script src="{{ URL('assets/dist/js/demo.js') }}"></script>
