@@ -1,11 +1,6 @@
 <footer class="main-footer">
-    @php
-    /*
     <strong>
-        Copyright &copy; 2023-{{ date('Y') }} <a href="https://nxsol.com">NXSOL Private Limited</a>.
+        Copyright &copy; {{ date('Y', strtotime('-1 year')) }} - {{ date('Y') }} <a href="javascript:void(0)">Chillers Punch</a>.
     </strong>
     All rights reserved.
-
-    */
-    @endphp
 </footer>
