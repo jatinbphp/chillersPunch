@@ -30,7 +30,8 @@ class CompetitionList extends Component
                 return $row->created_at;
             })
             ->editColumn('status', function ($row) {
-                return view('common.status-buttons', $row);
+              $table_name = 'competitions';
+              return view('common.status-buttons', ['status' => $row->status, 'id'=>$row->id, 'table_name'=>$table_name] );
             })
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.competition-actions', ['competitionId' => $row->id]);

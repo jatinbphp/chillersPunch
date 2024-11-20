@@ -16,6 +16,7 @@ use App\Livewire\PageNotFound;
 use App\Livewire\Front\Home;
 use App\Livewire\Front\Competition;
 use App\Http\Controllers\CacheController;
+use App\Http\Controllers\Controller;
 
 Route::get('/clear-cache', [CacheController::class, 'clearAllCache']);
 
@@ -63,7 +64,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submission-info/{id}', [CompetitionShow::class, 'getSubmissioInfo'])->name('submission.info');
         Route::get('/voting-data/{id}', [CompetitionShow::class, 'getVotingData'])->name('votings');
     });
+    
+    Route::post('admin/status_update', [Controller::class, 'statusUpdate'])->name('common.statusUpdate');
 });
+
+
 
 Route::get('admin/404', PageNotFound::class)->name('errors.404');
 
