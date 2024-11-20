@@ -35,8 +35,11 @@ class CompetitionEdit extends Component
 
         $competition = Competition::findOrFail($this->id);
 
-        if($this->status == 'active'){
-            Competition::where('status','active')->update(['status'=>'inactive']);
+        if ($competition->status == 'active' && $this->status == 'inactive') {
+            $this->addError('status', 'You cannot deactivate the active competition. Please ensure only one competition is active.');
+            return;
+        }else{
+            Competition::where('id','!=', $competition->id)->where('status','active')->update(['status'=>'inactive']);
         }
 
         if ($this->image) {

@@ -4,7 +4,8 @@
         'menu' => $menu,
         'breadcrumb' => [
             ['route' => getRoleWiseHomeUrl(), 'title' => getRoleWiseHomeLabel()],
-            ['route' => route('competitions.list'), 'title' => 'CMS Pages']
+            ['route' => route('cms.index',['slug'=>$slugName]), 'title' => 'CMS Pages'],
+            ['route' => route('cms.index',['slug'=>$slugName]), 'title' => $title]
         ],
         'active' => 'Edit'
     ])
@@ -36,7 +37,7 @@
                            </div>
                         </div>
                         <div class="card-footer">
-                            @include('common.footer-buttons', ['route' => route('competitions.list'), 'type' => 'create'])
+                            @include('common.footer-buttons', ['route' => getRoleWiseHomeUrl(), 'type' => 'update'])
                         </div>
                     </form>
                 </div>
