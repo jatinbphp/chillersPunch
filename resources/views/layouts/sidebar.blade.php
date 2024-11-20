@@ -46,12 +46,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('cms.index',['slug'=>'winner_circle']) }}" class="nav-link @if(isset($slug) && $slug=='winner_circle') active @endif">
+                            <a href="{{ route('cms.index',['slug'=>'winner-circle']) }}" class="nav-link @if(isset($slug) && $slug=='winner-circle') active @endif">
                                 <i class="far fa-circle nav-icon"></i><p>Winner Circle</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('cms.index',['slug'=>'terms_conditions']) }}" class="nav-link @if(isset($slug) && $slug=='terms_conditions') active @endif">
+                            <a href="{{ route('cms.index',['slug'=>'terms-conditions']) }}" class="nav-link @if(isset($slug) && $slug=='terms-conditions') active @endif">
                             <i class="far fa-circle nav-icon"></i><p>Terms & Conditions</p>
                             </a>
                         </li>

@@ -22,14 +22,14 @@ return new class extends Migration
         DB::table('comman_pages')->insert([
             [
                 'title' => 'Winner Circle',
-                'slug' => 'winner_circle',
+                'slug' => 'winner-circle',
                 'description' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'title' => 'Terms & Conditions',
-                'slug' => 'terms_conditions', // Fixed the 'email' typo to 'slug'
+                'slug' => 'terms-onditions', // Fixed the 'email' typo to 'slug'
                 'description' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
