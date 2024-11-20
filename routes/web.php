@@ -69,7 +69,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('admin/status_update', [Controller::class, 'statusUpdate'])->name('common.statusUpdate');
     Route::get('admin/cms-page/{slug}',CMSPages::class)->name('cms.index');
-     Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
+    Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
 });
 
 Route::get('admin/404', PageNotFound::class)->name('errors.404');

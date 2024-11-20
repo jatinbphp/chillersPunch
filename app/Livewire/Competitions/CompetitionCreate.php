@@ -18,7 +18,6 @@ class CompetitionCreate extends Component
         $this->statusList = Common::$status;
     }
 
-
     public function store(){
 
         $this->validate([

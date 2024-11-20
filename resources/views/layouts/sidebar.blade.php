@@ -1,7 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{getRoleWiseHomeUrl()}}" class="brand-link" wire:navigate>
-        
-
         @if (isset(Auth::user()->image) && file_exists(public_path(Auth::user()->image)))
             <img src="{{ asset(Auth::user()->image) }}" class="brand-image img-circle elevation-3" style="opacity: .8">
         @else
@@ -30,7 +28,6 @@
                         <p>Edit Profile</p>
                     </a>
                 </li>
-
 
                 <li class="nav-item">
                     <a href="{{ route('competitions.list') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Competitions') active @endif" wire:navigate>

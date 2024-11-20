@@ -12,20 +12,19 @@ class CMSPages extends Component
     public function mount($slug){
         $this->menu = "CMS Pages";
         $this->slugName = $slug;
-        $cmsPage = CommonPages::where('slug',$slug)->first();
+        $cmsPage = CommonPages::where('slug',$slug)->firstOrFail();
         $this->title = $cmsPage->title;
         $this->description = $cmsPage->description;
     }
 
     public function update(){
-
         $this->validate([
             'title' => 'required|max:255',
             'description' => 'required', 
         ]);
 
         $slug = $this->slugName;
-        $cmsPages = CommonPages::where('slug',$slug)->first();
+        $cmsPages = CommonPages::where('slug',$slug)->firstOrFail();
         $cmsPages->update([
             'title' => $this->title,
             'description' => $this->description
