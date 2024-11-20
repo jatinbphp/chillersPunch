@@ -35,7 +35,7 @@ class CompetitionShow extends Component
                 return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small></br><small>{$totalVots}</small>";
             })
             ->editColumn('status', function ($row) {
-                return view('common.status-buttons', $row);
+                return view('livewire.competitions.submission-status-buttons', $row);
             })
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.submission-actions', ['submissionId' => $row->id]);
