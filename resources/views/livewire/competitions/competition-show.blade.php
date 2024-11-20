@@ -68,7 +68,7 @@
                                             {{$competition->description}}
                                         </div>
                                         <div class="tab-pane" id="submissions">
-                                            <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions') }}">
+                                            <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">
                                             <table id="submissionTable" class="table table-bordered table-striped w-100">
                                                 <thead>
                                                     <tr>
@@ -76,6 +76,7 @@
                                                         <th>FullName</th>
                                                         <th>Email Address</th>
                                                         <th>Phone Number</th>
+                                                        <th>Total Votes</th>
                                                         <th>Date Created</th>
                                                     </tr>
                                                 </thead>

@@ -18,20 +18,27 @@ class CompetitionShow extends Component
         $this->menu = "Competitions";
         $this->competition = Competition::findOrFail($id);
         $this->competitionId = $this->competition->id;
-        $this->totalSubmission = Submission::count();
-        $this->totalVoting = Voting::count();
+        $this->totalSubmission = Submission::where('competitionId', $id)->count();
+        $this->totalVoting = Voting::where('competitionId', $id)->count();
     }
 
-    public function getSubmissionData(){
-        return DataTables::of(Submission::select())
+    public function getSubmissionData($competitionId){
+        return DataTables::of(Submission::withCount('votings')->where('competitionId', $competitionId))
             ->editColumn('created_at', function ($row) {
                 return $row->created_at;
             })
+            ->addColumn('total_votings', function ($row) {
+                return '<span class="badge bg-warning">'.$row->votings_count.'</span>'; // Access the count directly
+            })
+            ->rawColumns(['total_votings'])
             ->make(true);
     }
 
     public function getVotingData(){
         return DataTables::of(Voting::with('submission'))
+            ->editColumn('created_at', function ($row) {
+                return $row->created_at;
+            })
             ->addColumn('submission_info', function ($row) {
                 $submission = $row->submission;
 
@@ -40,9 +47,6 @@ class CompetitionShow extends Component
                 $phoneNumber = '<b>Phone: </b>'.$submission->phoneNumber ?? '-';
 
                 return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small>";
-            })
-            ->editColumn('created_at', function ($row) {
-                return $row->created_at;
             })
             ->rawColumns(['submission_info'])
             ->make(true);

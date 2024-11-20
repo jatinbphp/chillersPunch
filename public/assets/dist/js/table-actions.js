@@ -32,6 +32,7 @@ $(document).ready(function() {
             { data: 'fullName', name: 'fullName'},
             { data: 'emailAddress', name: 'emailAddress'},
             { data: 'phoneNumber', name: 'phoneNumber'},
+            { data: 'total_votings', name: 'total_votings', orderable: false, searchable: false },
             { data: 'created_at', name: 'created_at' },
         ],
         "order": [[0, "DESC"]]
