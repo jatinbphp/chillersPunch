@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comman_pages', function (Blueprint $table) {
+        Schema::create('common_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
@@ -19,21 +19,21 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('comman_pages')->insert([
+        DB::table('common_pages')->insert([
             [
                 'title' => 'Winner Circle',
                 'slug' => 'winner-circle',
                 'description' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
+            ],[
                 'title' => 'Terms & Conditions',
-                'slug' => 'terms-onditions', // Fixed the 'email' typo to 'slug'
+                'slug' => 'terms-conditions',
                 'description' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
+            
         ]);
     }
 
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comman_pages');
+        Schema::dropIfExists('common_pages');
     }
 };

@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\CommanPages;
+use App\Models\CommonPages;
 
 class CMSPages extends Component
 {
@@ -12,7 +12,7 @@ class CMSPages extends Component
     public function mount($slug){
         $this->menu = "CMS Pages";
         $this->slugName = $slug;
-        $cmsPage = CommanPages::where('slug',$slug)->first();
+        $cmsPage = CommonPages::where('slug',$slug)->first();
         $this->title = $cmsPage->title;
         $this->description = $cmsPage->description;
     }
@@ -25,7 +25,7 @@ class CMSPages extends Component
         ]);
 
         $slug = $this->slugName;
-        $cmsPages = CommanPages::where('slug',$slug)->first();
+        $cmsPages = CommonPages::where('slug',$slug)->first();
         $cmsPages->update([
             'title' => $this->title,
             'description' => $this->description

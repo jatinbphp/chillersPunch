@@ -37,7 +37,7 @@ class SubmissionSeeder extends Seeder
                 'fullName' => $faker->name, // Generate a fake name
                 'emailAddress' => $faker->email, // Generate a fake email
                 'phoneNumber' => $faker->phoneNumber, // Generate a fake phone number
-                'status' => 'active', // Static value
+                'status' => 'pending', // Static value
                 'videoFile' => $faker->word . '.mp4',
                 'isWinner' => $faker->boolean(50), // Randomly assign true/false (50% chance)
             ]);
