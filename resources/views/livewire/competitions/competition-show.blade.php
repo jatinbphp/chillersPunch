@@ -68,7 +68,7 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="informations">
-                                        {{$competition->description}}
+                                        {!! $competition->description !!}
                                     </div>
                                     <div class="tab-pane table-responsive" id="submissions">
                                         <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">

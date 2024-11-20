@@ -117,10 +117,6 @@ $(document).ready(function() {
                         // Handle the error
                         if (jqXHR.status === 404) {
                             toastr.error("User not found.");
-                        } else if (jqXHR.status === 400) {
-                            toastr.error("Deletion of a submitter is not permitted. If you need to remove a submitter, please create a new one instead."); 
-                        } else if (jqXHR.status === 401) {
-                            toastr.error("You can not delete this institution because it is currently assigned to users."); 
                         } else {
                             toastr.error("An unexpected error occurred: " + errorThrown);
                         }

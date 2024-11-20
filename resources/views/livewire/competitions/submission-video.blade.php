@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <th>Is Winner :</th>
-                        <td>{!! $submissioInfo->isWinner === 1 ? 'Yes' : 'No' !!}</td>
+                        <td>{!! $submissioInfo->isWinner == 1 ? 'Yes' : 'No' !!}</td>
                     </tr>
                     <tr>
                         <th>Video :</th>

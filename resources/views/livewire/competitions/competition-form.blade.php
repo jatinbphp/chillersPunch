@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label for="title" class="control-label"> Description :<span class="text-red">*</span></label>
-            <textarea class="form-control" wire:model="description" placeholder="Description" rows="5"></textarea>
+            <textarea class="form-control" id="description" wire:model="description" placeholder="Description" rows="5"></textarea>
             @error('description') <span class="text-danger w-100">{{ $message }}</span> @enderror
         </div>
     </div>

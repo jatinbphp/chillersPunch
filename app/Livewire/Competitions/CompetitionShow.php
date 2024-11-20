@@ -9,6 +9,7 @@ use App\Models\Voting;
 use App\Models\Common;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompetitionShow extends Component
 {
@@ -30,12 +31,16 @@ class CompetitionShow extends Component
                 $emailAddress = '<b>Email: </b>'.$row->emailAddress ?? '-';
                 $phoneNumber = '<b>Phone: </b>'.$row->phoneNumber ?? '-';
                 $dateCreated = '<b>Date Created: </b>'.$row->created_at ?? '-';
-                $totalVots = '<b>Total Vots: </b>'.$row->votings_count.'</span>';
+                $totalVots = '<b>Total Vots: </b>'.$row->votings_count;
 
                 return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small></br><small>{$totalVots}</small>";
             })
             ->editColumn('status', function ($row) {
                 return view('livewire.competitions.submission-status-buttons', $row);
+            })
+            ->editColumn('isWinner', function ($row) {
+                $table_name = 'submissions';
+                return view('common.winner-buttons', ['isWinner' => $row->isWinner, 'id'=>$row->id, 'table_name'=>$table_name] );
             })
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.submission-actions', ['submissionId' => $row->id]);
@@ -65,6 +70,12 @@ class CompetitionShow extends Component
     public function getSubmissioInfo($submissionId){
         $data['submissioInfo'] = Submission::where('id', $submissionId)->first();
         return view('livewire.competitions.submission-video', $data);
+    }
+
+    public function winnerUpdate(Request $request){
+        $updateInput = DB::table($request['table_name'])->where('id', $request['id'])->first();
+        $updateInput->isWinner = ($request['type'] == 'no') ? 0 : 1;
+        DB::table($request['table_name'])->where('id', $request['id'])->update((array) $updateInput);
     }
 
     public function render(){

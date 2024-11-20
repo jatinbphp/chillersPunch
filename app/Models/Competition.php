@@ -20,4 +20,8 @@ class Competition extends Model
     public function votings(){
         return $this->hasMany(Voting::class, 'competitionId'); // Adjust the relationship as per your schema
     }
+
+    public function winners(){
+        return $this->hasMany(Submission::class, 'competitionId')->where('isWinner',1); // Adjust the relationship as per your schema
+    }
 }

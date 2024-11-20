@@ -25,19 +25,19 @@ class CompetitionList extends Component
     }
 
     public function getCompetitionsData(){
-        return DataTables::of(Competition::withCount('submissions')->withCount('votings'))
+        return DataTables::of(Competition::withCount('submissions')->withCount('votings')->withCount('winners'))
             ->editColumn('title', function ($row) {
                 $title = $row->title ?? '-';
-                $counters = '<b>Total Submissions: </b>'.$row->submissions_count.' | <b>Total Vots: </b>'.$row->votings_count.'</span>';
+                $counters = '<span class="badge bg-info textBlack">Total Submissions: '.$row->submissions_count.'</span> <span class="badge bg-primary textBlack">Total Votes: '.$row->votings_count.'</span> <span class="badge bg-danger textBlack"> Total Winners: '.$row->winners_count.'</span>';
 
-                return "{$title}<br><small>{$counters}</small>";
+                return "{$title}<br>{$counters}";
             })
             ->editColumn('created_at', function ($row) {
                 return $row->created_at;
             })
             ->editColumn('status', function ($row) {
-              $table_name = 'competitions';
-              return view('common.status-buttons', ['status' => $row->status, 'id'=>$row->id, 'table_name'=>$table_name] );
+                $table_name = 'competitions';
+                return view('common.status-buttons', ['status' => $row->status, 'id'=>$row->id, 'table_name'=>$table_name] );
             })
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.competition-actions', ['competitionId' => $row->id]);

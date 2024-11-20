@@ -62,13 +62,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/competitions-data', [CompetitionList::class, 'getCompetitionsData'])->name('data');
         Route::get('/submission-data/{id}', [CompetitionShow::class, 'getSubmissionData'])->name('submissions');
         Route::get('/submission-info/{id}', [CompetitionShow::class, 'getSubmissioInfo'])->name('submission.info');
+        Route::post('/submission/winner/update', [CompetitionShow::class, 'winnerUpdate'])->name('submission.winner.update');
         Route::get('/voting-data/{id}', [CompetitionShow::class, 'getVotingData'])->name('votings');
     });
     
     Route::post('admin/status_update', [Controller::class, 'statusUpdate'])->name('common.statusUpdate');
 });
-
-
 
 Route::get('admin/404', PageNotFound::class)->name('errors.404');
 
