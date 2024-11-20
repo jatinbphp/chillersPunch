@@ -23,19 +23,11 @@
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a href="{{ route('profile.edit') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Edit Profile') active @endif" wire:navigate>
-                        <i class="nav-icon far fa-edit"></i>
-                        <p>Edit Profile</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a href="{{ route('competitions.list') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Competitions') active @endif" wire:navigate>
                         <i class="nav-icon fas fa-trophy"></i>
                         <p>Competitions</p>
                     </a>
                 </li>                
-
                 <li class="nav-item @if(isset($menu) && $menu=='CMS Pages') menu-open @endif">
                     <a href="#" class="nav-link @if(isset($menu) && $menu=='CMS Pages') active @endif">
                         <i class="nav-icon fa fa-file-signature"></i>
@@ -43,18 +35,23 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('cms.index',['slug'=>'winner-circle']) }}" class="nav-link @if(isset($slug) && $slug=='winner-circle') active @endif">
+                            <a href="{{ route('cms.index',['slug'=>'winner-circle']) }}" class="nav-link @if(isset($slug) && $slug=='winner-circle') active @endif" wire:navigate>
                                 <i class="far fa-circle nav-icon"></i><p>Winner Circle</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('cms.index',['slug'=>'terms-conditions']) }}" class="nav-link @if(isset($slug) && $slug=='terms-conditions') active @endif">
+                            <a href="{{ route('cms.index',['slug'=>'terms-conditions']) }}" class="nav-link @if(isset($slug) && $slug=='terms-conditions') active @endif" wire:navigate>
                             <i class="far fa-circle nav-icon"></i><p>Terms & Conditions</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{ route('profile.edit') }}" class="nav-link text-bold @if(isset($menu) && $menu=='Edit Profile') active @endif" wire:navigate>
+                        <i class="nav-icon far fa-edit"></i>
+                        <p>Edit Profile</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link text-bold text-danger" wire:navigate>
                         <i class="nav-icon fa fa-sign-out-alt"></i>

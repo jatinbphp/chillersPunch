@@ -33,7 +33,7 @@
                         <div class="icon">
                             <i class="fas fa-paper-plane"></i>
                         </div>
-                        <a href="#" class="small-box-footer" wire:navigate>
+                        <a href="{{route('competitions.show',['id' => $activeCompetition->id])}}" class="small-box-footer" wire:navigate>
                             More info
                             <i class="fas fa-arrow-circle-right"></i>
                         </a>
@@ -48,7 +48,22 @@
                         <div class="icon">
                             <i class="fas fa-vote-yea"></i>
                         </div>
-                        <a href="#" class="small-box-footer" wire:navigate>
+                        <a href="{{route('competitions.show',['id' => $activeCompetition->id])}}" class="small-box-footer" wire:navigate>
+                            More info
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{ $totalWinners }}</h3>
+                            <p class="text-bold">Total Winners</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <a href="{{route('competitions.show',['id' => $activeCompetition->id])}}" class="small-box-footer" wire:navigate>
                             More info
                             <i class="fas fa-arrow-circle-right"></i>
                         </a>

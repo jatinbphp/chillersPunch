@@ -12,3 +12,7 @@
 /*# sourceMappingURL=adminlte.min.css.map */
 
 .textBlack{color: #000 !important;}
+
+@media screen and (max-width: 767px) {
+	.login-page, .register-page{height: auto}
+}
