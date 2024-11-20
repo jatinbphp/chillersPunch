@@ -40,10 +40,10 @@
                                     <span><i class="fa fa-paper-plane"></i> Total Submissions :</span> <a class="float-right">{{number_format($totalSubmission)}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <span><i class="fa fa-thumbs-up"></i> Total Votes :</span> <a class="float-right">{{number_format($totalVoting)}}</a>
+                                    <span><i class="fa fa-vote-yea"></i> Total Votes :</span> <a class="float-right">{{number_format($totalVoting)}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <span><i class="fa fa-paper-plane"></i> Total Winners :</span> <a class="float-right">{{number_format($totalWinners)}}</a>
+                                    <span><i class="fa fa-trophy"></i> Total Winners :</span> <a class="float-right" id="totalWinners">{{number_format($totalWinners)}}</a>
                                 </li>
                             </ul>  
                         </div>

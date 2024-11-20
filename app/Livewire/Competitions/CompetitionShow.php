@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class CompetitionShow extends Component
 {
-    public $menu, $competition,$competitionId, $totalSubmission, $totalVoting, $totalWinners;
+    public $menu, $competition,$competitionId, $totalSubmission, $totalVoting, $totalWinners, $test=0;
 
     public function mount($id){
         $this->menu = "Competitions";
@@ -76,6 +76,9 @@ class CompetitionShow extends Component
         $updateInput = DB::table($request['table_name'])->where('id', $request['id'])->first();
         $updateInput->isWinner = ($request['type'] == 'no') ? 0 : 1;
         DB::table($request['table_name'])->where('id', $request['id'])->update((array) $updateInput);
+
+        $totalWinners = Submission::where('competitionId', $updateInput->competitionId)->where('isWinner', 1)->count();
+        return response()->json(['totalWinners' => number_format($totalWinners)]);
     }
 
     public function render(){

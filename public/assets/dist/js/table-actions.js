@@ -155,6 +155,8 @@ $(document).ready(function() {
             },
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
             success: function(data){
+                console.log(data);
+
                 l.stop();
                 if (type === 'unassign') {
                     $('#assign_remove_'+id).hide();
@@ -166,6 +168,10 @@ $(document).ready(function() {
                 var table = sectionTableMap[section];
                 if (table) {
                     table.draw(false);
+                }
+
+                if(table_name == 'submissions'){
+                    $('#totalWinners').text(data.totalWinners);
                 }
             }
         });
