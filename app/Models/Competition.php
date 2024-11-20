@@ -12,4 +12,12 @@ class Competition extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['title','description','image','status'];
+
+    public function submissions(){
+        return $this->hasMany(Submission::class, 'competitionId');
+    }
+
+    public function votings(){
+        return $this->hasMany(Voting::class, 'competitionId'); // Adjust the relationship as per your schema
+    }
 }

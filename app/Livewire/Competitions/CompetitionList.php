@@ -25,7 +25,13 @@ class CompetitionList extends Component
     }
 
     public function getCompetitionsData(){
-        return DataTables::of(Competition::select())
+        return DataTables::of(Competition::withCount('submissions')->withCount('votings'))
+            ->editColumn('title', function ($row) {
+                $title = $row->title ?? '-';
+                $counters = '<b>Total Submissions: </b>'.$row->submissions_count.' | <b>Total Vots: </b>'.$row->votings_count.'</span>';
+
+                return "{$title}<br><small>{$counters}</small>";
+            })
             ->editColumn('created_at', function ($row) {
                 return $row->created_at;
             })
@@ -36,7 +42,7 @@ class CompetitionList extends Component
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.competition-actions', ['competitionId' => $row->id]);
             })
-            ->rawColumns(['actions'])
+            ->rawColumns(['title', 'actions'])
             ->make(true);
     }
 
