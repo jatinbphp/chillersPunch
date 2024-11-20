@@ -55,13 +55,13 @@
                             <div class="card-header p-0 pt-1 border-bottom-0">
                                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="pill" href="#informations" role="tab" aria-controls="informations" aria-selected="false">Overview</a>
+                                        <a class="nav-link active text-bold" data-toggle="pill" href="#informations" role="tab" aria-controls="informations" aria-selected="false">Overview</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#submissions" role="tab" aria-controls="submissions" aria-selected="false">User Submissions <b>({{number_format($totalSubmission)}})</b></a>
+                                        <a class="nav-link text-bold" data-toggle="pill" href="#submissions" role="tab" aria-controls="submissions" aria-selected="false">User Submissions ({{number_format($totalSubmission)}})</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#votes" role="tab" aria-controls="votes" aria-selected="false">Voting Summary <b>({{number_format($totalVoting)}})</b></a>
+                                        <a class="nav-link text-bold" data-toggle="pill" href="#votes" role="tab" aria-controls="votes" aria-selected="false">Voting Summary ({{number_format($totalVoting)}})</a>
                                     </li>
                                 </ul>
                             </div>
