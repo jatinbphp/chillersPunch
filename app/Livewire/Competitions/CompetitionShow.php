@@ -24,18 +24,27 @@ class CompetitionShow extends Component
 
     public function getSubmissionData($competitionId){
         return DataTables::of(Submission::withCount('votings')->where('competitionId', $competitionId))
-            ->editColumn('created_at', function ($row) {
-                return $row->created_at;
+            ->addColumn('submission_info', function ($row) {
+                $fullName = $row->fullName ?? '-';
+                $emailAddress = '<b>Email: </b>'.$row->emailAddress ?? '-';
+                $phoneNumber = '<b>Phone: </b>'.$row->phoneNumber ?? '-';
+                $dateCreated = '<b>Date Created: </b>'.$row->created_at ?? '-';
+                $totalVots = '<b>Total Vots: </b>'.$row->votings_count.'</span>';
+
+                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small></br><small>{$totalVots}</small>";
             })
-            ->addColumn('total_votings', function ($row) {
-                return '<span class="badge bg-warning">'.$row->votings_count.'</span>'; // Access the count directly
+            ->editColumn('status', function ($row) {
+                return view('common.status-buttons', $row);
             })
-            ->rawColumns(['total_votings'])
+            ->addColumn('actions', function ($row) {
+                return view('livewire.competitions.submission-actions', ['submissionId' => $row->id]);
+            })
+            ->rawColumns(['actions', 'submission_info'])
             ->make(true);
     }
 
-    public function getVotingData(){
-        return DataTables::of(Voting::with('submission'))
+    public function getVotingData($competitionId){
+        return DataTables::of(Voting::with('submission')->where('competitionId', $competitionId))
             ->editColumn('created_at', function ($row) {
                 return $row->created_at;
             })
@@ -50,6 +59,11 @@ class CompetitionShow extends Component
             })
             ->rawColumns(['submission_info'])
             ->make(true);
+    }
+
+    public function getSubmissioInfo($submissionId){
+        $data['submissioInfo'] = Submission::where('id', $submissionId)->first();
+        return view('livewire.competitions.submission-video', $data);
     }
 
     public function render(){

@@ -30,7 +30,7 @@
             @include ('layouts.sidebar')
             
             @yield('content')
-
+            
             <div class="modal fade" id="commonModal" tabindex="-1" role="dialog" aria-labelledby="commonModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">

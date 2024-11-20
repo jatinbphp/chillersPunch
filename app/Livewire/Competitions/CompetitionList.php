@@ -33,7 +33,7 @@ class CompetitionList extends Component
                 return view('common.status-buttons', $row);
             })
             ->addColumn('actions', function ($row) {
-                return view('livewire.competitions.competition-actions', ['competitions' => $row]);
+                return view('livewire.competitions.competition-actions', ['competitionId' => $row->id]);
             })
             ->rawColumns(['actions'])
             ->make(true);

@@ -29,11 +29,10 @@ $(document).ready(function() {
                     return '#' + data; // Prepend '#' to the 'id' data
                 }
             },
-            { data: 'fullName', name: 'fullName'},
-            { data: 'emailAddress', name: 'emailAddress'},
-            { data: 'phoneNumber', name: 'phoneNumber'},
-            { data: 'total_votings', name: 'total_votings', orderable: false, searchable: false },
-            { data: 'created_at', name: 'created_at' },
+            { data: 'submission_info', name: 'fullName'},
+            { data: 'status', name: 'status', orderable: false, searchable: false },
+            { data: 'isWinner', name: 'isWinner', orderable: false, searchable: false },
+            { data: 'actions', "width": "12%", name: 'actions', orderable: false, searchable: false },
         ],
         "order": [[0, "DESC"]]
     });
@@ -54,6 +53,27 @@ $(document).ready(function() {
             { data: 'created_at', "width": "10%", name: 'created_at' },
         ],
         "order": [[0, "DESC"]]
+    });
+
+    $('.datatable-dynamic tbody').on('click', '.view-info', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('data-url');
+        var id = $(this).attr("data-id");
+        var selectForPrice = $(this).attr("data-select-for-price");
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            data: {
+                'id': id,
+                'selectForPrice': selectForPrice
+            },
+            headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+            success: function(data){
+                $('#commonModal .modal-content').html(data);
+                $('#commonModal').modal('show');
+            }
+        });
     });
 });
 

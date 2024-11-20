@@ -51,54 +51,51 @@
                             <div class="card-header p-0 pt-1 border-bottom-0">
                                 <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-home-tab" data-toggle="pill" href="#informations" role="tab" aria-controls="custom-tabs-three-home" aria-selected="false">Overview</a>
+                                        <a class="nav-link active" data-toggle="pill" href="#informations" role="tab" aria-controls="informations" aria-selected="false">Overview</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#submissions" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">User Submissions ({{number_format($totalSubmission)}})</a>
+                                        <a class="nav-link" data-toggle="pill" href="#submissions" role="tab" aria-controls="submissions" aria-selected="false">User Submissions ({{number_format($totalSubmission)}})</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#votes" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Voting Summary ({{number_format($totalVoting)}})</a>
+                                        <a class="nav-link" data-toggle="pill" href="#votes" role="tab" aria-controls="votes" aria-selected="false">Voting Summary ({{number_format($totalVoting)}})</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="card-body">
-                                <div class="tab-content" id="custom-tabs-three-tabContent">
-                                    <div class="tab-content">
-                                        <div class="active tab-pane" id="informations">
-                                            {{$competition->description}}
-                                        </div>
-                                        <div class="tab-pane" id="submissions">
-                                            <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">
-                                            <table id="submissionTable" class="table table-bordered table-striped w-100">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>FullName</th>
-                                                        <th>Email Address</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Total Votes</th>
-                                                        <th>Date Created</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane table-responsive" id="votes">
-                                            <input type="hidden" id="route_name" value="{{ route('competitions.votings') }}">
-                                            <table id="votingTable" class="table table-bordered table-striped w-100">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Submission Information</th>
-                                                        <th>Ip Address</th>                                    
-                                                        <th>Date Created</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                <div class="tab-content">
+                                    <div class="active tab-pane" id="informations">
+                                        {{$competition->description}}
+                                    </div>
+                                    <div class="tab-pane table-responsive" id="submissions">
+                                        <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">
+                                        <table id="submissionTable" class="table table-bordered table-striped w-100 datatable-dynamic">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Submission Information</th>
+                                                    <th>Status</th>
+                                                    <th>Is Winner</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane table-responsive" id="votes">
+                                        <input type="hidden" id="route_name" value="{{ route('competitions.votings', ['id' => $competition->id]) }}">
+                                        <table id="votingTable" class="table table-bordered table-striped w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Submission Information</th>
+                                                    <th>Ip Address</th>                                    
+                                                    <th>Date Created</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

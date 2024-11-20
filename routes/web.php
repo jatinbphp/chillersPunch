@@ -60,7 +60,8 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}/delete', [CompetitionList::class, 'deleteRecord'])->name('destroy');
         Route::get('/competitions-data', [CompetitionList::class, 'getCompetitionsData'])->name('data');
         Route::get('/submission-data/{id}', [CompetitionShow::class, 'getSubmissionData'])->name('submissions');
-        Route::get('/voting-data', [CompetitionShow::class, 'getVotingData'])->name('votings');
+        Route::get('/submission-info/{id}', [CompetitionShow::class, 'getSubmissioInfo'])->name('submission.info');
+        Route::get('/voting-data/{id}', [CompetitionShow::class, 'getVotingData'])->name('votings');
     });
 });
 
