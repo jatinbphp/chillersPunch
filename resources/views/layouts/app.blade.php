@@ -18,8 +18,9 @@
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/toastr/toastr.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('assets/dist/plugins/ladda/ladda-themeless.min.css')}}">
         @livewireStyles
     </head>
     <body class="hold-transition sidebar-mini sidebar-collapse" id="app">
@@ -64,9 +65,12 @@
         <script src="{{ URL('assets/dist/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
         <script src="{{ URL('assets/dist/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
         <script src="{{ URL('assets/dist/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <script src="{{ URL('assets/dist/js/table-actions.js')}}?v={{ time() }}" data-navigate-once></script>
         <script src="{{ URL('assets/dist/plugins/toastr/toastr.min.js')}}"></script>
+        <script src="{{ URL::asset('assets/dist/plugins/ladda/spin.min.js')}}"></script>
+        <script src="{{ URL::asset('assets/dist/plugins/ladda/ladda.min.js')}}"></script>
+        <script>Ladda.bind( 'input[type=submit]' );</script>
         <script type="text/javascript">
             $( function() {
                 $("textarea[id=description]").summernote({

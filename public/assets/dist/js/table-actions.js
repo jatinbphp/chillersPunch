@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#competitionsTable').DataTable({
+    var competitions_table = $('#competitionsTable').DataTable({
         processing: true,
         serverSide: true,
         ajax: $("#route_name").val(),
@@ -18,7 +18,7 @@ $(document).ready(function() {
         "order": [[0, "DESC"]]
     });
 
-    $('#submissionTable').DataTable({
+    var submissions_table = $('#submissionTable').DataTable({
         processing: true,
         serverSide: true,
         ajax: $("#submission_route_name").val(),
@@ -37,7 +37,7 @@ $(document).ready(function() {
         "order": [[0, "DESC"]]
     });
 
-    $('#votingTable').DataTable({
+    var votings_table = $('#votingTable').DataTable({
         processing: true,
         serverSide: true,
         ajax: $("#route_name").val(),
@@ -54,6 +54,7 @@ $(document).ready(function() {
         ],
         "order": [[0, "DESC"]]
     });
+
 
     $('.datatable-dynamic tbody').on('click', '.view-info', function (event) {
         event.preventDefault();
@@ -75,53 +76,102 @@ $(document).ready(function() {
             }
         });
     });
-});
 
-//Delete Record
-$('.table').on('click', '.deleteRecord', function (event) {
-    event.preventDefault();
-    var id = $(this).attr("data-id");
-    var url = $(this).attr("data-url");
-    var table = $(this).attr("data-table");
+    var sectionTableMap = {
+        'competitions': competitions_table,
+        'submissions': submissions_table,
+        'votings': votings_table
+    };
 
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You want to delete this record?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: '#DD6B55',
-        confirmButtonText: 'Yes, Delete',
-        cancelButtonText: "No, cancel"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url: url,
-                type: "DELETE",
-                headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
-                success: function(data) {
-                    if (data.success) {
-                        // Remove the row from the DataTable
-                        $('#' + table).DataTable().row('.selected').remove().draw(false);
-                        toastr.success(data.success); // Use success message from the response
-                    } else {
-                        toastr.error(data.error || "An error occurred while deleting the user."); // Handle any unexpected errors
+    //Delete Record
+    $('.table').on('click', '.deleteRecord', function (event) {
+        event.preventDefault();
+        var id = $(this).attr("data-id");
+        var url = $(this).attr("data-url");
+        var table = $(this).attr("data-table");
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to delete this record?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: "No, cancel"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: url,
+                    type: "DELETE",
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                    success: function(data) {
+                        if (data.success) {
+                            // Remove the row from the DataTable
+                            $('#' + table).DataTable().row('.selected').remove().draw(false);
+                            toastr.success(data.success); // Use success message from the response
+                        } else {
+                            toastr.error(data.error || "An error occurred while deleting the user."); // Handle any unexpected errors
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // Handle the error
+                        if (jqXHR.status === 404) {
+                            toastr.error("User not found.");
+                        } else if (jqXHR.status === 400) {
+                            toastr.error("Deletion of a submitter is not permitted. If you need to remove a submitter, please create a new one instead."); 
+                        } else if (jqXHR.status === 401) {
+                            toastr.error("You can not delete this institution because it is currently assigned to users."); 
+                        } else {
+                            toastr.error("An unexpected error occurred: " + errorThrown);
+                        }
                     }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Handle the error
-                    if (jqXHR.status === 404) {
-                        toastr.error("User not found.");
-                    } else if (jqXHR.status === 400) {
-                        toastr.error("Deletion of a submitter is not permitted. If you need to remove a submitter, please create a new one instead."); 
-                    } else if (jqXHR.status === 401) {
-                        toastr.error("You can not delete this institution because it is currently assigned to users."); 
-                    } else {
-                        toastr.error("An unexpected error occurred: " + errorThrown);
-                    }
-                }
-            });
-        } else {
-            toastr.info("Your data is safe!")
+                });
+            } else {
+                toastr.info("Your data is safe!")
+            }
+        });
+    });
+
+    //Status Update
+    $('.table').on('click', '.ladda-button', function (event) {
+        event.preventDefault();
+
+        var clickedElement = $(this);
+        var type = clickedElement.attr("data-type");
+        var url = clickedElement.attr('data-url');
+        var id = clickedElement.attr("data-id");
+        var table_name = clickedElement.attr("data-table_name");
+        var section = clickedElement.attr("data-table_name");
+        var l = Ladda.create(clickedElement[0]);
+
+        if(table_name == 'competitions' && type == 'unassign'){
+            swal("Warning", "You cannot deactivate all competitions. At least one competition must remain active.", "warning");
+            return false;
         }
+
+        $.ajax({
+            url: url,
+            type: "post",
+            data: {
+                'id': id,
+                'type': type,
+                'table_name': table_name,
+            },
+            headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+            success: function(data){
+                l.stop();
+                if (type === 'unassign') {
+                    $('#assign_remove_'+id).hide();
+                    $('#assign_add_'+id).show();
+                } else {
+                    $('#assign_remove_'+id).show();
+                    $('#assign_add_'+id).hide();
+                }
+                var table = sectionTableMap[section];
+                if (table) {
+                    table.draw(false);
+                }
+            }
+        });
     });
 });
