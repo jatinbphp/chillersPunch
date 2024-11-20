@@ -5,11 +5,12 @@
         'menu' => $menu,
         'breadcrumb' => [
             ['route' => getRoleWiseHomeUrl(), 'title' => getRoleWiseHomeLabel()],
-            ['route' => route('competitions.list'), 'title' => 'Competitions']
+            ['route' => route('competitions.list'), 'title' => 'Competitions'],
+            ['route' => route('competitions.show',['id' => $competition->id]), 'title' => $competition->title]
         ],
         'active' => 'View'
     ])
-
+    
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -20,10 +21,10 @@
                                 <img class="img-fluid" src="{{ $competition->image && file_exists(public_path($competition->image)) ? url($competition->image) : asset('assets/dist/img/no-image.png') }}">
                             </div>
 
-                            <h3 class="profile-username text-center">{{$competition->title}}</h3>
+                            <h3 class="profile-username text-center text-danger text-bold p-2">{{$competition->title}}</h3>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Status</b> 
+                                    <span><i class="fa fa-circle"></i> Status :</span> 
                                     <a class="float-right">
                                         @if ($competition->status == "active")
                                             <span class="badge bg-success">Active</span>
@@ -33,13 +34,16 @@
                                     </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Created Data</b> <a class="float-right">{{$competition->created_at}}</a>
+                                    <span><i class="fa fa-calendar"></i> Date Created :</span> <a class="float-right">{{$competition->created_at}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Submissions</b> <a class="float-right">{{number_format($totalSubmission)}}</a>
+                                    <span><i class="fa fa-paper-plane"></i> Total Submissions :</span> <a class="float-right">{{number_format($totalSubmission)}}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Total Votes</b> <a class="float-right">{{number_format($totalVoting)}}</a>
+                                    <span><i class="fa fa-thumbs-up"></i> Total Votes :</span> <a class="float-right">{{number_format($totalVoting)}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <span><i class="fa fa-paper-plane"></i> Total Winners :</span> <a class="float-right">{{number_format($totalWinners)}}</a>
                                 </li>
                             </ul>  
                         </div>

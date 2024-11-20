@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class CompetitionShow extends Component
 {
-    public $menu, $competition,$competitionId, $totalSubmission, $totalVoting;
+    public $menu, $competition,$competitionId, $totalSubmission, $totalVoting, $totalWinners;
 
     public function mount($id){
         $this->menu = "Competitions";
@@ -20,6 +20,7 @@ class CompetitionShow extends Component
         $this->competitionId = $this->competition->id;
         $this->totalSubmission = Submission::where('competitionId', $id)->count();
         $this->totalVoting = Voting::where('competitionId', $id)->count();
+        $this->totalWinners = Submission::where('competitionId', $id)->where('isWinner', 1)->count();
     }
 
     public function getSubmissionData($competitionId){
