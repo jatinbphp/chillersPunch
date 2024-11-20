@@ -22,13 +22,30 @@ class CompetitionShow extends Component
         $this->totalVoting = Voting::count();
     }
 
-    public function getSubmissionData(Request $request, $competitionId){
-        $submission = Submission::where('competitionId', $competitionId);
-        $submissions = $submission->paginate(12);
-        return response()->json([
-            'total' => $submissions->total(),
-            'data' => $submissions->items(),
-        ]);
+    public function getSubmissionData(){
+        return DataTables::of(Submission::select())
+            ->editColumn('created_at', function ($row) {
+                return $row->created_at;
+            })
+            ->make(true);
+    }
+
+    public function getVotingData(){
+        return DataTables::of(Voting::with('submission'))
+            ->addColumn('submission_info', function ($row) {
+                $submission = $row->submission;
+
+                $fullName = $submission->fullName ?? '-';
+                $emailAddress = '<b>Email: </b>'.$submission->emailAddress ?? '-';
+                $phoneNumber = '<b>Phone: </b>'.$submission->phoneNumber ?? '-';
+
+                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small>";
+            })
+            ->editColumn('created_at', function ($row) {
+                return $row->created_at;
+            })
+            ->rawColumns(['submission_info'])
+            ->make(true);
     }
 
     public function render(){

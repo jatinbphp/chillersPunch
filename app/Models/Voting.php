@@ -10,4 +10,8 @@ class Voting extends Model
     use HasFactory;
 
     protected $fillable = ['competitionId', 'submissionId', 'ipAdress'];
+
+    public function submission(){
+        return $this->belongsTo(Submission::class, 'submissionId');
+    }
 }

@@ -46,93 +46,59 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="card">
-                        <div class="card-header p-2">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link text-bold active" href="#informations" data-toggle="tab">Overview</a></li>
-                                <li class="nav-item"><a class="nav-link text-bold" href="#submissions" data-toggle="tab">User Submissions ({{number_format($totalSubmission)}})</a></li>
-                                <li class="nav-item"><a class="nav-link text-bold" href="#votes" data-toggle="tab">Voting Summary ({{number_format($totalVoting)}})</a></li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="active tab-pane" id="informations">
-                                    {{$competition->description}}
-                                </div>
-
-                                <div class="tab-pane" id="submissions">
-                                  <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissionData',['id' => $competition->id]) }}">
-                                  <section class="content">
-                                      <div class="card-solid">
-                                          <div class="pb-0">
-                                            <div id="cardGrid" class="row"></div>
-                                            <nav>
-                                                <ul class="pagination justify-content-center" id="pagination"></ul>
-                                            </nav>
-                                          </div>
-                                          <div class="card-footer">
-                                              <nav aria-label="Contacts Page Navigation">
-                                                  <ul class="pagination justify-content-center m-0" id="pagination-links">
-                                                      <!-- Pagination links will be dynamically added -->
-                                                  </ul>
-                                              </nav>
-                                          </div>
-                                      </div>
-                                  </section>
-                                </div>
-                                <div class="tab-pane" id="votes">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 10px;">#</th>
-                                                <th>Task</th>
-                                                <th>Progress</th>
-                                                <th style="width: 40px;">Label</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1.</td>
-                                                <td>Update software</td>
-                                                <td>
-                                                    <div class="progress progress-xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: 55%;"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-danger">55%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2.</td>
-                                                <td>Clean database</td>
-                                                <td>
-                                                    <div class="progress progress-xs">
-                                                        <div class="progress-bar bg-warning" style="width: 70%;"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-warning">70%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3.</td>
-                                                <td>Cron job running</td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped active">
-                                                        <div class="progress-bar bg-primary" style="width: 30%;"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-primary">30%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4.</td>
-                                                <td>Fix and squish bugs</td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped active">
-                                                        <div class="progress-bar bg-success" style="width: 90%;"></div>
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge bg-success">90%</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <div class="">
+                        <div class="card card-primary card-outline card-tabs">
+                            <div class="card-header p-0 pt-1 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-home-tab" data-toggle="pill" href="#informations" role="tab" aria-controls="custom-tabs-three-home" aria-selected="false">Overview</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#submissions" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">User Submissions ({{number_format($totalSubmission)}})</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#votes" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Voting Summary ({{number_format($totalVoting)}})</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-content">
+                                        <div class="active tab-pane" id="informations">
+                                            {{$competition->description}}
+                                        </div>
+                                        <div class="tab-pane" id="submissions">
+                                            <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions') }}">
+                                            <table id="submissionTable" class="table table-bordered table-striped w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>FullName</th>
+                                                        <th>Email Address</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Date Created</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane table-responsive" id="votes">
+                                            <input type="hidden" id="route_name" value="{{ route('competitions.votings') }}">
+                                            <table id="votingTable" class="table table-bordered table-striped w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Submission Information</th>
+                                                        <th>Ip Address</th>                                    
+                                                        <th>Date Created</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

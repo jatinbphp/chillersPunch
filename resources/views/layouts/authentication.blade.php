@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{ asset('assets/dist/img/favicon.jpg') }}" type="image/x-icon" />
         <title>{{ $menu }} | {{ config('app.name', 'Laravel') }}</title>
         @livewireStyles
-        
-        
-        @vite([ 'resources/css/app.css' ])
 
+        @vite([ 'resources/css/app.css' ])
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
