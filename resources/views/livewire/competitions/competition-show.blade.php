@@ -58,10 +58,10 @@
                                         <a class="nav-link active" data-toggle="pill" href="#informations" role="tab" aria-controls="informations" aria-selected="false">Overview</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#submissions" role="tab" aria-controls="submissions" aria-selected="false">User Submissions ({{number_format($totalSubmission)}})</a>
+                                        <a class="nav-link" data-toggle="pill" href="#submissions" role="tab" aria-controls="submissions" aria-selected="false">User Submissions <b>({{number_format($totalSubmission)}})</b></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#votes" role="tab" aria-controls="votes" aria-selected="false">Voting Summary ({{number_format($totalVoting)}})</a>
+                                        <a class="nav-link" data-toggle="pill" href="#votes" role="tab" aria-controls="votes" aria-selected="false">Voting Summary <b>({{number_format($totalVoting)}})</b></a>
                                     </li>
                                 </ul>
                             </div>
