@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cms_pages', function (Blueprint $table) {
+        Schema::create('comman_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('cms_pages')->insert([
+        DB::table('comman_pages')->insert([
             [
                 'title' => 'Winner Circle',
                 'slug' => 'winner_circle',
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cms_pages');
+        Schema::dropIfExists('comman_pages');
     }
 };

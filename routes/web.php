@@ -12,6 +12,7 @@ use App\Livewire\Competitions\CompetitionList;
 use App\Livewire\Competitions\CompetitionCreate;
 use App\Livewire\Competitions\CompetitionEdit;
 use App\Livewire\Competitions\CompetitionShow;
+use App\Livewire\CMSPages;
 use App\Livewire\PageNotFound;
 use App\Livewire\Front\Home;
 use App\Livewire\Front\Competition;
@@ -67,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
     });
     
     Route::post('admin/status_update', [Controller::class, 'statusUpdate'])->name('common.statusUpdate');
+    Route::get('admin/cms-page/{slug}',CMSPages::class)->name('cms.index');
+     Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
 });
 
 Route::get('admin/404', PageNotFound::class)->name('errors.404');

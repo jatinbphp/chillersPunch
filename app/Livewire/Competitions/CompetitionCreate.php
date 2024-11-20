@@ -9,7 +9,7 @@ use App\Models\Common;
 
 class CompetitionCreate extends Component
 {
-     use WithFileUploads;
+    use WithFileUploads;
 
     public $menu, $title, $description, $image, $status, $statusList, $currentImage="";
 

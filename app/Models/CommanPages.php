@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CmsPages extends Model
+class CommanPages extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['title','slug','description'];
-
+    protected $fillable = ['title','slug','description'];
 }
