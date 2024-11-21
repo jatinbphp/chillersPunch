@@ -28,11 +28,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    <div class="form-group" wire:ignore>
                                         <label for="title" class="control-label"> Description :<span class="text-red">*</span></label>
                                         <textarea class="form-control" wire:model="description" id='description' placeholder="Description" rows="5"></textarea>
-                                        @error('description') <span class="text-danger w-100">{{ $message }}</span> @enderror
                                     </div>
+                                    @error('description') <span class="text-danger w-100">{{ $message }}</span> @enderror
                                 </div>
                            </div>
                         </div>
@@ -45,3 +45,14 @@
         </div>
     </section>
 </div>
+
+<script type="text/javascript">
+    function updateDescription() {
+        //console.log(":", $('#description').summernote('code'), ":");
+        @this.set('description', $('#description').summernote('code'));
+        var content = $('#description').summernote('code');
+        content = cleanUpEmptyTags(content);
+        //console.log("Updated content:", content);
+        @this.set('description', content);
+    }
+</script>

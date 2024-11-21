@@ -54,7 +54,7 @@
         <script src="{{ URL('assets/dist/plugins/moment/moment.min.js') }}"></script>
         <script src="{{ URL('assets/dist/plugins/daterangepicker/daterangepicker.js') }}"></script>
         <script src="{{ URL('assets/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-        <script src="{{ URL('assets/dist/plugins/summernote/summernote-bs4.min.js') }}" data-navigate-once></script>
+        <script src="{{ URL('assets/dist/plugins/summernote/summernote-bs4.min.js') }}"></script>
         <script src="{{ URL('assets/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
         <script src="{{ URL('assets/dist/js/adminlte.js') }}"></script>
         <script src="{{ URL('assets/dist/js/demo.js') }}"></script>
@@ -70,22 +70,46 @@
         <script src="{{ URL('assets/dist/plugins/toastr/toastr.min.js')}}"></script>
         <script src="{{ URL::asset('assets/dist/plugins/ladda/spin.min.js')}}"></script>
         <script src="{{ URL::asset('assets/dist/plugins/ladda/ladda.min.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
         <script>Ladda.bind( 'input[type=submit]' );</script>
-        <script type="text/javascript">
-            $( function() {
-                $("textarea[id=description]").summernote({
-                    height: 250,
-                    toolbar: [
-                        ['style', ['bold', 'italic', 'underline', 'clear']],
-                        ['font', ['strikethrough', 'superscript', 'subscript']],
-                        ['fontsize', ['fontsize', 'height']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],
-                        ['insert', ['table','picture','link','map','minidiag']],
-                        ['misc', ['fullscreen', 'codeview']],
-                    ]
-                });
+        <script type="text/javascript" data-navigate-once>
+
+            $(document).on('ready livewire:navigated', function() {
+                setTimeout(function() {
+                    var $textarea = $("textarea[id=description]");
+                    if ($textarea.data('summernote')) {
+                        //console.log('Destroying existing Summernote instance...');
+                        $textarea.summernote('destroy');
+                    }
+                    //console.log('Initializing new Summernote instance...');
+                    $textarea.summernote({
+                        height: 250,
+                        toolbar: [
+                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                            ['font', ['strikethrough', 'superscript', 'subscript']],
+                            ['fontsize', ['fontsize', 'height']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['insert', ['table','picture','link','map','minidiag']],
+                            ['misc', ['fullscreen', 'codeview']],
+                        ],
+                    });
+
+                    // Attach the keyup event handler to update description
+                    $textarea.on('summernote.keyup', function(we, contents, $editable) {
+                        //console.log('Content updated in Summernote');
+                        updateDescription();
+                    });
+
+                }, 100);
             });
+
+            function cleanUpEmptyTags(content) {
+                content = content.replace(/<br[^>]*>/gi, '\n');
+                content = content.replace(/<be[^>]*>/gi, '');
+                content = content.replace(/<[^>]+>\s*<\/[^>]+>/g, '');
+                return content;
+            }
 
             $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
                 checkboxClass: 'icheckbox_flat-green',
@@ -116,8 +140,6 @@
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
             });
-
-            selectedImages = [];
 
             function AjaxUploadImage(obj,id){
                 var file = obj.files[0];

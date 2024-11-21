@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submission-data/{id}', [CompetitionShow::class, 'getSubmissionData'])->name('submissions');
         Route::get('/submission-info/{id}', [CompetitionShow::class, 'getSubmissioInfo'])->name('submission.info');
         Route::post('/submission/winner/update', [CompetitionShow::class, 'winnerUpdate'])->name('submission.winner.update');
+        Route::post('/submission/status/update', [CompetitionShow::class, 'statusUpdate'])->name('submission.status.update');
         Route::get('/voting-data/{id}', [CompetitionShow::class, 'getVotingData'])->name('votings');
     });
     
