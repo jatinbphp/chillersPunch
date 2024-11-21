@@ -67,22 +67,26 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submission-data/{id}', [CompetitionShow::class, 'getSubmissionData'])->name('submissions');
         Route::get('/submission-info/{id}', [CompetitionShow::class, 'getSubmissioInfo'])->name('submission.info');
         Route::post('/submission/winner/update', [CompetitionShow::class, 'winnerUpdate'])->name('submission.winner.update');
+        Route::post('/submission/status/update', [CompetitionShow::class, 'statusUpdate'])->name('submission.status.update');
         Route::get('/voting-data/{id}', [CompetitionShow::class, 'getVotingData'])->name('votings');
     });
     
     Route::post('admin/status_update', [Controller::class, 'statusUpdate'])->name('common.statusUpdate');
     Route::get('admin/cms-page/{slug}',CMSPages::class)->name('cms.index');
     Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
+    Route::get('admin/404', PageNotFound::class)->name('errors.404');
 });
 
-//Route::get('admin/404', PageNotFound::class)->name('errors.404');
+Route::get('404', PageNotFound::class)->name('errors.404');
 
-// Route::fallback(function () {
-//     if (auth()->check()) {
-//         // If the user is authenticated, show the 404 page with a 404 status code
-//         return response()->view('livewire.page-not-found', ['menu' => '404'], 404);
-//     } else {
-//         // If the user is not authenticated, redirect them to the login page
-//         return redirect()->route('login');
-//     }
-// });
+Route::fallback(function () {
+    if (request()->is('admin/*')) {
+        if (auth()->check()) {
+            return response()->view('livewire.page-not-found', ['menu' => '404'], 404);
+        } else {
+            return redirect()->route('login');
+        }
+    } else {
+        return response()->view('livewire.front.not-found');
+    }
+});

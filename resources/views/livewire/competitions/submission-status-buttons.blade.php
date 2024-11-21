@@ -1,13 +1,5 @@
-@switch($status)
-    @case('approved')
-        <span class="badge bg-success">Approved</span>
-        @break
-    @case('pending')
-        <span class="badge bg-warning">Pending</span>
-        @break
-    @case('rejected')
-        <span class="badge bg-danger">Rejected</span>
-        @break
-    @default
-        <span class="badge bg-secondary">Unknown</span>
-@endswitch
+<select id="status{{$id}}" data-id="{{$id}}" class="form-control updateSubmissionStatus">
+    <option value="pending" @if($status == 'pending') selected @endif>Pending</option>
+    <option value="approved" @if($status == 'approved') selected @endif>Approved</option>
+    <option value="rejected" @if($status == 'rejected') selected @endif>Rejected</option>    
+</select>

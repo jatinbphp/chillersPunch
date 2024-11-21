@@ -176,4 +176,32 @@ $(document).ready(function() {
             }
         });
     });
+
+    //Submitssion Status Update
+    $('.table').on('change', '.updateSubmissionStatus', function (event) {
+        event.preventDefault();
+
+        var clickedElement = $(this);
+        var id = clickedElement.attr("data-id");
+        var url = $('#submission_status_route_name').val();
+        var status = $(this).val();
+        
+        $.ajax({
+            url: url,
+            type: "post",
+            data: {
+                'id': id,
+                'status': status              
+            },
+            headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+            success: function(data){
+                console.log(data);
+                if(data == 1){
+                  swal("Success", "Submission status has been updated", "success");
+                }else{
+                  swal("Error", "Submission status not updated. Please try again!", "error");
+                }
+            }
+        });
+    });
 });

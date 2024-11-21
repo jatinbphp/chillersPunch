@@ -72,6 +72,9 @@
                                     </div>
                                     <div class="tab-pane table-responsive" id="submissions">
                                         <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">
+
+                                        <input type="hidden" id="submission_status_route_name" value="{{ route('competitions.submission.status.update', ['id' => $competition->id]) }}">
+                                        
                                         <table id="submissionTable" class="table table-bordered table-striped w-100 datatable-dynamic">
                                             <thead>
                                                 <tr>

@@ -36,7 +36,9 @@ class CompetitionShow extends Component
                 return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small></br><small>{$totalVots}</small>";
             })
             ->editColumn('status', function ($row) {
-                return view('livewire.competitions.submission-status-buttons', $row);
+                $id = $row->id;
+                $status = $row->status;
+                return view('livewire.competitions.submission-status-buttons', ['id'=>$id, 'status'=>$status]);
             })
             ->editColumn('isWinner', function ($row) {
                 $table_name = 'submissions';
@@ -79,6 +81,16 @@ class CompetitionShow extends Component
 
         $totalWinners = Submission::where('competitionId', $updateInput->competitionId)->where('isWinner', 1)->count();
         return response()->json(['totalWinners' => number_format($totalWinners)]);
+    }
+
+    public function statusUpdate(Request $request){
+        $submission = Submission::where('id',$request['id'])->first();
+        if(!empty($submission)){
+            $submission->update(['status'=>$request['status']]);
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     public function render(){
