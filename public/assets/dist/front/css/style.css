@@ -1,0 +1,170 @@
+body {
+	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    margin: 0;
+}
+img {
+	max-width: 100%;
+}
+.front-home {
+	margin: 0;
+	padding: 0;
+}
+.front-header {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 2% 5%;
+    z-index: 1;
+}
+.menu-toggle {
+    margin-left: 2%;
+    position: relative;
+}
+.menu-toggle .menu-list {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  list-style: none;
+  min-width: 120px;
+  margin: 0;
+  padding: 5px 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+.menu-toggle .menu-list li {
+	padding: 10px 0;
+}
+.menu-toggle .menu-list li+li {
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+.menu-toggle .menu-list a {
+	color: #000;
+	text-decoration: none;
+}
+.menu-toggle.is-active .menu-list {
+  display: block;
+}
+
+.menu-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+#toggleButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+
+}
+#toggleInput {
+    padding: 5px 15px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+}
+#toggleInput:focus {
+	outline: none;
+}
+.from-your {
+	background-image: url("../img/Background1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	padding: 0 0 0 5%;
+	position: relative;
+}
+.from-your .chillers-punch1 {
+	position: absolute;
+    left: 3%;
+    top: 3%;
+}
+.from-your .from-your-img {
+	padding-top: 30%;
+	margin-left: 20%;
+	position: relative;
+}
+.from-your .left {
+	width: 35%;
+}
+.from-your .right {
+	width: 65%;
+	text-align: right;
+}
+.win-your {
+	background-image: url("../img/Background2.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 0 0 2%;
+	position: relative;
+}
+.win-your .left {
+	width: 50%;
+}
+.win-your .right {
+	width: 50%;
+}
+.win-your .win-your-img {
+    margin-top: -10%;
+    margin-left: 5%;
+    position: relative;
+    z-index: 1;
+}
+.win-your .right .center {
+	padding-right: 20%;
+	padding-bottom: 5%;
+}
+.win-your h2 {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: calc(1rem + 2.25vw);
+    line-height: 3.75rem;
+    margin-top: 0;
+}
+.win-your p {
+	color: #fff;
+	font-size: calc(1rem + 1.25vw);
+    line-height: 2.75rem;
+}
+.easy-steps {
+	background-image: url("../img/Background3.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.easy-steps:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -55%;
+	background-image: url("../img/easy-steps.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 970px;
+	width: 458px;
+}
+.submitting-img {
+	text-align: center;
+}
+.submitting-img img {
+	max-width: 50%;
+}

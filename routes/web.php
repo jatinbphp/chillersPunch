@@ -33,17 +33,20 @@ if (App::environment('production')) {
     });
 }
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
+// Route::get('/', function () {
+//     return redirect()->route('home');
+// });
 
 Route::middleware('guest')->group(function () {
+    
+    Route::get('/', Home::class)->name('home');
+    Route::get('competition', Competition::class)->name('competition');
+
+
     Route::get('admin/login', Login::class)->name('login');
     Route::get('admin/forgot-password', ForgotPassword::class)->name('forgot-password');
     Route::get('admin/reset-password/{token}', ResetPassword::class)->name('password.reset');
-
-    Route::get('/', Home::class)->name('home');
-    Route::get('competition', Competition::class)->name('competition');
+ 
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -72,14 +75,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/{id}/edit', CompetitionEdit::class)->name('edit');
 });
 
-Route::get('admin/404', PageNotFound::class)->name('errors.404');
+//Route::get('admin/404', PageNotFound::class)->name('errors.404');
 
-Route::fallback(function () {
-    if (auth()->check()) {
-        // If the user is authenticated, show the 404 page with a 404 status code
-        return response()->view('livewire.page-not-found', ['menu' => '404'], 404);
-    } else {
-        // If the user is not authenticated, redirect them to the login page
-        return redirect()->route('login');
-    }
-});
+// Route::fallback(function () {
+//     if (auth()->check()) {
+//         // If the user is authenticated, show the 404 page with a 404 status code
+//         return response()->view('livewire.page-not-found', ['menu' => '404'], 404);
+//     } else {
+//         // If the user is not authenticated, redirect them to the login page
+//         return redirect()->route('login');
+//     }
+// });
