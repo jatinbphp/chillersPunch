@@ -27,3 +27,20 @@ if (!function_exists('getRoleWiseHomeUrl')) {
         return route('dashboard');
     }
 }
+
+if (!function_exists('getRoleWiseHomeLabel')) {
+    function getRoleWiseHomeLabel()
+    {
+        if(!Auth::user()){
+            return '';
+        }
+        return 'Dashboard';
+    }
+}
+
+if (!function_exists('getYears')) {
+    function getYears()
+    {
+        return ['2019', '2020', '2021', '2022', '2023'];
+    }
+}
