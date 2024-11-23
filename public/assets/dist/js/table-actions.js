@@ -30,8 +30,9 @@ $(document).ready(function() {
                 }
             },
             { data: 'submission_info', name: 'fullName'},
-            { data: 'status', name: 'status', orderable: false, searchable: false },
-            { data: 'isWinner', name: 'isWinner', orderable: false, searchable: false },
+            { data: 'votings_count', name: 'votings_count', searchable: false },
+            { data: 'status', name: 'status', searchable: false },
+            { data: 'isWinner', name: 'isWinner', searchable: false },
             { data: 'actions', "width": "12%", name: 'actions', orderable: false, searchable: false },
         ],
         "order": [[0, "DESC"]]
@@ -54,7 +55,6 @@ $(document).ready(function() {
         ],
         "order": [[0, "DESC"]]
     });
-
 
     $('.datatable-dynamic tbody').on('click', '.view-info', function (event) {
         event.preventDefault();
@@ -205,3 +205,27 @@ $(document).ready(function() {
         });
     });
 });
+
+function viewVotingListFunction(submissionId){
+
+    if ($.fn.DataTable.isDataTable('#viewVotingListTable')) {
+        $('#viewVotingListTable').DataTable().destroy();
+    }
+
+    $('#viewVotingListTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: $("#submission_voting_route_name").val(),
+            type: "get",
+            data: {
+                submissionId: submissionId 
+            }
+        },
+        columns: [
+            { data: 'ipAdress', name: 'ipAdress' },
+            { data: 'created_at', name: 'created_at' }
+        ],
+        "order": [[0, "DESC"]]
+    });
+}

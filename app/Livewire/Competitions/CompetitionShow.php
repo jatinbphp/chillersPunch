@@ -31,9 +31,11 @@ class CompetitionShow extends Component
                 $emailAddress = '<b>Email: </b>'.$row->emailAddress ?? '-';
                 $phoneNumber = '<b>Phone: </b>'.$row->phoneNumber ?? '-';
                 $dateCreated = '<b>Date Created: </b>'.$row->created_at ?? '-';
-                $totalVots = '<b>Total Vots: </b>'.$row->votings_count;
 
-                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small></br><small>{$totalVots}</small>";
+                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small>";
+            })
+            ->editColumn('votings_count', function ($row) {
+                return '<a href="javascript:void(0)" data-toggle="modal" data-target="#viewVotingList" onclick="viewVotingListFunction('.$row->id.');" title="View Details" class="btn btn-info btn-sm">'.$row->votings_count.'</a>';
             })
             ->editColumn('status', function ($row) {
                 $id = $row->id;
@@ -47,7 +49,7 @@ class CompetitionShow extends Component
             ->addColumn('actions', function ($row) {
                 return view('livewire.competitions.submission-actions', ['submissionId' => $row->id]);
             })
-            ->rawColumns(['actions', 'submission_info'])
+            ->rawColumns(['actions', 'submission_info', 'votings_count'])
             ->make(true);
     }
 
@@ -95,5 +97,13 @@ class CompetitionShow extends Component
 
     public function render(){
         return view('livewire.competitions.competition-show')->extends('layouts.app', ['menu' => $this->menu])->section('content');
+    }
+
+    public function getSubmissionVotingData(Request $request){
+        return DataTables::of(Voting::where('submissionId', $request['submissionId']))
+            ->editColumn('created_at', function ($row) {
+                return $row->created_at;
+            })
+            ->make(true);
     }
 }

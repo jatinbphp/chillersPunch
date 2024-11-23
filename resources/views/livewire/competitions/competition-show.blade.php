@@ -73,6 +73,8 @@
                                     <div class="tab-pane table-responsive" id="submissions">
                                         <input type="hidden" id="submission_route_name" value="{{ route('competitions.submissions', ['id' => $competition->id]) }}">
 
+                                        <input type="hidden" id="submission_voting_route_name" value="{{ route('competitions.submission.votings') }}">
+
                                         <input type="hidden" id="submission_status_route_name" value="{{ route('competitions.submission.status.update', ['id' => $competition->id]) }}">
                                         
                                         <table id="submissionTable" class="table table-bordered table-striped w-100 datatable-dynamic">
@@ -80,6 +82,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Submission Information</th>
+                                                    <th>Total Votes</th>
                                                     <th>Status</th>
                                                     <th>Is Winner</th>
                                                     <th>Action</th>
@@ -112,4 +115,27 @@
             </div>
         </div>
     </section>
+
+    <div id="viewVotingList" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="float: left;position: relative;display: inline-block;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Voting Listing</h4>
+                </div>
+                <div class="modal-body">
+                    <table id="viewVotingListTable" class="table table-bordered table-striped w-100">
+                        <thead>
+                            <tr>
+                                <th>Ip Address</th>
+                                <th>Date Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

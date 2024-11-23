@@ -45,10 +45,39 @@
 
 @yield('content')
 
-
-
+<footer class="front-footer">
+    <div class="footer-img">
+        <a href="#">
+            <img src="{{url('assets/dist/front/img/footer-img.png') }}" alt="" />
+        </a>
+    </div>
+    <ul class="footer-link">
+        <li>
+            <a href="#">terms & conditions</a>
+        </li>
+        <li>
+            <a href="#">© 2024 Chillers Punch</a>
+        </li>
+    </ul>
+    <ul class="social-media">
+        <li>
+            <a href="#"><img src="{{url('assets/dist/front/img/facebook-icon.png') }}" alt="" /></a>
+        </li>
+        <li>
+            <a href="#"><img src="{{url('assets/dist/front/img/instagram-icon.png') }}" alt="" /></a>
+        </li>
+        <li>
+            <a href="#"><img src="{{url('assets/dist/front/img/youtube-icon.png') }}" alt="" /></a>
+        </li>
+        <li>
+            <a href="#"><img src="{{url('assets/dist/front/img/x-icon.png') }}" alt="" /></a>
+        </li>
+        <li>
+            <a href="#"><img src="{{url('assets/dist/front/img/tiktok-icon.png') }}" alt="" /></a>
+        </li>
+    </ul>
+</footer>
 @livewireScripts
-
 <script src="{{ URL('assets/dist/front/js/jquery.min.js') }}"></script>
 <script src="{{ URL('assets/dist/front/js/custom.js') }}"></script>
 @vite([ 'resources/js/app.js' ])
