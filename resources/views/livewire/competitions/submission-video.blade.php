@@ -11,6 +11,10 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
+                        <th>Title :</th>
+                        <td>{{$submissioInfo->submissionTitle}}</td>
+                    </tr>
+                    <tr>
                         <th>Full Name :</th>
                         <td>{{$submissioInfo->fullName}}</td>
                     </tr>

@@ -15,7 +15,8 @@ use App\Livewire\Competitions\CompetitionShow;
 use App\Livewire\CMSPages;
 use App\Livewire\PageNotFound;
 use App\Livewire\Front\Home;
-use App\Livewire\Front\Competition;
+use App\Livewire\Front\ListenAndVote;
+use App\Livewire\Front\TermsAndConditions;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\Controller;
 
@@ -40,8 +41,10 @@ if (App::environment('production')) {
 Route::middleware('guest')->group(function () {
     
     Route::get('/', Home::class)->name('home');
-    Route::get('competition', Competition::class)->name('competition');
-
+    Route::get('listen-and-vote', ListenAndVote::class)->name('listen-and-vote');
+    Route::get('terms-and-conditions', TermsAndConditions::class)->name('terms-and-conditions');
+    Route::get('submission-video/{id}', [ListenAndVote::class, 'getSubmissioInfo'])->name('submission.video');
+    Route::post('submission-add-vote', [ListenAndVote::class, 'addSubmissioVote'])->name('submission.add.vote');
 
     Route::get('admin/login', Login::class)->name('login');
     Route::get('admin/forgot-password', ForgotPassword::class)->name('forgot-password');

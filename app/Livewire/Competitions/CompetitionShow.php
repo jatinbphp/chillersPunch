@@ -27,12 +27,13 @@ class CompetitionShow extends Component
     public function getSubmissionData($competitionId){
         return DataTables::of(Submission::withCount('votings')->where('competitionId', $competitionId))
             ->addColumn('submission_info', function ($row) {
-                $fullName = $row->fullName ?? '-';
+                $submissionTitle = $row->submissionTitle ?? '-';
+                $fullName = '<b>Name: </b>'.$row->fullName ?? '-';
                 $emailAddress = '<b>Email: </b>'.$row->emailAddress ?? '-';
                 $phoneNumber = '<b>Phone: </b>'.$row->phoneNumber ?? '-';
                 $dateCreated = '<b>Date Created: </b>'.$row->created_at ?? '-';
 
-                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small>";
+                return "{$submissionTitle}<br><small>{$fullName}</small><br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small>";
             })
             ->editColumn('votings_count', function ($row) {
                 return '<a href="javascript:void(0)" data-toggle="modal" data-target="#viewVotingList" onclick="viewVotingListFunction('.$row->id.');" title="View Details" class="btn btn-info btn-sm">'.$row->votings_count.'</a>';

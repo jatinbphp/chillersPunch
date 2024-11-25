@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
             $table->integer('competitionId')->default(0);
+            $table->string('submissionTitle')->nullable();
             $table->string('fullName')->nullable();
             $table->string('phoneNumber')->nullable();
             $table->string('emailAddress')->nullable();

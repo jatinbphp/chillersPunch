@@ -34,6 +34,7 @@ class SubmissionSeeder extends Seeder
             // Create a new submission with fake data
             Submission::create([
                 'competitionId' => $competitionId, // Use the fetched competition ID
+                'submissionTitle' => $faker->title, // Generate a fake name
                 'fullName' => $faker->name, // Generate a fake name
                 'emailAddress' => $faker->email, // Generate a fake email
                 'phoneNumber' => $faker->phoneNumber, // Generate a fake phone number

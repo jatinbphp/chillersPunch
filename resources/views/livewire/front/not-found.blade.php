@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="main-sectionr">
     <section class="content">
         <div class="row pt-5">
             <div class="col-8 offset-2">
@@ -15,7 +15,7 @@
                             </h3>
                             <p>
                                 We could not find the page you were looking for. Meanwhile, you may
-                                <a href="{{getHomeUrl()}}">
+                                <a href="{{ route('home') }}">
                                     return to Home
                                 </a>
                             </p>
