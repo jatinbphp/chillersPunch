@@ -12,7 +12,7 @@ class Home extends Component
 {
     use WithFileUploads;
 
-    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile;
+    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile, $activeCompetition;
 
     protected $rules = [
         'submissionTitle' => 'required|string|max:255',
@@ -21,6 +21,10 @@ class Home extends Component
         'phoneNumber' => 'required|regex:/^\+?[0-9]{10,15}$/',
         'videoFile' => 'required|file|mimes:mp4,avi,mov',
     ];
+
+    public function mount(){
+        $this->activeCompetition = Competition::select('id')->where('status', 'active')->first();
+    }
 
     public function submitForm(){
         $competition = Competition::where('status', 'active')->first();

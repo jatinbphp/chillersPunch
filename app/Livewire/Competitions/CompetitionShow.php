@@ -62,12 +62,15 @@ class CompetitionShow extends Component
             ->addColumn('submission_info', function ($row) {
                 $submission = $row->submission;
 
-                $fullName = $submission->fullName ?? '-';
+                $submissionTitle = $submission->submissionTitle ?? '-';
+                $fullName = '<b>Name: </b>'.$submission->fullName ?? '-';
                 $emailAddress = '<b>Email: </b>'.$submission->emailAddress ?? '-';
                 $phoneNumber = '<b>Phone: </b>'.$submission->phoneNumber ?? '-';
+                $dateCreated = '<b>Date Created: </b>'.$submission->created_at ?? '-';
 
-                return "{$fullName}<br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small>";
+                return "{$submissionTitle}<br><small>{$fullName}</small><br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small>";
             })
+
             ->rawColumns(['submission_info'])
             ->make(true);
     }

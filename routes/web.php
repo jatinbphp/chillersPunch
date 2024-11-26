@@ -92,6 +92,10 @@ Route::fallback(function () {
             return redirect()->route('login');
         }
     } else {
-        return redirect()->route('errors.404');
+        if (auth()->check()) {
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('errors.404');
+        }        
     }
 });

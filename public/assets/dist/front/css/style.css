@@ -65,7 +65,7 @@ img {
 	right: 0;
 	top: 0;
 	padding: 40px 160px 40px 130px;
-	z-index: 2;
+	z-index: 3;
 }
 .front-header .logo {
 	margin-right: auto;

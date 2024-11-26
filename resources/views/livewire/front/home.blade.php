@@ -41,7 +41,9 @@
             <div class="ground-rule">
                 <h3>Ground Rule: Song must mention Chillers Punch at least once.</h3>
                 <p>Submit your anthem now and join the rhythm of the Chillers community.</p>
-                <button type="button" data-toggle="modal" data-target="#myModal">DOWNLOAD SUBMISSION FORM</button>
+                @if(!empty($activeCompetition))
+                    <button type="button" data-toggle="modal" data-target="#myModal">DOWNLOAD SUBMISSION FORM</button>
+                @endif
             </div>
         </div>
     </section>
