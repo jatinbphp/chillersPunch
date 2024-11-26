@@ -17,6 +17,7 @@ use App\Livewire\PageNotFound;
 use App\Livewire\Front\Home;
 use App\Livewire\Front\ListenAndVote;
 use App\Livewire\Front\TermsAndConditions;
+use App\Livewire\Front\NotFound;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\Controller;
 
@@ -81,7 +82,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/404', PageNotFound::class)->name('errors.404');
 });
 
-Route::get('404', PageNotFound::class)->name('errors.404');
+Route::get('404', NotFound::class)->name('errors.404');
 
 Route::fallback(function () {
     if (request()->is('admin/*')) {
@@ -91,6 +92,6 @@ Route::fallback(function () {
             return redirect()->route('login');
         }
     } else {
-        return response()->view('livewire.front.not-found');
+        return redirect()->route('errors.404');
     }
 });

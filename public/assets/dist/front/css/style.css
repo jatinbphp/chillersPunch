@@ -453,6 +453,9 @@ img {
 	cursor: pointer;
 	margin-right: 50px;  
 }
+.song-list-left ul li .song-name {
+	padding-right: 15px;
+}
 .song-list-left ul li .song-name h6 {
 	font-size: 30px;
 	color: #fff;
@@ -469,7 +472,7 @@ img {
 	background: #fdbe13;
 	border: none;
 	cursor: pointer;
-	width: 160px;
+	min-width: 160px;
 	color: #000;
 	font-family: 'museo_sans700';
 	font-size: 20px;
@@ -550,9 +553,12 @@ img {
 	margin-right: 40px; 
 }
 .corrent-top-song ul li .song-img img {
-	width: 115px;
+	min-width: 115px;
 	border-radius: 10px;
 	aspect-ratio: 1;
+}
+.corrent-top-song ul li .song-name {
+	padding-right: 15px;
 }
 .corrent-top-song ul li .song-name h6 {
 	font-size: 30px;
@@ -573,6 +579,104 @@ img {
 	cursor: pointer;
 	margin-left: auto; 
 }
+
+.terms-and-conditions .listen-vote-main {
+    background-color: #f37436;
+    background-image: none;
+}
+.terms-and-conditions .listen-vote-main::before {
+	display: none;
+}
+.terms-and-conditions + .footer-bg-color .footer-img {
+	margin-top: 0;
+}
+.terms-and-conditions h1,
+.terms-and-conditions h2,
+.terms-and-conditions h3,
+.terms-and-conditions h4,
+.terms-and-conditions h5,
+.terms-and-conditions h6 {
+	text-transform: uppercase;
+	font-family: 'chopic_stndrregular';
+	color: #fff;
+	margin: 0;
+	padding-bottom: 20px;
+}
+.terms-and-conditions h1 {
+    font-size: 50px;
+}
+.terms-and-conditions h2 {
+    font-size: 40px;
+}
+.terms-and-conditions h3 {
+    font-size: 30px;
+}
+.terms-and-conditions h4 {
+    font-size: 22px;
+}
+.terms-and-conditions p {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    color: #fff;
+}
+.terms-and-conditions .listen-vote ul li {
+	font-size: 20px;
+	color: #fff;
+	margin-bottom: 10px;
+}
+.terms-and-conditions .listen-vote {
+	padding-top: 60px;
+	padding-bottom: 30px;
+	max-width: 1000px;
+	margin: 0 auto; 
+}
+.terms-and-conditions .listen-vote ul {
+	margin-top: 0;
+}
+.page-not-found {
+	text-align: center;
+}
+.page-not-found svg {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+.terms-and-conditions .page-not-found {
+	padding-top: 30px;
+}
+.page-not-found h1 {
+	padding-bottom: 0;
+}
+.return-home {
+    display: flex;
+    justify-content: center;
+        margin-bottom: 30px;
+}
+.return-home a {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    background: #000;
+    border: none;
+    cursor: pointer;
+    font-family: 'museo_sans700';
+    font-size: 18px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+.return-home a:hover {
+    background: #5ec6c8;
+}
+.return-home a svg {
+	width: 30px;
+	fill: #fff;
+	margin-right: 5px;
+}
+
 /* Responsive css */
 
 @media screen and (max-width: 1750px) {
@@ -708,7 +812,7 @@ img {
 	}
 	.song-list-left ul li .song-name h6,
 	.corrent-top-song ul li .song-name h6 {
-		font-size: 20px;
+		font-size: 22px;
 		margin: 0 0 5px 0;
 	}
 	.song-list-left ul li .song-name p
@@ -719,7 +823,7 @@ img {
 		margin-right: 30px;
 	}
 	.corrent-top-song ul li .song-img img {
-		width: 85px;
+		min-width: 85px;
 		border-radius: 6px;
 	}
 	.corrent-top-song ul li {
@@ -740,7 +844,7 @@ img {
 		padding: 0 100px;
 	}
 	.song-list-left ul li .vote-button {
-		width: 120px;
+		min-width: 120px;
 		font-size: 16px;
 		padding: 8px 15px;
 	}
@@ -905,7 +1009,7 @@ img {
 		margin-right: 20px;
 	}
 	.corrent-top-song ul li .song-img img {
-		width: 60px;
+		min-width: 60px;
 		border-radius: 6px;
 	}
 	.song-list-left ul li .song-name h6, 
@@ -932,7 +1036,7 @@ img {
 		margin-right: 20px;
 	}
 	.song-list-left ul li .vote-button {
-		width: 80px;
+		min-width: 80px;
 		font-size: 14px;
 		padding: 6px 10px 4px 10px;
 	}
@@ -962,6 +1066,33 @@ img {
 }
 
 @media screen and (max-width: 991px) {
+.terms-and-conditions h1 {
+    font-size: 40px;
+}
+.terms-and-conditions h2 {
+    font-size: 30px;
+}
+.terms-and-conditions h3 {
+    font-size: 20px;
+}
+.terms-and-conditions h4 {
+    font-size: 18px;
+}
+.terms-and-conditions .listen-vote ul li {
+	font-size: 18px;
+}
+.terms-and-conditions p {
+    font-size: 18px;
+    margin: 0 0 15px 0;
+}
+.terms-and-conditions h1, .terms-and-conditions h2, .terms-and-conditions h3, .terms-and-conditions h4, .terms-and-conditions h5, .terms-and-conditions h6 {
+	padding-bottom: 10px;
+}
+.terms-and-conditions .listen-vote {
+	max-width: 620px;
+	padding-top: 30px;
+    padding-bottom: 10px;
+}
 	#toggleInput {
 		position: absolute;
 		right: 100%;
@@ -1090,11 +1221,18 @@ img {
 		right: -25px;
 		top: -62px;
 	}
-
-
 }
 
 @media screen and (max-width: 767px) {
+	.terms-and-conditions .listen-vote ul li {
+	font-size: 16px;
+}
+.terms-and-conditions p {
+    font-size: 16px;
+}
+.terms-and-conditions .listen-vote {
+	max-width: 400px;
+}
 	#toggleInput {
 		max-width: 150px;
 	}
@@ -1230,9 +1368,28 @@ img {
 	.listen-vote-main .social-media-left li img {
 		width: 14px;
 	}
+	.return-home a {
+		font-size: 16px;
+		padding: 8px 20px;
+	}
+	.return-home a svg {
+		width: 24px;
+	}
 }
 
 @media screen and (max-width: 479px) {
+	.terms-and-conditions .listen-vote {
+		padding: 30px 30px 5px 30px;
+	}
+	.terms-and-conditions h1 {
+        font-size: 30px;
+    }
+	.terms-and-conditions h2 {
+        font-size: 24px;
+    }
+    .terms-and-conditions h3 {
+        font-size: 20px;
+    }
 	.front-header {
 		padding: 10px 15px 10px 15px;
 	}
@@ -1348,14 +1505,14 @@ img {
 		font-size: 12px;
 	}
 	.song-list-left ul li .vote-button {
-		width: 70px;
+		min-width: 70px;
 		font-size: 12px;
 	}
 	.corrent-top-song ul li {
 		padding: 15px 8px;
 	}
 	.corrent-top-song ul li .song-img img {
-		width: 50px;
+		min-width: 50px;
 	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 15px;
@@ -1369,6 +1526,7 @@ img {
 	.song-list-left .submissions-btn {
 		font-size: 12px;
 	}
+
 }
 
 @media screen and (max-width: 374px) {
@@ -1419,7 +1577,7 @@ img {
 		padding: 10px 6px;
 	}
 	.corrent-top-song ul li .song-img img {
-		width: 40px;
+		min-width: 40px;
 	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 10px;
@@ -1439,7 +1597,7 @@ img {
 		margin-right: 10px;
 	}
 	.song-list-left ul li .vote-button {
-		width: 60px;
+		min-width: 60px;
 		font-size: 10px;
 	}
 	.song-list-left ul li {

@@ -8,13 +8,11 @@ class PageNotFound extends Component
 {
     public $menu;
 
-    public function mount()
-    {
+    public function mount(){
         $this->menu = '404';
     }
 
-    public function render()
-    {
+    public function render(){
         return view('livewire.page-not-found')->extends('layouts.app', ['menu' => $this->menu])->section('content');
     }
 }

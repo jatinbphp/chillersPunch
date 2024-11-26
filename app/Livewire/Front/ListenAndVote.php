@@ -12,14 +12,12 @@ use Carbon\Carbon;
 
 class ListenAndVote extends Component
 {
-    public $submissionsList, $topSubmissions;
+    public $topSubmissions;
 
     public function mount(){
         $competition = Competition::where('status', 'active')->first();
 
         if(!empty($competition)){
-            $this->submissionsList = Submission::where('competitionId', $competition->id)->limit(5)->get();   
-
             $this->topSubmissions = DB::table('submissions')
                 ->join('votings', 'submissions.id', '=', 'votings.submissionId')
                 ->select('submissions.*', DB::raw('COUNT(votings.submissionId) as vote_count'))

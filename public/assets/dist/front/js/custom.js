@@ -51,7 +51,8 @@ document.addEventListener('livewire:init', function () {
     });
 });
 
-$('.vote-button').on('click', function () {
+$('.listen-vote').on('click', '.vote-button', function (event) {
+    event.preventDefault();
     const button = $(this); // Reference to the clicked button
     const voteId = button.data('vote-id'); // Get vote ID from data attribute
 
