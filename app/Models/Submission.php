@@ -9,7 +9,7 @@ class Submission extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['competitionId', 'submissionTitle', 'fullName', 'phoneNumber', 'emailAddress', 'videoFile', 'status', 'isWinner'];
+    protected $fillable = ['competitionId', 'submissionTitle', 'fullName', 'phoneNumber', 'emailAddress', 'videoFile', 'thumbnail', 'status', 'isWinner'];
 
     public function votings(){
         return $this->hasMany(Voting::class, 'submissionId'); // Adjust the relationship as per your schema

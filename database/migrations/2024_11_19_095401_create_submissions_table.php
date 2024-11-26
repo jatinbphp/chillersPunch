@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phoneNumber')->nullable();
             $table->string('emailAddress')->nullable();
             $table->string('videoFile')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->string('status')->default('pending');
             $table->string('isWinner')->default(0);
             $table->timestamps();

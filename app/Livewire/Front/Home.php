@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Submission;
 use App\Models\Competition;
+use FFMpeg;
 
 class Home extends Component
 {
@@ -38,10 +39,25 @@ class Home extends Component
 
         $validatedData = $this->validate();
 
+        $videoFile = null;
+        $thumbnail = null;
+
+
         if ($this->videoFile) {
-            $videoFile= $this->videoFile->store('uploads/submissions','public');
-        } else {
-            $videoFile = null;
+            // Store video file
+            $videoFile = $this->videoFile->store('uploads/submissions', 'public');
+
+            // Create thumbnail
+            $videoPath = public_path($videoFile);
+            $thumbnailPath = public_path('uploads/submissions/thumbnails/'). pathinfo($this->videoFile->getClientOriginalName(), PATHINFO_FILENAME) . '.jpg';
+
+            // Using FFmpeg to create the thumbnail
+            $ffmpeg = FFMpeg\FFMpeg::create();
+            $video = $ffmpeg->open($videoPath);
+            $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1)) // Capture thumbnail at 1 second
+                ->save($thumbnailPath);  // Save directly to the specified path
+
+            $thumbnail = 'uploads/submissions/thumbnails/'.pathinfo($this->videoFile->getClientOriginalName(), PATHINFO_FILENAME) . '.jpg'; // Path to the generated thumbnail
         }
 
         $institution = Submission::create([
@@ -51,6 +67,7 @@ class Home extends Component
             'emailAddress' => $this->emailAddress,
             'phoneNumber' => $this->phoneNumber,
             'videoFile' => $videoFile,
+            'thumbnail' => $thumbnail,
         ]);
 
         session()->flash('message', 'Your submission has been successfully submitted!');
