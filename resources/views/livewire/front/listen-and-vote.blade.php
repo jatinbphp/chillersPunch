@@ -22,7 +22,7 @@
                                         @if ($value->thumbnail && file_exists(public_path($value->thumbnail)))
                                             <img src="{{ asset($value->thumbnail) }}" style="width: 110px;">
                                         @else
-                                            <img src="{{ url('assets/dist/img/no-image.png') }}">
+                                            <img src="{{url('assets/dist/front/img/default-image.png') }}" alt="" />
                                         @endif
                                     </div>
                                     <div class="song-name">

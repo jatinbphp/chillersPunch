@@ -42,7 +42,6 @@ class Home extends Component
         $videoFile = null;
         $thumbnail = null;
 
-
         if ($this->videoFile) {
             // Store video file
             $videoFile = $this->videoFile->store('uploads/submissions', 'public');
