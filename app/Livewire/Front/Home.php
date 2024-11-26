@@ -48,7 +48,9 @@ class Home extends Component
 
             // Create thumbnail
             $videoPath = public_path($videoFile);
-            $thumbnailPath = public_path('uploads/submissions/thumbnails/'). pathinfo($this->videoFile->getClientOriginalName(), PATHINFO_FILENAME) . '.jpg';
+
+            $fileName = time();
+            $thumbnailPath = public_path('uploads/submissions/thumbnails/').$fileName. '.jpg';
 
             // Using FFmpeg to create the thumbnail
             $ffmpeg = FFMpeg\FFMpeg::create();
@@ -56,7 +58,7 @@ class Home extends Component
             $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1)) // Capture thumbnail at 1 second
                 ->save($thumbnailPath);  // Save directly to the specified path
 
-            $thumbnail = 'uploads/submissions/thumbnails/'.pathinfo($this->videoFile->getClientOriginalName(), PATHINFO_FILENAME) . '.jpg'; // Path to the generated thumbnail
+            $thumbnail = 'uploads/submissions/thumbnails/'.$fileName. '.jpg'; // Path to the generated thumbnail
         }
 
         $institution = Submission::create([
