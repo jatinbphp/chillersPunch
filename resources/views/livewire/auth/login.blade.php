@@ -42,7 +42,7 @@
         </div>
     </form>
     <hr>
-    <p class="mb-1">
+    <p class="mb-1 d-none">
         <a href="{{route('forgot-password')}}" class="text-bold" wire:navigate>I forgot my password</a>
     </p>
 </div>

@@ -19,7 +19,7 @@
                             @foreach ($topSubmissions as $key => $value)
                                 <li>
                                     <div class="song-img">
-                                        @if ($value->thumbnail && file_exists(public_path($value->thumbnail)))
+                                        @if (isset($value->thumbnail) && file_exists(public_path($value->thumbnail)))
                                             <img src="{{ asset($value->thumbnail) }}" style="width: 110px;">
                                         @else
                                             <img src="{{url('assets/dist/front/img/default-image.png') }}" alt="" />

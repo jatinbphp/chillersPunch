@@ -18,14 +18,24 @@ class ListenAndVote extends Component
         $competition = Competition::where('status', 'active')->first();
 
         if(!empty($competition)){
-            $this->topSubmissions = DB::table('submissions')
+            /*$this->topSubmissions = DB::table('submissions')
                 ->join('votings', 'submissions.id', '=', 'votings.submissionId')
                 ->select('submissions.*', DB::raw('COUNT(votings.submissionId) as vote_count'))
                 ->where('submissions.competitionId', $competition->id)
                 ->groupBy('submissions.id', 'submissions.submissionTitle', 'submissions.fullName')
                 ->orderByDesc('vote_count')
                 ->limit(5)
-                ->get(); 
+                ->get(); */
+
+            $this->topSubmissions = DB::table('submissions')
+                ->join('votings', 'submissions.id', '=', 'votings.submissionId')
+                ->select('submissions.id', 'submissions.submissionTitle', 'submissions.fullName', DB::raw('COUNT(votings.submissionId) as vote_count'))
+                ->where('submissions.competitionId', $competition->id)
+                ->groupBy('submissions.id', 'submissions.submissionTitle', 'submissions.fullName')
+                ->orderByDesc('vote_count')
+                ->limit(5)
+                ->get();
+
         }
     }
 

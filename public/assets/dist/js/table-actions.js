@@ -195,8 +195,22 @@ $(document).ready(function() {
             },
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
             success: function(data){
-                console.log(data);
                 if(data == 1){
+
+                    if(status=='pending'){
+                        $('#status'+id).removeClass('btn-success');
+                        $('#status'+id).removeClass('btn-danger');
+                        $('#status'+id).addClass('btn-info');
+                    } else if(status=='approved'){
+                        $('#status'+id).removeClass('btn-info');
+                        $('#status'+id).removeClass('btn-danger');
+                        $('#status'+id).addClass('btn-success');
+                    } else if(status=='rejected'){
+                        $('#status'+id).removeClass('btn-info');
+                        $('#status'+id).removeClass('btn-success');
+                        $('#status'+id).addClass('btn-danger');
+                    }
+
                   swal("Success", "Submission status has been updated", "success");
                 }else{
                   swal("Error", "Submission status not updated. Please try again!", "error");
