@@ -22,7 +22,7 @@
     </div>
     <div class="overlay-container">
         <div class="overlay">
-            <div class="overlay-panel overlay-right">
+            <div class="overlay-panel overlay-right" data-aos="zoom-in">
                 <img src="{{url('assets/dist/front/img/chillers-punch1.png')}}" alt="">
             </div>
         </div>

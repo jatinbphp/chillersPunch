@@ -1,7 +1,7 @@
 *{box-sizing:border-box}
 body{background:#FDBE13;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:'Montserrat',sans-serif;height:100vh;position:relative;margin:0;padding:0}
-.body-img{position:absolute;top:0;right:0;max-width:40%;opacity:.5}
-.body-img-footer{position:absolute;bottom:0;left:0;max-width:25%;opacity:.5}
+.body-img{position:absolute;top:0;right:0;max-width:40%;opacity:.5 !important}
+.body-img-footer{position:absolute;bottom:0;left:0;max-width:25%;opacity:.5 !important}
 .auth-forms h1{font-weight:700;margin:0;margin-bottom: 5px;}
 .auth-forms span{font-size:16px}
 .auth-forms a{color:#333;font-size:16px;text-decoration:none;}
@@ -27,7 +27,7 @@ body{background:#FDBE13;display:flex;justify-content:center;align-items:center;f
 .auth-forms .header-hr{border: 1px solid #F37436;width: 100%;border-radius: 10px;}
 .text-danger{color: #F37436;width: 100%;text-align: left;font-size: 14px !important;font-weight: bold;}
 @media screen and (max-width: 767px) {
-    .auth-forms{width:70%;min-height:90vh}
+    .auth-forms{width:70%;}
     .auth-forms .sign-in-container{width:100%;top:25%;height:75%;left:0}
     .auth-forms .overlay-container{left:0;width:100%;height:25%}
     .auth-forms .overlay{width:100%;left:0}
