@@ -8,8 +8,9 @@
     <title>{{ $menu }} | {{ config('app.name', 'Laravel') }}</title>
     <meta name="_token" content="{!! csrf_token() !!}"/>
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/style.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="{{ URL('assets/dist/front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL('assets/dist/front/css/sweetalert.min.css') }}">
+    <link rel="stylesheet" href="{{ URL('assets/dist/front/css/aos.css') }}">
     @livewireStyles
     @vite([ 'resources/css/app.css' ])
 </head>
@@ -17,7 +18,7 @@
     <header class="front-header">
         <div class="logo">
             <a href="{{ route('home') }}" wire:navigate>
-                <img class="chillers-punch1" src="{{url('assets/dist/front/img/chillers-punch1.png')}}" alt="" />
+                <img data-aos="zoom-in" class="chillers-punch1" src="{{url('assets/dist/front/img/chillers-punch1.png')}}" alt="" />
             </a>
         </div>
         <div class="search-menu">
@@ -45,7 +46,7 @@
 
     <footer class="front-footer footer-bg-color">
         <div class="footer-img">
-            <a href="{{ route('home') }}" wire:navigate><img src="{{url('assets/dist/front/img/footer-img.png') }}" alt="" /></a>
+            <a href="{{ route('home') }}" wire:navigate><img data-aos="zoom-in" src="{{url('assets/dist/front/img/footer-img.png') }}" alt="" /></a>
         </div>
         <ul class="footer-link">
             <li><a href="{{ route('terms-and-conditions') }}" wire:navigate>Terms & Conditions</a></li>
@@ -61,8 +62,9 @@
     </footer>
     @livewireScripts
     <script src="{{ URL('assets/dist/front/js/jquery.min.js') }}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="{{ URL('assets/dist/front/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL('assets/dist/front/js/sweetalert.min.js') }}"></script>
+    <script src="{{ URL('assets/dist/front/js/aos.js') }}"></script>
     <script src="{{ URL('assets/dist/front/js/custom.js') }}"></script>
     @vite([ 'resources/js/app.js' ])
 </body>

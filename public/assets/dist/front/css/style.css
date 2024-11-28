@@ -453,6 +453,11 @@ img {
 	cursor: pointer;
 	margin-right: 50px;  
 }
+.song-list-left ul li .play-button img {
+	min-width: 52px;
+	aspect-ratio: 1;
+}
+
 .song-list-left ul li .song-name {
 	padding-right: 15px;
 }

@@ -5,14 +5,14 @@
     <section class="listen-vote-main">
         <x-front.social-media-links />
         <div class="listen-vote">
-            <div class="heding">
+            <div class="heding" data-aos="fade-up">
                 <h2>LISTEN & VOTE</h2>
                 <p>Public voting is open, so browse through the dope entries from our talented Chillers fam. Support your fellow Chillers by listening, sharing, and getting ready to vote for your favourite. Let the best beat win!</p>
             </div>
             <div class="song-list">
                 <livewire:front.submissions-list />
                 
-                <div class="corrent-top-song">
+                <div class="corrent-top-song" data-aos="zoom-in">
                     <h2>CURRENT TOP 5</h2>
                     <ul>
                         @if(!empty($topSubmissions))

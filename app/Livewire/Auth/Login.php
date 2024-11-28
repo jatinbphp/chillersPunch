@@ -36,13 +36,7 @@ class Login extends Component
         }
         $user->save();
 
-        // Redirect based on user role
-        if (in_array(Auth::user()->role, ['user', 'submitter'])) {
-            $this->redirect(getRoleWiseHomeUrl(), navigate: true);
-            return;
-        }
-
-        $this->redirect(getRoleWiseHomeUrl(), navigate: true);
+        $this->redirect(getRoleWiseHomeUrl());
     }
 
     public function render(){

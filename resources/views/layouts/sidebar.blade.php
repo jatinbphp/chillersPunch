@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link text-bold text-danger" wire:navigate>
+                    <a href="{{ route('logout') }}" class="nav-link text-bold text-danger">
                         <i class="nav-icon fa fa-sign-out-alt"></i>
                         <p>Log out</p>
                     </a>

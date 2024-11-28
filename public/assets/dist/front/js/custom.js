@@ -92,3 +92,6 @@ $('.listen-vote').on('click', '.vote-button', function (event) {
         }
     });
 });
+AOS.init({
+    duration: 1200,
+})

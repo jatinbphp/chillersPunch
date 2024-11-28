@@ -20,6 +20,6 @@ class Logout extends Component
         
         Auth::logout();
         session()->flush();
-        $this->redirect(route('login'), navigate: true);
+        $this->redirect(route('login'));
     }
 }
