@@ -6,12 +6,12 @@
                 <li>
                     <div class="left">
                         <div class="icon">
-                        <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
-                            <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
-                        </button>
-                        <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
-                            ⏩
-                        </button>
+                            <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
+                                <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
+                            </button>
+                            <button id="fast-forward-btn-{{$value->id}}" class="play-button fast-forward-btn">
+                                <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
+                            </button>
                         </div>
                         <div class="song-name">
                             <h6>{{ $value->submissionTitle }}</h6>
@@ -21,7 +21,9 @@
                     <div class="right">
                         <div class="song-progress">
                             <div id="progress_bar_box">
+                                <div id="progress_bar">
                                 <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar" value="0" max="100" />
+                                </div>
                             </div>
                         </div>
                         <div class="song-btn">
@@ -48,7 +50,6 @@
         @endif
     @endif
 </div>
-
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
     const audioElements = {};
@@ -107,6 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-
 </script>
