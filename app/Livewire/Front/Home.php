@@ -12,14 +12,21 @@ class Home extends Component
 {
     use WithFileUploads;
 
-    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile, $activeCompetition;
+    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile, $activeCompetition, $thumbnail;
 
     protected $rules = [
         'submissionTitle' => 'required|string|max:255',
         'fullName' => 'required|string|max:255',
         'emailAddress' => 'required|email|unique:submissions,emailAddress',
         'phoneNumber' => 'required|regex:/^\+?[0-9]{10,15}$/',
-        'videoFile' => 'required|file|mimes:mp4,avi,mov',
+        'videoFile' => 'required|file|mimes:mp3,wav,aac,flac',
+        'thumbnail' => 'nullable|file|mimes:jpeg,png,jpg|max:2048',
+    ];
+
+    protected $messages = [
+        'submissionTitle.required' => 'The song title field is required.',
+        'videoFile.required' => 'Please upload a valid audio file.',
+        'videoFile.mimes' => 'The audio file must be one of the following types: MP3, WAV, AAC, or FLAC.',
     ];
 
     public function mount(){
@@ -50,19 +57,41 @@ class Home extends Component
             // Store video file
             $videoFile = $this->videoFile->store('uploads/submissions', 'public');
 
-            // Create thumbnail
-            $videoPath = public_path($videoFile);
+             // Check if a thumbnail is uploaded
+            if ($this->thumbnail) {
+                
+                $uploadedThumbnail = $this->thumbnail->store('uploads/submissions/thumbnails', 'public');
+                $thumbnail = 'uploads/submissions/thumbnails/' . basename($uploadedThumbnail);
 
-            $fileName = time();
-            $thumbnailPath = public_path('uploads/submissions/thumbnails/').$fileName. '.jpg';
+            } else {
 
-            // Using FFmpeg to create the thumbnail
-            $ffmpeg = FFMpeg\FFMpeg::create();
-            $video = $ffmpeg->open($videoPath);
-            $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(1)) // Capture thumbnail at 1 second
-                ->save($thumbnailPath);  // Save directly to the specified path
+                // Create thumbnail
+                $videoPath = public_path($videoFile);
 
-            $thumbnail = 'uploads/submissions/thumbnails/'.$fileName. '.jpg'; // Path to the generated thumbnail
+                $fileName = time();
+                $thumbnailPath = public_path('uploads/submissions/thumbnails/').$fileName. '.jpg';
+
+                // Ensure the thumbnails directory exists
+                if (!file_exists(public_path('uploads/submissions/thumbnails/'))) {
+                    mkdir(public_path('uploads/submissions/thumbnails/'), 0755, true);
+                }
+
+                // Generate a waveform image using FFmpeg
+                $command = "ffmpeg -i " . escapeshellarg($videoPath) . " -filter_complex 'aformat=channel_layouts=mono,showwavespic=s=640x120' -frames:v 1 " . escapeshellarg($thumbnailPath);
+
+                // Execute the command
+                exec($command, $output, $returnCode);
+
+                // Check if the waveform image was successfully generated
+                if ($returnCode === 0 && file_exists($thumbnailPath)) {
+                    $thumbnail = 'uploads/submissions/thumbnails/' . $fileName . '.png'; // Path to the generated waveform image
+                } else {
+                    // Handle errors
+                    $thumbnail = null;
+                    // Log::error('Failed to generate waveform: ' . implode("\n", $output));
+                }
+            }
+            
         }
 
         $institution = Submission::create([

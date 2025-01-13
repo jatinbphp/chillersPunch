@@ -1,0 +1,18 @@
+#audio-player-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Add some space between the cover image and audio controls */
+    width: 500px; /* Set a fixed width for the audio player container */
+    margin: 20px auto;
+}
+
+#cover-image {
+    width: 80px; /* Set the width of the cover image */
+    height: 80px;
+    border-radius: 5px; /* Optional, to make the image corners rounded */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+#player {
+    flex-grow: 1; /* Expand the audio player to take remaining space */
+}
