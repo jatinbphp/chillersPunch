@@ -7,10 +7,10 @@
                     <div class="left">
                         <div class="icon">
                             <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
-                                <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
+                                <i class="fa-regular fa-circle-play"></i>
                             </button>
                             <button id="fast-forward-btn-{{$value->id}}" class="play-button fast-forward-btn">
-                                <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
+                                <i class="fas fa-fast-forward"></i>
                             </button>
                         </div>
                         <div class="song-name">
@@ -60,12 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const audio = new Audio(audioUrl);
         audioElements[key] = new Audio(audioUrl);
 
-        audio.onloadedmetadata = function() {
-            const totalMinutes = Math.floor(audio.duration / 60);
-            const totalSeconds = Math.floor(audio.duration % 60).toString().padStart(2, "0");
-            totalDurationElement.innerText = `${totalMinutes}:${totalSeconds}`;
-        };
-
         const progressBar = document.getElementById(`progress-bar-${key}`);
         const fastForwardBtn = document.getElementById(`fast-forward-btn-${key}`);
         const playPauseBtn = document.getElementById(`play-pause-btn-${key}`);
@@ -75,16 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
             Object.keys(audioElements).forEach((k) => {
                 if (k !== key && !audioElements[k].paused) {
                     audioElements[k].pause();
-                    document.getElementById(`play-pause-btn-${k}`).innerText = "▶";
+                    document.getElementById(`play-pause-btn-${k}`).innerHTML = "<i class='fa-regular fa-circle-play";
                 }
             });
 
             if (audio.paused) {
                 audio.play();
-                playPauseBtn.innerText = "⏸"; // Change button to pause icon
+                playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-pause'></i>";
             } else {
                 audio.pause();
-                playPauseBtn.innerText = "▶"; // Change button to play icon
+                playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>"
             }
         });
 
@@ -104,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         audio.addEventListener("ended", () => {
             progressBar.value = 0; // Reset progress bar
-            playPauseBtn.innerText = "▶"; // Reset play button
+            playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
         });
     });
 });
