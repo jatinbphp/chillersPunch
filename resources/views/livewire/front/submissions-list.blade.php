@@ -1,28 +1,34 @@
 <div class="song-list-left">
+    <div class="song-list-scroll">
     <ul>
         @if(!empty($submissionsList))
             @foreach ($submissionsList as $value)
                 <li>
-                    <div class="audio-player">
-                        <div class="current-song-details">
-                            <button id="play-pause-btn-{{$value->id}}" class="play-pause-btn" data-audio="{{asset($value->videoFile)}}">
-                                ▶
-                            </button>
-                            <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
-                                ⏩
-                            </button>
-                            <h4 id="current-song-title-{{$value->id}}">
-                                {{$value->submissionTitle}}
-                            </h4>
-                            <p id="current-song-artist-{{$value->id}}">
-                                {{$value->fullName}}
-                            </p>
+                    <div class="left">
+                        <div class="icon">
+                        <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
+                            <img src="{{url('assets/dist/front/img/play-button-white.svg') }}" alt="" />
+                        </button>
+                        <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
+                            ⏩
+                        </button>
                         </div>
-                        <div class="player-controls">
-                            <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar" value="0" max="100" />
+                        <div class="song-name">
+                            <h6>{{ $value->submissionTitle }}</h6>
+                            <p>{{ $value->fullName }}</p>
                         </div>
                     </div>
-                    <button class="vote-button" data-vote-id="{{ $value->id }}">VOTE</button>
+                    <div class="right">
+                        <div class="song-progress">
+                            <div id="progress_bar_box">
+                                <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar" value="0" max="100" />
+                            </div>
+                        </div>
+                        <div class="song-btn">
+                            <button><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
+                            <button><img src="{{url('assets/dist/front/img/upload-free-icon.png') }}" alt="" /></button>
+                        </div>
+                    </div>
                 </li>
             @endforeach
         @else
@@ -31,6 +37,7 @@
             </li>
         @endif
     </ul>
+</div>
     @if(!empty($submissionsList))
         <input type="hidden" id="submission-add-vote" value="{{ route('submission.add.vote') }}">
         
