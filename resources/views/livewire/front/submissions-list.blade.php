@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Get progress bar and buttons
         const progressBar = document.getElementById(`progress-bar-${key}`);
+        const progressBox = document.getElementById(`progress_bar_box`);
         const fastForwardBtn = document.getElementById(`fast-forward-btn-${key}`);
         const playPauseBtn = document.getElementById(`play-pause-btn-${key}`);
 
@@ -98,6 +99,40 @@ document.addEventListener("DOMContentLoaded", () => {
             progressBar.style.width = `${progress}%`;
         });
 
+        // Dragging functionality for progress bar
+        let isDragging = false;
+
+        // Mouse down event to start dragging
+        progressBox.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            updateProgressBar(e);
+        });
+
+        // Mouse move event to update progress during drag
+        progressBox.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                updateProgressBar(e);
+            }
+        });
+
+        // Mouse up event to stop dragging
+        document.addEventListener("mouseup", () => {
+            if (isDragging) {
+                isDragging = false;
+            }
+        });
+
+        // Function to update progress bar and audio time
+        function updateProgressBar(e) {
+            const rect = progressBox.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = Math.min(Math.max((offsetX / width) * 100, 0), 100);
+
+            progressBar.style.width = `${percentage}%`;
+            audio.currentTime = (percentage / 100) * audio.duration;
+        }
+
         // Reset progress bar when audio ends
         audio.addEventListener("ended", () => {
             progressBar.style.width = "0%";
@@ -106,3 +141,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
