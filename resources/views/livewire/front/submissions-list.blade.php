@@ -21,9 +21,13 @@
                     <div class="right">
                         <div class="song-progress">
                             <div id="progress_bar_box">
-                                <div id="progress_bar">
+                              <div class="progress">
+                                <div class="progress-bar bg-c-red" id="progress-bar-{{$value->id}}" style="width:0%"></div>
+                              </div>
+
+                                <!-- <div id="progress_bar">
                                 <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar" value="0" max="100" />
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="song-btn">
@@ -53,51 +57,54 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
     const audioElements = {};
+
     document.querySelectorAll(".play-pause-btn").forEach((button) => {
         const key = button.id.split("-").pop();
         const audioUrl = button.getAttribute("data-audio");
 
+        // Create audio object
         const audio = new Audio(audioUrl);
-        audioElements[key] = new Audio(audioUrl);
+        audioElements[key] = audio;
 
+        // Get progress bar and buttons
         const progressBar = document.getElementById(`progress-bar-${key}`);
         const fastForwardBtn = document.getElementById(`fast-forward-btn-${key}`);
         const playPauseBtn = document.getElementById(`play-pause-btn-${key}`);
 
+        // Play/Pause button event
         playPauseBtn.addEventListener("click", () => {
             // Pause all other audios
             Object.keys(audioElements).forEach((k) => {
                 if (k !== key && !audioElements[k].paused) {
                     audioElements[k].pause();
-                    document.getElementById(`play-pause-btn-${k}`).innerHTML = "<i class='fa-regular fa-circle-play";
+                    document.getElementById(`play-pause-btn-${k}`).innerHTML = "<i class='fa-regular fa-circle-play'></i>";
                 }
             });
 
+            // Play or pause current audio
             if (audio.paused) {
                 audio.play();
                 playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-pause'></i>";
             } else {
                 audio.pause();
-                playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>"
+                playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
             }
         });
 
+        // Fast forward button event
         fastForwardBtn.addEventListener("click", () => {
             audio.currentTime += 5; // Skip 5 seconds
         });
 
+        // Update progress bar as audio plays
         audio.addEventListener("timeupdate", () => {
             const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.value = progress;
+            progressBar.style.width = `${progress}%`;
         });
 
-        progressBar.addEventListener("input", () => {
-            const seekTime = (progressBar.value / 100) * audio.duration;
-            audio.currentTime = seekTime;
-        });
-
+        // Reset progress bar when audio ends
         audio.addEventListener("ended", () => {
-            progressBar.value = 0; // Reset progress bar
+            progressBar.style.width = "0%";
             playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
         });
     });

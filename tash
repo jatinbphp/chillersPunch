@@ -1,0 +1,55 @@
+[1mdiff --git a/routes/web.php b/routes/web.php[m
+[1mindex 88cbe3d..2513a67 100644[m
+[1m--- a/routes/web.php[m
+[1m+++ b/routes/web.php[m
+[36m@@ -33,20 +33,17 @@[m
+     });[m
+ }[m
+ [m
+[31m-// Route::get('/', function () {[m
+[31m-//     return redirect()->route('home');[m
+[31m-// });[m
+[32m+[m[32mRoute::get('/', function () {[m
+[32m+[m[32m    return redirect()->route('home');[m
+[32m+[m[32m});[m
+ [m
+ Route::middleware('guest')->group(function () {[m
+[31m-    [m
+[31m-    Route::get('/', Home::class)->name('home');[m
+[31m-    Route::get('competition', Competition::class)->name('competition');[m
+[31m-[m
+[31m-[m
+     Route::get('admin/login', Login::class)->name('login');[m
+     Route::get('admin/forgot-password', ForgotPassword::class)->name('forgot-password');[m
+     Route::get('admin/reset-password/{token}', ResetPassword::class)->name('password.reset');[m
+[31m- [m
+[32m+[m
+[32m+[m[32m    Route::get('/', Home::class)->name('home');[m
+[32m+[m[32m    Route::get('competition', Competition::class)->name('competition');[m
+ });[m
+ [m
+ Route::middleware(['auth'])->group(function () {[m
+[36m@@ -79,6 +76,16 @@[m
+ [m
+ Route::get('404', PageNotFound::class)->name('errors.404');[m
+ [m
+[32m+[m[32m// Route::fallback(function () {[m
+[32m+[m[32m//     if (auth()->check()) {[m
+[32m+[m[32m//         // If the user is authenticated, show the 404 page with a 404 status code[m
+[32m+[m[32m//         return response()->view('livewire.page-not-found', ['menu' => '404'], 404);[m
+[32m+[m[32m//     } else {[m
+[32m+[m[32m//         // If the user is not authenticated, redirect them to the login page[m
+[32m+[m[32m//         return redirect()->route('login');[m
+[32m+[m[32m//     }[m
+[32m+[m[32m// });[m
+[32m+[m
+ Route::fallback(function () {[m
+     if (request()->is('admin/*')) {[m
+         if (auth()->check()) {[m
+[36m@@ -89,4 +96,4 @@[m
+     } else {[m
+         return response()->view('livewire.front.not-found');[m
+     }[m
+[31m-});[m
+[32m+[m[32m});[m
+\ No newline at end of file[m
