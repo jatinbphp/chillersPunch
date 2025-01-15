@@ -22,7 +22,7 @@
                         <div class="song-progress">
                             <div id="progress_bar_box">
                               <div class="progress">
-                                <div class="progress-bar bg-c-red" id="progress-bar-{{$value->id}}" style="width:0%"></div>
+                                <div class="progress-bar" id="progress-bar-{{$value->id}}" style="width:0%"></div>
                               </div>
                             </div>
                         </div>

@@ -575,10 +575,31 @@ img {
 	margin: 0 20px;
 }
 .song-progress .progress-bar {
-	background-color: #5ec6c8 !important;
-	box-shadow: none !important;
+	background-color: #5ec6c8;
+	box-shadow: none;
 }
-
+.song-progress .progress {
+    height: 3px;
+    overflow: visible;
+    margin-bottom: 0;
+}
+.song-progress .progress .progress-bar {
+    position: relative;
+}
+.song-progress .progress .progress-bar {
+    height: 100%;
+    color: inherit;
+}
+.song-progress .progress .progress-bar:after {
+    content: "";
+    background: #5ec6c8;
+    position: absolute;
+    right: -6px;
+    top: -5px;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+}
 
 
 .song-list-left ul li .song-name {
@@ -1839,35 +1860,3 @@ img {
 .btn, .sweet-alert button{font-weight: bold !important;}
 .sweet-alert button.cancel{background-color: #F37436 !important;}
 
-.progress {
-    height: 6px!important;
-    overflow: visible!important;
-    margin-bottom: 10px!important;
-}
-.progress .progress-bar {
-    position: relative;
-}
-
-.progress .progress-bar {
-    height: 100%;
-    color: inherit;
-}
-
-.bg-c-red {
-    background: #FF5370;
-}
-
-.progress .progress-bar.bg-c-red:after {
-    border: 3px solid #FF5370;
-}
-
-.progress .progress-bar:after {
-    content: "";
-    background: #fff;
-    position: absolute;
-    right: -6px;
-    top: -4px;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-}
