@@ -20,7 +20,7 @@
                     </div>
                     <div class="right">
                         <div class="song-progress">
-                            <div id="progress_bar_box">
+                            <div class="progress_bar_box">
                               <div class="progress">
                                 <div class="progress-bar" id="progress-bar-{{$value->id}}" style="width:0%"></div>
                               </div>
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Get progress bar and buttons
         const progressBar = document.getElementById(`progress-bar-${key}`);
-        const progressBox = document.getElementById(`progress_bar_box`);
+        const progressBox = progressBar.parentElement.parentElement;
         const fastForwardBtn = document.getElementById(`fast-forward-btn-${key}`);
         const playPauseBtn = document.getElementById(`play-pause-btn-${key}`);
 
