@@ -1,24 +1,40 @@
 <div class="main-section">
-    <section class="from-your">
+    <!-- <section class="from-your">
         <div class="left">
             <img class="from-your-img" data-aos="fade-up" src="{{url('assets/dist/front/img/from-your.png') }}" alt="" />
         </div>
         <div class="right">
             <img class="products-img" data-aos="fade-up" src="{{url('assets/dist/front/img/products-img.png') }}" alt="" />
         </div>
+    </section> -->
+
+    <section class="listen-vote-banner">
+        <div class="listen-now-btn">
+            <a href="#"></a>
+        </div>
+        <div class="submit-entry-btn">
+            <button type="button" data-toggle="modal" data-target="#listen-now"></button>
+        </div>
+        <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>
 
     <section class="win-your">
+        <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
+
+        <x-front.social-media-links />
         <div class="left">
             <img class="win-your-img" data-aos="zoom-in" src="{{url('assets/dist/front/img/WIN-YOUR.png') }}" alt="" />
         </div>
         <div class="right">
+
             <div class="center" data-aos="fade-up">
+                <h1>HOW TO ENTER</h1>
                 <h2>SHOWCASE YOUR MUSICAL TALENT AND BE A PART OF SOMETHING EPIC.</h2>
                 <p>Create the original Chillers Anthem that defines our community. Upload your original song and you could stand a chance to win your share of R100 000!</p>
             </div>
         </div>
     </section>
+
     <section class="easy-steps">
         <div class="easy-steps-box">
             <div class="submitting-img">
@@ -47,6 +63,7 @@
             </div>
         </div>
     </section>
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -110,6 +127,7 @@
             </div>
         </div>
     </div>
+
     <div class="loading-spinner-main" wire:loading.flex wire:target="submitForm">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>

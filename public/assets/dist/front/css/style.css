@@ -78,7 +78,7 @@ img {
 	left: 0;
 	right: 0;
 	top: 0;
-	padding: 40px 160px 40px 130px;
+	padding: 40px 30px 40px 130px;
 	z-index: 3;
 }
 .front-header .logo {
@@ -91,6 +91,20 @@ img {
 .menu-toggle {
 	margin-left: 30px;
 	position: relative;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.the-charts {
+	color: #000;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-family: 'chopic_stndrregular';
+    font-weight: 500;
+    margin-right: 30px;
+    top: 8px;
+    position: relative;
+    letter-spacing: 1.5px;
 }
 .menu-toggle .menu-list {
 	display: none;
@@ -158,7 +172,7 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	padding: 50px 70px 36px 50px;
+	padding: 40px 70px 36px 50px;
 	position: relative;
 }
 .footer-img {
@@ -246,39 +260,58 @@ img {
 	padding: 0 0 0 2%;
 	position: relative;
 }
+.win-your::before {
+    content: "";
+    position: absolute;
+    right: 100px;
+    top: -70px;
+    background-image: url(../img/listen-vote-main-right-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 218px;
+    width: 297px;
+}
 .win-your .left {
 	width: 53%;
 }
 .win-your .left .win-your-img {
-	width: 100%
+	min-width: calc(100% + 10%);
 }
 .win-your .right {
 	width: 47%;
 }
 .win-your .win-your-img {
-	margin-top: -10%;
-	margin-left: 5%;
-	margin-bottom: -14%;
+	margin-top: -6%;
+	margin-left: 4%;
+	margin-bottom: -13%;
 	position: relative;
 	z-index: 1;
 }
 .win-your .right .center {
-	padding-right: 20%;
+	padding-right: 15%;
 	padding-bottom: 5%;
+}
+.win-your h1 {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 86px;
+	font-family: 'chopic_stndrregular';
+	margin:0 0 50px 0;
 }
 .win-your h2 {
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 52px;
-	margin-top: 0;
+	font-size: 56px;
+	margin:0 0 50px 0;
 	font-family: 'museo_sans900';
 }
 .win-your p {
 	color: #fff;
-	font-size: 34px;
+	font-size: 36px;
 }
 .easy-steps {
-	background-image: url("../img/Background3.png");
+	background-image: url("../img/Background3.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -358,7 +391,7 @@ img {
 	font-family: 'museo_sans700';
 	border: none;
 	border-radius: 45px;
-	margin: 35px 0 45px 0;
+	margin: 35px 0 90px 0;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
@@ -381,8 +414,8 @@ img {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	width: 176px;
-	height: 156px;
+	width: 160px;
+	height: 142px;
 	display: flex;
     align-items: center;
     justify-content: center; 
@@ -390,30 +423,32 @@ img {
 .listen-vote-banner .listen-now-btn a {
 	color: #fff;
     text-transform: uppercase;
-    font-size: 34px;
+    font-size: 30px;
     font-family: 'chopic_stndrregular';
     font-weight: 500;
     background-color: transparent;
     border: none;
-    line-height: 34px;
+    line-height: 30px;
     margin: 0;
     padding: 0;
     transform: rotate(-18deg);
     text-align: center;
     text-decoration: none;
+    width: 100%;
+    height: 100%;
 
 }
 .listen-vote-banner .submit-entry-btn {
 	position: absolute;
 	z-index: 9;
-	right: 23%;
-	top: 15%;
+	right: 26%;
+	top: 10%;
 	background-image: url("../img/submit-entry.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	width: 176px;
-	height: 156px;
+	width: 160px;
+	height: 142px;
 	display: flex;
     align-items: center;
     justify-content: center; 
@@ -421,23 +456,32 @@ img {
 .listen-vote-banner .submit-entry-btn button {
 	color: #fff;
     text-transform: uppercase;
-    font-size: 34px;
+    font-size: 30px;
     font-family: 'chopic_stndrregular';
     font-weight: 500;
     background-color: transparent;
     border: none;
-    line-height: 34px;
+    line-height: 30px;
     margin: 0;
     padding: 0;
     transform: rotate(18deg);
     text-align: center;
+     width: 100%;
+    height: 100%;
 }
+
+.circles-img {
+	position: absolute;
+	top: -60px;
+	left: 50px;
+	opacity: 0.2;
+}
+
 .listen-vote-main {
 	background-image: url("../img/listen-vote.png");
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	position: relative;
 	background-color: #f37436;
 	margin-top: -5px;
 	position: relative;
@@ -455,7 +499,7 @@ img {
 	height: 218px;
 	width: 297px;
 }
-.listen-vote-main .social-media-left {
+.social-media-left {
 	position: absolute;
 	left: 45px;
 	top: -110px;
@@ -464,10 +508,10 @@ img {
 	list-style: none;
 	width: 30px;
 }
-.listen-vote-main .social-media-left li img {
+.social-media-left li img {
 	width: 30px;
 }
-.listen-vote-main .social-media-left li + li {
+.social-media-left li + li {
 	margin-top: 30px;
 }
 .listen-vote {
@@ -498,7 +542,6 @@ img {
 	padding-top: 0;
 }
 .footer-bg-color .footer-img {
-	margin-top: -75px;
 	position: relative;
 	z-index: 2;
 }
@@ -565,6 +608,9 @@ img {
 	height: 38px;
 	aspect-ratio: 1;
 	line-height: 38px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .song-list-left ul li .fast-forward-btn i {
 	font-size: 20px;
@@ -582,6 +628,7 @@ img {
     height: 3px;
     overflow: visible;
     margin-bottom: 0;
+    cursor: pointer;
 }
 .song-progress .progress .progress-bar {
     position: relative;
@@ -589,6 +636,7 @@ img {
 .song-progress .progress .progress-bar {
     height: 100%;
     color: inherit;
+    cursor: pointer;
 }
 .song-progress .progress .progress-bar:after {
     content: "";
@@ -600,11 +648,8 @@ img {
     width: 13px;
     height: 13px;
 }
-
-
 .song-list-left ul li .song-name {
-	padding-right: 15px;
-	max-width: 205px;
+	max-width: 240px;
 }
 .song-list-left ul li .song-name h6 {
 	font-size: 26px;
@@ -686,7 +731,7 @@ img {
 	background: #5ec6c8;
 }
 .corrent-top-song {
-	width: 53%;
+	width: 50%;
 	border: 20px solid #000;
 	background-color: #fff;
 	padding: 0 65px 25px 85px;
@@ -732,7 +777,7 @@ img {
 	border-bottom: none;
 }
 .corrent-top-song ul li .song-img {
-	margin-right: 40px; 
+	margin-right: 35px; 
 }
 .corrent-top-song ul li .song-img img {
 	width: 115px;
@@ -741,7 +786,7 @@ img {
 }
 .corrent-top-song ul li .song-name {
 	padding-right: 15px;
-	max-width: 44%;
+	max-width: 40%;
 }
 .corrent-top-song ul li .song-name h6 {
 	font-size: 26px;
@@ -767,10 +812,9 @@ img {
     justify-content: flex-end;
     flex-direction: column;
 }
-/*.corrent-top-song ul li .play-progress input[type=range] {
-	width: 230px;
-}*/
-
+.corrent-top-song ul li .play-progress .song-progress {
+	margin: 0;
+}
 
 
 
@@ -884,6 +928,43 @@ img {
 	fill: #fff;
 	margin-right: 5px;
 }
+.text-red{color: red;}
+.loading-spinner-main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    color: var(--primary);
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+
+}
+.loading-spinner-main {
+    display: none;
+}
+.loading-spinner-main[wire\\:loading] {
+    display: flex !important;
+}
+.spinner-border {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -.125em;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: .75s linear infinite spinner-border;
+    animation: .75s linear infinite spinner-border;
+}
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+.btn, .sweet-alert button{font-weight: bold !important;}
+.sweet-alert button.cancel{background-color: #F37436 !important;}
 
 
 
@@ -892,7 +973,7 @@ img {
 
 @media screen and (max-width: 1750px) {
 	.front-header {
-		padding: 30px 110px 30px 90px;
+		padding: 30px 30px 30px 90px;
 	}
 	.front-header .logo img {
 		max-width: 180px;
@@ -1000,7 +1081,7 @@ img {
 		font-size: 60px;
 	}
 	.listen-vote .heding p {
-		font-size: 24px;
+		font-size: 22px;
 		margin: 0;
 	}
 	.corrent-top-song::before {
@@ -1016,20 +1097,20 @@ img {
 	}
 	.corrent-top-song h2 {
 		padding: 20px 0 0px 0;
-		font-size: 46px;
+		font-size: 50px;
 	}
 	.song-list {
-		grid-gap: 0 60px;
+		grid-gap: 0 50px;
 	}
 	.song-list-left ul li .song-name h6,
 	.corrent-top-song ul li .song-name h6 {
-		font-size: 22px;
+		font-size: 20px;
 		margin: 0 0 5px 0;
 		white-space: nowrap;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
 	}
-	.song-list-left ul li .song-name p
+	.song-list-left ul li .song-name p,
 	.corrent-top-song ul li .song-name p {
 		font-size: 14px;
 		white-space: nowrap;
@@ -1037,7 +1118,7 @@ img {
 	    text-overflow: ellipsis;
 	}
 	.corrent-top-song ul li .song-img {
-		margin-right: 30px;
+		margin-right: 20px;
 	}
 	.corrent-top-song ul li .song-img img {
 		width: 85px;
@@ -1072,15 +1153,44 @@ img {
 	.song-list-left {
 		padding-top: 90px;
 	}
-	.footer-bg-color .footer-img {
-		margin-top: -45px;
+	.song-list-left ul li .play-button i {
+		font-size: 28px;
 	}
-
+	.song-list-left ul li .fast-forward-btn {
+		line-height: 28px;
+		height: 28px;
+		border-width: 3px;
+	}
+	.song-list-left ul li .fast-forward-btn i {
+		font-size: 13px;
+	}
+	.song-list-left ul li .icon {
+		margin-right: 15px;
+	}
+	.song-list-left ul li .song-name {
+    	max-width: 140px;
+	}
+	.song-progress {
+		width: 170px;
+		margin: 0 15px;
+	}
+	.song-list-left ul li .song-btn button {
+		width: 40px;
+	}
+	.song-list-left ul li .song-btn button img {
+    	max-width: 60%;
+	}
+	.corrent-top-song ul li .play-button i {
+		font-size: 40px;
+	}
+	.song-list-scroll {
+		max-height: 440px;
+	}
 }
 
 @media screen and (max-width: 1300px) {
 	.front-header {
-		padding: 25px 100px 25px 80px;
+		padding: 25px 30px 25px 80px;
 	}
 	.win-your h2 {
 		font-size: 33px;
@@ -1099,7 +1209,7 @@ img {
 
 @media screen and (max-width: 1199px) {
 	.front-header {
-		padding: 20px 80px 20px 66px;
+		padding: 20px 30px 20px 66px;
 	}
 	.front-header .logo img {
 		max-width: 130px;
@@ -1264,18 +1374,15 @@ img {
 		margin: 50px auto 0 auto;
 		font-size: 14px;
 	}
-	.footer-bg-color .footer-img {
-		margin-top: -35px;
-	}
-	.listen-vote-main .social-media-left li img {
+.social-media-left li img {
 		width: 20px;
 	}
-	.listen-vote-main .social-media-left {
+.social-media-left {
 		left: 20px;
 		top: -66px;
 		width: 20px;
 	}
-	.listen-vote-main .social-media-left li + li {
+.social-media-left li + li {
 		margin-top: 15px;
 	}
 }
@@ -1313,7 +1420,7 @@ img {
 		right: 100%;
 	}
 	.front-header {
-		padding: 18px 60px 18px 50px;
+		padding: 18px 30px 18px 50px;
 	}
 	.menu-toggle .toggle img {
 		max-width: 30px;
@@ -1452,7 +1559,7 @@ img {
 		max-width: 150px;
 	}
 	.front-header {
-		padding: 12px 40px 12px 30px;
+		padding: 12px 30px 12px 30px;
 	}
 	.front-header .logo img {
 		max-width: 65px;
@@ -1559,9 +1666,6 @@ img {
 	.song-list-left .submissions-btn {
 		margin-top: 30px;
 	}
-	.footer-bg-color .footer-img {
-		margin-top: 0;
-	}
 	.listen-vote .heding {
 		max-width: 100%;
 		padding: 15px 15px 0 15px;
@@ -1572,15 +1676,15 @@ img {
 		right: 10px;
 		top: -10px;
 	}
-	.listen-vote-main .social-media-left {
+.social-media-left {
 		left: 10px;
 		top: -48px;
 		width: 14px;
 	}
-	.listen-vote-main .social-media-left li + li {
+.social-media-left li + li {
 		margin-top: 8px;
 	}
-	.listen-vote-main .social-media-left li img {
+.social-media-left li img {
 		width: 14px;
 	}
 	.return-home a {
@@ -1660,7 +1764,7 @@ img {
 		margin-bottom: -5%;
 	}
 	.win-your .left .win-your-img {
-		width: 95%;
+		width: 100%;
 	}
 	.front-footer {
 		padding: 10px 15px 10px 15px;
@@ -1684,7 +1788,7 @@ img {
 	#toggleInput {
 		padding: 3px 10px;
 	}
-	.listen-vote-main .social-media-left {
+.social-media-left {
 		left: 5px;
 		top: -20px;
 	}
@@ -1822,41 +1926,4 @@ img {
 		font-size: 13px;
 	}
 }
-.text-red{color: red;}
-.loading-spinner-main {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    color: var(--primary);
-    background-color: rgba(0, 0, 0, 0.3);
-    justify-content: center;
-    align-items: center;
-    z-index: 9;
-
-}
-.loading-spinner-main {
-    display: none;
-}
-.loading-spinner-main[wire\\:loading] {
-    display: flex !important;
-}
-.spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    vertical-align: -.125em;
-    border: .25em solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    -webkit-animation: .75s linear infinite spinner-border;
-    animation: .75s linear infinite spinner-border;
-}
-@keyframes spinner-border {
-  to { transform: rotate(360deg); }
-}
-.btn, .sweet-alert button{font-weight: bold !important;}
-.sweet-alert button.cancel{background-color: #F37436 !important;}
 

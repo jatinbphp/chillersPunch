@@ -1,16 +1,18 @@
 <div class="main-section">
     <section class="listen-vote-banner">
         <div class="listen-now-btn">
-            <a href="#">Listen Now</a>
+            <a href="#"></a>
         </div>
         <div class="submit-entry-btn">
-            <button type="button" data-toggle="modal" data-target="#listen-now">Submit Entry</button>
+            <button type="button" data-toggle="modal" data-target="#listen-now"></button>
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>
+
     <section class="listen-vote-main">
         <x-front.social-media-links />
         <div class="listen-vote">
+            <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
             <div class="heding" data-aos="fade-up">
                 <h2>LISTEN & VOTE</h2>
                 <p>Public voting is open, so browse through the dope entries from our talented Chillers fam. Support your fellow Chillers by listening, sharing, and getting ready to vote for your favourite. Let the best beat win!</p>
@@ -40,9 +42,13 @@
                                         <button class="play-button" title="View Video" data-id="{{$value->id}}" data-url="{{route('submission.video',['id' => $value->id])}}">
                                             <i class="fa-regular fa-circle-play"></i>
                                         </button>
-                                        <!-- <div id="progress_bar">
-                                <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar1" value="0" max="100" />
-                                </div> -->
+                                        <div class="song-progress">
+                                            <div class="progress_bar_box">
+                                              <div class="progress">
+                                                <div class="progress-bar" id="progress-bar-{{$value->id}}" style="width:0%"></div>
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -65,6 +71,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="listen-now" tabindex="-1" role="dialog" aria-labelledby="listenNowlLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -72,5 +79,6 @@
             </div>
         </div>
     </div>
+    
 </div>
 

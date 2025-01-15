@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fast forward button event
         fastForwardBtn.addEventListener("click", () => {
-            audio.currentTime += 5; // Skip 5 seconds
+            audio.currentTime += 10; // Skip 10 seconds
         });
 
         // Update progress bar as audio plays
