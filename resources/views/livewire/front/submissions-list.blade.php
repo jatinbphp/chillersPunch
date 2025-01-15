@@ -9,7 +9,7 @@
                             <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
                                 <i class="fa-regular fa-circle-play"></i>
                             </button>
-                            <button id="fast-forward-btn-{{$value->id}}" class="play-button fast-forward-btn">
+                            <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
                                 <i class="fas fa-fast-forward"></i>
                             </button>
                         </div>
@@ -22,13 +22,13 @@
                         <div class="song-progress">
                             <div id="progress_bar_box">
                                 <div id="progress_bar">
-                                <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar" value="0" max="100" />
+                                <input type="range" id="progress-bar-{{$value->id}}" class="progress-bar1" value="0" max="100" />
                                 </div>
                             </div>
                         </div>
                         <div class="song-btn">
                             <button><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
-                            <button><img src="{{url('assets/dist/front/img/upload-free-icon.png') }}" alt="" /></button>
+                            <button><img src="{{url('assets/dist/front/img/upload-file-icon.png') }}" alt="" /></button>
                         </div>
                     </div>
                 </li>
@@ -102,4 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// document.querySelectorAll('input[type="range"]').forEach(slider => {
+//     slider.addEventListener('input', function () {
+//         const value = (this.value - this.min) / (this.max - this.min) * 100;
+//         this.style.setProperty('--value', `${value}%`);
+//     });
+// });
+
 </script>
