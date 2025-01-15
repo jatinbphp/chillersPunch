@@ -1838,3 +1838,36 @@ img {
 }
 .btn, .sweet-alert button{font-weight: bold !important;}
 .sweet-alert button.cancel{background-color: #F37436 !important;}
+
+.progress {
+    height: 6px!important;
+    overflow: visible!important;
+    margin-bottom: 10px!important;
+}
+.progress .progress-bar {
+    position: relative;
+}
+
+.progress .progress-bar {
+    height: 100%;
+    color: inherit;
+}
+
+.bg-c-red {
+    background: #FF5370;
+}
+
+.progress .progress-bar.bg-c-red:after {
+    border: 3px solid #FF5370;
+}
+
+.progress .progress-bar:after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
