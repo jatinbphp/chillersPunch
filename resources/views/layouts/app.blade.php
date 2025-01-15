@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
         <link rel="stylesheet" href="{{ URL('assets/dist/plugins/toastr/toastr.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('assets/dist/plugins/ladda/ladda-themeless.min.css')}}">
+        <link rel="stylesheet" href="{{ URL('assets/dist/css/custom.css') }}?v={{ time() }}">
         @livewireStyles
     </head>
     <body class="hold-transition sidebar-mini sidebar-collapse" id="app">

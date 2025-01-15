@@ -60,8 +60,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="submissionTitle" class="control-label"> Title :<span class="text-red">*</span></label>
-                                    <input type="text" id="submissionTitle" class="form-control" wire:model="submissionTitle" placeholder="Enter Title">
+                                    <label for="submissionTitle" class="control-label">Song Title :<span class="text-red">*</span></label>
+                                    <input type="text" id="submissionTitle" class="form-control" wire:model="submissionTitle" placeholder="Enter Song Title">
                                     @error('submissionTitle') <span class="text-danger w-100">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -88,9 +88,16 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="videoFile" class="control-label"> Upload Video File :<span class="text-red">*</span></label>
-                                    <input type="file" class="form-control" id="videoFile" wire:model="videoFile">
+                                    <label for="videoFile" class="control-label"> Upload Song File :<span class="text-red">*</span></label>
+                                    <input type="file" class="form-control" id="videoFile" wire:model="videoFile" accept=".mp3, .wav, .ogg, .aac, .flac, .m4a">
                                     @error('videoFile') <span class="text-danger w-100">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="thumbnail" class="control-label"> Upload Song Cover Image :</label>
+                                    <input type="file" class="form-control" id="thumbnail" wire:model="thumbnail" accept=".jpg, .jpeg, .png, .gif, .bmp, .webp, .svg">
+                                    @error('thumbnail') <span class="text-danger w-100">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                         </div>

@@ -48,6 +48,20 @@ body {
 
 }
 
+::-webkit-scrollbar {
+	width: 8px;
+	height:8px;
+	border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #fff;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #5ec6c8;
+	border-radius: 8px;
+}
+
+
 img {
 	max-width: 100%;
 }
@@ -352,9 +366,71 @@ img {
 	color: #fff;
 	background-color: #fdbe13;
 }
-
+.listen-vote-banner {
+	position: relative;
+}
 .listen-vote-banner img {
 	width: 100%;
+}
+.listen-vote-banner .listen-now-btn {
+	position: absolute;
+	z-index: 9;
+	left: 23%;
+	top: 15%;
+	background-image: url("../img/listen-now.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 176px;
+	height: 156px;
+	display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.listen-vote-banner .listen-now-btn a {
+	color: #fff;
+    text-transform: uppercase;
+    font-size: 34px;
+    font-family: 'chopic_stndrregular';
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    line-height: 34px;
+    margin: 0;
+    padding: 0;
+    transform: rotate(-18deg);
+    text-align: center;
+    text-decoration: none;
+
+}
+.listen-vote-banner .submit-entry-btn {
+	position: absolute;
+	z-index: 9;
+	right: 23%;
+	top: 15%;
+	background-image: url("../img/submit-entry.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 176px;
+	height: 156px;
+	display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.listen-vote-banner .submit-entry-btn button {
+	color: #fff;
+    text-transform: uppercase;
+    font-size: 34px;
+    font-family: 'chopic_stndrregular';
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    line-height: 34px;
+    margin: 0;
+    padding: 0;
+    transform: rotate(18deg);
+    text-align: center;
 }
 .listen-vote-main {
 	background-image: url("../img/listen-vote.png");
@@ -395,7 +471,7 @@ img {
 	margin-top: 30px;
 }
 .listen-vote {
-	padding: 0 145px;
+	padding: 0 130px;
 }
 .listen-vote .heding {
 	text-align: center;
@@ -413,7 +489,7 @@ img {
 }
 .listen-vote .heding  p {
 	color: #fff;
-	font-size: 34px;
+	font-size: 32px;
 	margin: 20px 0 0 0;
 }
 .footer-bg-color {
@@ -428,51 +504,152 @@ img {
 }
 .song-list {
 	display: flex;
-	grid-gap: 0 90px;
+	grid-gap: 0 80px;
 	align-items: flex-start;
 }
 .song-list-left {
-	width: 45%;
+	width: 47%;
 	padding-top: 150px;
+}
+.song-list-scroll {
+	max-height: 645px;
+	overflow-y: hidden;
+    overflow-x: auto;
 }
 .song-list-left ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	padding-right: 10px;
 }
 .song-list-left ul li {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	padding: 30px 15px;
 	border-bottom: 1px solid #fff;
+}
+.song-list-left ul li .left,
+.song-list-left ul li .right {
+	display: flex;
+	align-items: center;
+}
+.song-list-left ul li .icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 25px;
 }
 .song-list-left ul li .play-button {
 	background: transparent;
 	border: none;
 	padding: 0;
 	cursor: pointer;
-	margin-right: 50px;  
+	 
 }
-.song-list-left ul li .play-button img {
-	min-width: 52px;
+.song-list-left ul li .fast-forward-btn {
+	margin-left: 6px; 
+}
+
+.song-list-left ul li .play-button i {
+	font-size: 38px;
 	aspect-ratio: 1;
+	color: #fff;
 }
+.song-list-left ul li .fast-forward-btn {
+	background: transparent;
+	border: 4px solid #FFE;
+	padding: 0;
+	cursor: pointer;
+	border-radius: 100%;
+	height: 38px;
+	aspect-ratio: 1;
+	line-height: 38px;
+}
+.song-list-left ul li .fast-forward-btn i {
+	font-size: 20px;
+	color: #fff;
+}
+.song-progress {
+	width: 240px;
+	margin: 0 20px;
+}
+.song-progress .progress-bar {
+	background-color: #5ec6c8;
+	box-shadow: none;
+}
+.song-progress .progress {
+    height: 3px;
+    overflow: visible;
+    margin-bottom: 0;
+}
+.song-progress .progress .progress-bar {
+    position: relative;
+}
+.song-progress .progress .progress-bar {
+    height: 100%;
+    color: inherit;
+}
+.song-progress .progress .progress-bar:after {
+    content: "";
+    background: #5ec6c8;
+    position: absolute;
+    right: -6px;
+    top: -5px;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+}
+
 
 .song-list-left ul li .song-name {
 	padding-right: 15px;
+	max-width: 205px;
 }
 .song-list-left ul li .song-name h6 {
-	font-size: 30px;
+	font-size: 26px;
 	color: #fff;
 	margin: 0 0 10px 0;
-	font-family: 'museo_sans700';
+	font-family: 'museo_sans500';
+	white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
 }
 .song-list-left ul li .song-name p {
 	font-size: 20px;
 	color: #fff;
 	margin: 0;
 	font-family: 'museo_sans300';
+	white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
 }
+.song-list-left ul li .song-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.song-list-left ul li .song-btn button {
+	background: #fdbe13;
+	border: none;
+	cursor: pointer;
+	width: 58px;
+	padding: 0;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1 / 1;
+}
+.song-list-left ul li .song-btn button:hover {
+	background: #5ec6c8;
+}
+.song-list-left ul li .song-btn button + button {
+	margin-left: 8px;
+}
+
+
 .song-list-left ul li .vote-button {
 	background: #fdbe13;
 	border: none;
@@ -509,7 +686,7 @@ img {
 	background: #5ec6c8;
 }
 .corrent-top-song {
-	width: 55%;
+	width: 53%;
 	border: 20px solid #000;
 	background-color: #fff;
 	padding: 0 65px 25px 85px;
@@ -558,33 +735,59 @@ img {
 	margin-right: 40px; 
 }
 .corrent-top-song ul li .song-img img {
-	min-width: 115px;
+	width: 115px;
 	border-radius: 10px;
 	aspect-ratio: 1;
 }
 .corrent-top-song ul li .song-name {
 	padding-right: 15px;
+	max-width: 44%;
 }
 .corrent-top-song ul li .song-name h6 {
-	font-size: 30px;
+	font-size: 26px;
 	color: #000;
 	margin: 0 0 10px 0;
-	font-family: 'museo_sans700';
+	font-family: 'museo_sans500';
+	    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .corrent-top-song ul li .song-name p {
 	font-size: 20px;
 	color: #000;
 	margin: 0;
 	font-family: 'museo_sans300';
+	    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+.corrent-top-song ul li .play-progress {
+	margin-left: auto;
+	display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+/*.corrent-top-song ul li .play-progress input[type=range] {
+	width: 230px;
+}*/
+
+
+
+
+
 .corrent-top-song ul li .play-button {
 	background: transparent;
 	border: none;
 	padding: 0;
 	cursor: pointer;
-	margin-left: auto; 
+	margin-left: auto;
+	margin-bottom: 15px; 
 }
-
+.corrent-top-song ul li .play-button i {
+	font-size: 54px;
+    aspect-ratio: 1;
+    color: #5ec6c8;
+}
 .terms-and-conditions .listen-vote-main {
     background-color: #f37436;
     background-image: none;
@@ -681,6 +884,9 @@ img {
 	fill: #fff;
 	margin-right: 5px;
 }
+
+
+
 
 /* Responsive css */
 
@@ -819,16 +1025,22 @@ img {
 	.corrent-top-song ul li .song-name h6 {
 		font-size: 22px;
 		margin: 0 0 5px 0;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
 	}
 	.song-list-left ul li .song-name p
 	.corrent-top-song ul li .song-name p {
 		font-size: 14px;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
 	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 30px;
 	}
 	.corrent-top-song ul li .song-img img {
-		min-width: 85px;
+		width: 85px;
 		border-radius: 6px;
 	}
 	.corrent-top-song ul li {
@@ -842,9 +1054,7 @@ img {
 	.song-list-left ul li {
 		padding: 20px 10px;
 	}
-	.song-list-left ul li .play-button {
-		margin-right: 30px;
-	}
+
 	.listen-vote {
 		padding: 0 100px;
 	}
@@ -1014,7 +1224,7 @@ img {
 		margin-right: 20px;
 	}
 	.corrent-top-song ul li .song-img img {
-		min-width: 60px;
+		width: 60px;
 		border-radius: 6px;
 	}
 	.song-list-left ul li .song-name h6, 
@@ -1517,7 +1727,7 @@ img {
 		padding: 15px 8px;
 	}
 	.corrent-top-song ul li .song-img img {
-		min-width: 50px;
+		width: 50px;
 	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 15px;
@@ -1582,7 +1792,7 @@ img {
 		padding: 10px 6px;
 	}
 	.corrent-top-song ul li .song-img img {
-		min-width: 40px;
+		width: 40px;
 	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 10px;
@@ -1649,3 +1859,4 @@ img {
 }
 .btn, .sweet-alert button{font-weight: bold !important;}
 .sweet-alert button.cancel{background-color: #F37436 !important;}
+

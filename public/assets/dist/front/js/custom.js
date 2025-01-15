@@ -17,24 +17,24 @@
     });
 })();
 
-$('.listen-vote-main').on('click', '.play-button', function (event) {
-    event.preventDefault();
-    var url = $(this).attr('data-url');
-    var id = $(this).attr("data-id");
+// $('.listen-vote-main').on('click', '.play-button', function (event) {
+//     event.preventDefault();
+//     var url = $(this).attr('data-url');
+//     var id = $(this).attr("data-id");
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        data: {
-            'id': id
-        },
-        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
-        success: function(data){
-            $('#commonModal .modal-content').html(data);
-            $('#commonModal').modal('show');
-        }
-    });
-});
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         data: {
+//             'id': id
+//         },
+//         headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+//         success: function(data){
+//             $('#commonModal .modal-content').html(data);
+//             $('#commonModal').modal('show');
+//         }
+//     });
+// });
 
 document.addEventListener('livewire:init', function () {
     Livewire.on('showsuccessalert', () => {

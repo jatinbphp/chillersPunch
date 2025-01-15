@@ -11,7 +11,7 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th>Title :</th>
+                        <th>Song Title :</th>
                         <td>{{$submissioInfo->submissionTitle}}</td>
                     </tr>
                     <tr>
@@ -35,8 +35,19 @@
                         <td>{!! $submissioInfo->isWinner == 1 ? 'Yes' : 'No' !!}</td>
                     </tr>
                     <tr>
-                        <th>Video :</th>
-                        <td><iframe class="embed-responsive-item w-100" style="height: 350px !important;" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen=""></iframe>  </td>
+                        <th>Song File :</th>
+                        <td>
+                            {{-- <iframe class="embed-responsive-item w-100" style="height: 350px !important;" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen=""></iframe>   --}}
+                         
+                            <div id="audio-player-container">
+                                <img id="cover-image" src="{{ file_exists(public_path($submissioInfo->thumbnail)) ? url($submissioInfo->thumbnail) : url('assets/dist/img/default-song-cover.png') }}" alt="Cover Image" />
+                                <audio id="player" controls>
+                                    <source id="sourceOgg" src="audio/track.ogg" type="audio/ogg" />
+                                    <source id="sourceMp3" src="{{ url($submissioInfo->videoFile) }}" type="audio/mp3" />
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

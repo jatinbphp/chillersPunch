@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/sweetalert.min.css') }}">
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/aos.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     @livewireStyles
     @vite([ 'resources/css/app.css' ])
 </head>
