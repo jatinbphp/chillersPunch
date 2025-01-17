@@ -50,7 +50,7 @@
 
     <footer class="front-footer footer-bg-color">
         <div class="footer-img">
-            <a href="{{ route('home') }}" wire:navigate><img data-aos="zoom-in" src="{{url('assets/dist/front/img/footer-img.png') }}" alt="" /></a>
+            <a href="{{ route('home') }}" wire:navigate><img src="{{url('assets/dist/front/img/footer-img.png') }}" alt="" /></a>
         </div>
         <ul class="footer-link">
             <li><a href="{{ route('terms-and-conditions') }}" wire:navigate>Terms & Conditions</a></li>
