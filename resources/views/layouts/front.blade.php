@@ -39,6 +39,8 @@
                 <ul class="menu-list">
                     <li><a href="{{ route('home') }}" wire:navigate>Home</a></li>
                     <li><a href="{{ route('listen-and-vote') }}" wire:navigate>Listen & Vote</a></li>
+                    <li><a href="{{ route('thecharts') }}" wire:navigate>The Charts</a></li>
+                    <li><a href="{{ route('thefinalists') }}" wire:navigate>The Finalist</a></li>
                 </ul>
             </div>
         </div>

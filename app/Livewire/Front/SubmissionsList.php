@@ -19,9 +19,7 @@ class SubmissionsList extends Component
     }
 
     public function fetchSubmissions(){
-        if ($this->isChartsPage) {
-            $this->submissionsList = Submission::orderBy('id', 'desc')->get();
-        }else if($this->isFinalistPage){
+        if($this->isFinalistPage){
             $this->submissionsList = Submission::orderBy('id', 'desc')->where('isWinner',1)->take($this->totalVisible)->get();
         } else {
             $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
