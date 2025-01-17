@@ -825,6 +825,10 @@ img {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.corrent-top-song ul li .song-name .likes-text {
+	color: #f37436;
+	font-size: 14px;
+}
 .corrent-top-song ul li .play-progress {
 	margin-left: auto;
 	display: flex;
@@ -2117,9 +2121,6 @@ img {
 	.menu-toggle .menu-list a {
 		font-size: 14px;
 	}
-	.corrent-top-song ul li .song-img img {
-		width: 40px;
-	}
 	.corrent-top-song ul li .song-img {
 		margin-right: 10px;
 	}
@@ -2128,7 +2129,7 @@ img {
 		flex-wrap: wrap;
 	}
 	.corrent-top-song ul li .song-name {
-		width: calc(100% - 50px);
+		width: calc(100% - 70px);
 		padding-right: 0;
 	}
 	.corrent-top-song ul li .play-progress {

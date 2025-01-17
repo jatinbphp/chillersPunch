@@ -36,6 +36,7 @@
                                     <div class="song-name">
                                         <h6>{{$value->submissionTitle}}</h6>
                                         <p>{{$value->fullName}}</p>
+                                        <div class="likes-text">300 Likes</div>
                                     </div>
                                     
                                     <div class="play-progress">
