@@ -11,12 +11,11 @@
 
     <section class="the-finalists">
 		<x-front.social-media-links />
-		 <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
+	    <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
     	
-    		<h2 data-aos="fade-up">THE FINALISTS</h2>
-            <div class="song-list" data-aos="fade-up">
-                <livewire:front.submissions-list :isChartsPage="false" :isFinalistPage="true"/>
-            </div>
-            
+		<h2 data-aos="fade-up">THE FINALISTS</h2>
+        <div class="song-list" data-aos="fade-up">
+            <livewire:front.submissions-list :isChartsPage="false" :isFinalistPage="true"/>
+        </div>
     </section>
 </div>

@@ -18,14 +18,13 @@
 
     <section class="the-finalists the-charts-page">
 		<x-front.social-media-links />
-		 <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
+	  <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
     	
-    		<div class="the-charts-title-img text-center" data-aos="fade-up">
-    			<img src="{{url('assets/dist/front/img/the-charts-title-img.png') }}" alt="" />
-    		</div>
-            <div class="song-list" data-aos="fade-up">
-                <livewire:front.submissions-list :isChartsPage="true" :isFinalistPage="false"/>
-            </div>
-            
+		<div class="the-charts-title-img text-center" data-aos="fade-up">
+			<img src="{{url('assets/dist/front/img/the-charts-title-img.png') }}" alt="" />
+		</div>
+        <div class="song-list" data-aos="fade-up">
+            <livewire:front.submissions-list :isChartsPage="true" :isFinalistPage="false"/>
+        </div>
     </section>
 </div>
