@@ -66,7 +66,7 @@
     </footer>
     @livewireScripts
     <script src="{{ URL('assets/dist/front/js/jquery.min.js') }}"></script>
-    <script src="{{ URL('assets/dist/front/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL('assets/dist/front/js/bootstrap.min.js') }}" data-navigate-once></script>
     <script src="{{ URL('assets/dist/front/js/sweetalert.min.js') }}"></script>
     <script src="{{ URL('assets/dist/front/js/aos.js') }}"></script>
     <script src="{{ URL('assets/dist/front/js/custom.js') }}"></script>

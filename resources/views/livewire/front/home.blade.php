@@ -55,7 +55,7 @@
         </div>
     </section>    
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" wire:navigate.self>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,6 +106,15 @@
                                     <label for="thumbnail" class="control-label"> Upload Song Cover Image :</label>
                                     <input type="file" class="form-control" id="thumbnail" wire:model="thumbnail" accept=".jpg, .jpeg, .png, .gif, .bmp, .webp, .svg">
                                     @error('thumbnail') <span class="text-danger w-100">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="checkbox" class="form-check-input" id="agreeTerms" name="agreeTerms" wire:model="agreeTerms">
+                                    <label class="form-check-label" for="agreeTerms">
+                                      I agree to the <a href="{{ route('terms-and-conditions') }}" target="_blank">Terms and Conditions</a>.
+                                    </label>
+                                    <p>@error('agreeTerms') <span class="text-danger w-100">{{ $message }}</span> @enderror<p>
                                 </div>
                             </div>
                         </div>

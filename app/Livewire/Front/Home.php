@@ -12,7 +12,7 @@ class Home extends Component
 {
     use WithFileUploads;
 
-    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile, $activeCompetition, $thumbnail;
+    public $submissionTitle, $fullName, $emailAddress, $phoneNumber, $videoFile, $activeCompetition, $thumbnail, $agreeTerms;
 
     protected $rules = [
         'submissionTitle' => 'required|string|max:255',
@@ -21,12 +21,14 @@ class Home extends Component
         'phoneNumber' => 'required|regex:/^\+?[0-9]{10,15}$/',
         'videoFile' => 'required|file|mimes:mp3,wav,aac,flac',
         'thumbnail' => 'nullable|file|mimes:jpeg,png,jpg|max:2048',
+        'agreeTerms' => 'required',
     ];
 
     protected $messages = [
         'submissionTitle.required' => 'The song title field is required.',
         'videoFile.required' => 'Please upload a valid audio file.',
         'videoFile.mimes' => 'The audio file must be one of the following types: MP3, WAV, AAC, or FLAC.',
+        'agreeTerms.required' => 'Please accept the Terms & Conditions.',
     ];
 
     public function mount(){

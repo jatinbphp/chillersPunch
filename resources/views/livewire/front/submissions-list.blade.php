@@ -48,7 +48,7 @@
                 VIEW ALL SUBMISSIONS
             </button>
         @endif
-    @endif
+    @endif 
 </div>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
@@ -140,5 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
 </script>
 
