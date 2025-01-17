@@ -48,9 +48,9 @@ class ListenAndVote extends Component
 
             $this->topSubmissions = DB::table('submissions')
                 ->join('votings', 'submissions.id', '=', 'votings.submissionId')
-                ->select('submissions.id', 'submissions.submissionTitle', 'submissions.fullName', DB::raw('COUNT(votings.submissionId) as vote_count'))
+                ->select('submissions.id', 'submissions.submissionTitle', 'submissions.fullName', 'submissions.videoFile', DB::raw('COUNT(votings.submissionId) as vote_count'))
                 ->where('submissions.competitionId', $competition->id)
-                ->groupBy('submissions.id', 'submissions.submissionTitle', 'submissions.fullName')
+                ->groupBy('submissions.id', 'submissions.submissionTitle', 'submissions.fullName', 'submissions.videoFile')
                 ->orderByDesc('vote_count')
                 ->limit(5)
                 ->get();

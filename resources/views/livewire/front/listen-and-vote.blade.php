@@ -40,7 +40,7 @@
                                     </div>
                                     
                                     <div class="play-progress">
-                                        <button class="play-button" title="View Video" data-id="{{$value->id}}" data-url="{{route('submission.video',['id' => $value->id])}}">
+                                        <button class="play-button play-pause-btn" id="play-pause-btn-{{$value->id}}" data-audio="{{asset($value->videoFile)}}" data-id="{{$value->id}}">
                                             <i class="fa-regular fa-circle-play"></i>
                                         </button>
                                         <div class="song-progress">
@@ -51,8 +51,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </li>
                             @endforeach
                         @else

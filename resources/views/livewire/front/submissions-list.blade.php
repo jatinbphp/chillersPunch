@@ -6,7 +6,7 @@
                     <li>
                         <div class="left">
                             <div class="icon">
-                                <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
+                                <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}"  data-id="{{$value->id}}">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </button>
                                 <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
