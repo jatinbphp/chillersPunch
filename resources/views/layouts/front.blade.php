@@ -7,7 +7,7 @@
     <link rel="icon" href="{{ asset('assets/dist/img/favicon.jpg') }}" type="image/x-icon" />
     <title>{{ $menu }} | {{ config('app.name', 'Laravel') }}</title>
     <meta name="_token" content="{!! csrf_token() !!}"/>
-    <link rel="stylesheet" href="{{ URL('assets/dist/front/css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL('assets/dist/front/css/style.css?v=1') }}">
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/sweetalert.min.css') }}">
     <link rel="stylesheet" href="{{ URL('assets/dist/front/css/aos.css') }}">

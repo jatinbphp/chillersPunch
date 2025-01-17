@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="song-btn">
-                            <button><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
+                            <button class="vote-button" data-vote-id="{{ $value->id }}"><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
                             <button><img src="{{url('assets/dist/front/img/upload-file-icon.png') }}" alt="" /></button>
                         </div>
                     </div>

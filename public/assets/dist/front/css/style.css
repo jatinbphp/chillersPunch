@@ -731,24 +731,6 @@ img {
 	margin-left: 8px;
 }
 
-
-.song-list-left ul li .vote-button {
-	background: #fdbe13;
-	border: none;
-	cursor: pointer;
-	min-width: 160px;
-	color: #000;
-	font-family: 'museo_sans700';
-	font-size: 20px;
-	padding: 12px 15px;
-	border-radius: 24px;
-	margin-left: auto;
-	transition: all 0.3s ease;
-	text-transform: uppercase;
-}
-.song-list-left ul li .vote-button:hover {
-	background: #5ec6c8;
-}
 .song-list-left .submissions-btn {
 	background: #000;
 	border: none;
@@ -1270,11 +1252,6 @@ img {
 	.listen-vote {
 		padding: 0 100px;
 	}
-	.song-list-left ul li .vote-button {
-		min-width: 120px;
-		font-size: 16px;
-		padding: 8px 15px;
-	}
 	.song-list-left .submissions-btn {
 		width: 330px;
 		padding: 14px 20px;
@@ -1640,11 +1617,6 @@ img {
 	}
 	.song-list-left ul li {
 		padding: 14px 6px;
-	}
-	.song-list-left ul li .vote-button {
-		min-width: 80px;
-		font-size: 14px;
-		padding: 6px 10px 4px 10px;
 	}
 	.social-media-left li img {
 		width: 20px;
@@ -2377,10 +2349,6 @@ img {
 	.song-list-left ul li .song-name p, .corrent-top-song ul li .song-name p {
 		font-size: 12px;
 	}
-	.song-list-left ul li .vote-button {
-		min-width: 70px;
-		font-size: 12px;
-	}
 	.corrent-top-song::before {
 		height: 50px;
 		width: 60px;
@@ -2546,10 +2514,6 @@ img {
 	.song-list-left ul li .play-button svg, .corrent-top-song ul li .play-button svg {
 		width: 22px;
 		height: 22px;
-	}
-	.song-list-left ul li .vote-button {
-		min-width: 60px;
-		font-size: 10px;
 	}
 	.song-list-left ul li {
 		padding: 10px 0;
