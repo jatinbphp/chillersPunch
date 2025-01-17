@@ -150,10 +150,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Re-initialize audio controls after Livewire updates the DOM
     Livewire.on('audioControlsInitialized', () => {
-        initializeAudioControls();
+        setTimeout(function(){
+            initializeAudioControls();
+        },400);
+    });
+
+    document.getElementById('view-all-submissions').addEventListener('click', () => {
+        initializeAudioControls(); // Re-initialize audio controls
     });
 });
-
 function downloadAudio(fileUrl, fileName) {
     const link = document.createElement('a');
     link.href = fileUrl;
