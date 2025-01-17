@@ -1,45 +1,47 @@
 <div class="song-list-left">
     <div class="song-list-scroll">
-    <ul>
-        @if(!empty($submissionsList))
-            @foreach ($submissionsList as $value)
-                <li>
-                    <div class="left">
-                        <div class="icon">
-                            <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
-                                <i class="fa-regular fa-circle-play"></i>
-                            </button>
-                            <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
-                                <i class="fas fa-fast-forward"></i>
-                            </button>
-                        </div>
-                        <div class="song-name">
-                            <h6>{{ $value->submissionTitle }}</h6>
-                            <p>{{ $value->fullName }}</p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="song-progress">
-                            <div class="progress_bar_box">
-                              <div class="progress">
-                                <div class="progress-bar" id="progress-bar-{{$value->id}}" style="width:0%"></div>
-                              </div>
+        <ul>
+            @if(!empty($submissionsList))
+                @foreach ($submissionsList as $value)
+                    <li>
+                        <div class="left">
+                            <div class="icon">
+                                <button id="play-pause-btn-{{$value->id}}" class="play-button play-pause-btn" data-audio="{{asset($value->videoFile)}}">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </button>
+                                <button id="fast-forward-btn-{{$value->id}}" class="fast-forward-btn">
+                                    <i class="fas fa-fast-forward"></i>
+                                </button>
+                            </div>
+                            <div class="song-name">
+                                <h6>{{ $value->submissionTitle }}</h6>
+                                <p>{{ $value->fullName }}</p>
                             </div>
                         </div>
-                        <div class="song-btn">
-                            <button class="vote-button" data-vote-id="{{ $value->id }}"><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
-                            <button><img src="{{url('assets/dist/front/img/upload-file-icon.png') }}" alt="" /></button>
+                        <div class="right">
+                            <div class="song-progress">
+                                <div class="progress_bar_box">
+                                  <div class="progress">
+                                    <div class="progress-bar" id="progress-bar-{{$value->id}}" style="width:0%"></div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="song-btn">
+                                <button class="vote-button" data-vote-id="{{ $value->id }}"><img src="{{url('assets/dist/front/img/like-icon.png') }}" alt="" /></button>
+                                <button class="audio-download-btn" onclick="downloadAudio('{{ asset($value->videoFile) }}', '{{ basename($value->videoFile) }}')">
+                                    <img src="{{ url('assets/dist/front/img/upload-file-icon.png') }}" alt="Download" />
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </li>
+                @endforeach
+            @else
+                <li class="song-name">
+                    <div class="song-name"><h6>No submissions found.</h6></div>
                 </li>
-            @endforeach
-        @else
-            <li class="song-name">
-                <div class="song-name"><h6>No submissions found.</h6></div>
-            </li>
-        @endif
-    </ul>
-</div>
+            @endif
+        </ul>
+    </div>
     @if(!empty($submissionsList))
         <input type="hidden" id="submission-add-vote" value="{{ route('submission.add.vote') }}">
         
@@ -141,5 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+function downloadAudio(fileUrl, fileName) {
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName;
+    link.click();
+}
 </script>
 
