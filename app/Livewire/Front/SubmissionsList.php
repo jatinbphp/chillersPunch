@@ -8,7 +8,7 @@ use App\Models\Submission;
 class SubmissionsList extends Component
 {
     public $submissionsList = [];
-    public $totalVisible = 6;
+    public $totalVisible = 7;
     public $isChartsPage = false;
     public $isFinalistPage = false;
 
@@ -27,7 +27,7 @@ class SubmissionsList extends Component
     }
 
     public function loadMore(){
-        $this->totalVisible += 6;
+        $this->totalVisible += 7;
         $this->fetchSubmissions();
     }
 
