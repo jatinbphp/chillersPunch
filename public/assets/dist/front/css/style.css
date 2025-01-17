@@ -591,7 +591,7 @@ img {
 	padding-top: 150px;
 }
 .song-list-scroll {
-	max-height: 645px;
+	max-height: 900px;
 	overflow-x: auto;
 }
 .song-list-left ul {
@@ -1051,9 +1051,6 @@ img {
 .the-finalists .song-list-left ul li:last-child {
 	border-bottom: none;
 }
-.the-finalists .song-list-left .submissions-btn {
-	display: none;
-}
 .the-finalists .song-progress .progress {
 	border-radius: 6px;
 	height: 6px;
@@ -1321,7 +1318,7 @@ img {
 		font-size: 40px;
 	}
 	.song-list-scroll {
-		max-height: 440px;
+		max-height: 616px;
 	}
 	.circles-img {
 		max-width: 200px;
@@ -1874,7 +1871,7 @@ img {
 		padding-top: 30px;
 	}
 	.song-list-scroll {
-		max-height: 380px;
+		max-height: 532px;
 	}
 	.the-finalists {
 		padding: 0 60px;
@@ -2202,7 +2199,7 @@ img {
 		width: 100%;
 	}
 	.song-list-scroll {
-		max-height: 530px;
+		max-height: 740px;
 	}
 	.the-finalists .song-list-left ul li .left {
 		width: 100%;
