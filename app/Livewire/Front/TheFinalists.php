@@ -31,6 +31,8 @@ class TheFinalists extends Component
 
     public function render()
     {
+        $this->dispatch('audioControlsInitialized');
+        
         return view('livewire.front.the-finalists')->extends('layouts.front', ['menu' => 'The Charts'])->section('content');
     }
 

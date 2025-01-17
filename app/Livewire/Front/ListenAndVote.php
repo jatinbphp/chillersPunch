@@ -90,6 +90,9 @@ class ListenAndVote extends Component
     }
 
     public function render(){
+
+        $this->dispatch('audioControlsInitialized');
+
         return view('livewire.front.listen-and-vote')->extends('layouts.front', ['menu' => 'Listen & Vote'])->section('content');
     }
 
