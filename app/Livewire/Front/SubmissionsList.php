@@ -9,13 +9,21 @@ class SubmissionsList extends Component
 {
     public $submissionsList = [];
     public $totalVisible = 10;
+    public $isChartsPage = false;
+    public $isFinalistPage = false;
 
-    public function mount(){
+    public function mount($isChartsPage = false, $isFinalistPage = false){
+        $this->isChartsPage = $isChartsPage;
+        $this->isFinalistPage = $isFinalistPage;
         $this->fetchSubmissions();
     }
 
     public function fetchSubmissions(){
-        $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
+        if($this->isFinalistPage){
+            $this->submissionsList = Submission::orderBy('id', 'desc')->where('isWinner',1)->take($this->totalVisible)->get();
+        } else {
+            $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
+        }
     }
 
     public function loadMore(){
