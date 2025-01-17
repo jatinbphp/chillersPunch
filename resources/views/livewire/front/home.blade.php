@@ -127,7 +127,6 @@
             </div>
         </div>
     </div>
-
     <div class="loading-spinner-main" wire:loading.flex wire:target="submitForm">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
