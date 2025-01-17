@@ -592,7 +592,6 @@ img {
 }
 .song-list-scroll {
 	max-height: 645px;
-	overflow-y: hidden;
 	overflow-x: auto;
 }
 .song-list-left ul {
