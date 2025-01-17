@@ -10,7 +10,7 @@
             	<a href="{{ route('listen-and-vote') }}" wire:navigate></a>
         	</div>
 	        <div class="submit-entry-btn" data-aos="zoom-in">
-	            <button type="button" data-toggle="modal" data-target="#myModal"></button>
+	            <button type="button" onclick="openCompetitionModal()"></button>
 	        </div>
             <img class="products-img" data-aos="fade-up" src="{{url('assets/dist/front/img/products-img.png') }}" alt="" />
         </div>

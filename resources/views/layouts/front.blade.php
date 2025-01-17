@@ -47,8 +47,7 @@
     </header>
 
     @yield('content')
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" wire:ignore.self>
+    <div class="modal fade" id="competitionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -140,6 +139,11 @@
     <script src="{{ URL('assets/dist/front/js/sweetalert.min.js') }}"></script>
     <script src="{{ URL('assets/dist/front/js/aos.js') }}"></script>
     <script src="{{ URL('assets/dist/front/js/custom.js') }}"></script>
+    <script type="text/javascript">
+        function openCompetitionModal() {
+            $("#competitionModal").modal('show');
+        }
+    </script>
     @vite([ 'resources/js/app.js' ])
 </body>
 </html>
