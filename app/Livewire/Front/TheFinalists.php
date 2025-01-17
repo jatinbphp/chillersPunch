@@ -21,18 +21,17 @@ class TheFinalists extends Component
         'phoneNumber' => 'required|regex:/^\+?[0-9]{10,15}$/',
         'videoFile' => 'required|file|mimes:mp3,wav,aac,flac',
         'thumbnail' => 'nullable|file|mimes:jpeg,png,jpg|max:2048',
+        'agreeTerms' => 'required',
     ];
 
     protected $messages = [
         'submissionTitle.required' => 'The song title field is required.',
         'videoFile.required' => 'Please upload a valid audio file.',
         'videoFile.mimes' => 'The audio file must be one of the following types: MP3, WAV, AAC, or FLAC.',
+        'agreeTerms.required' => 'Please accept the Terms & Conditions.',
     ];
 
-    public function render()
-    {
-        $this->dispatch('audioControlsInitialized');
-        
+    public function render(){        
         return view('livewire.front.the-finalists')->extends('layouts.front', ['menu' => 'The Charts'])->section('content');
     }
 

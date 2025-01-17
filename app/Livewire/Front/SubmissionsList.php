@@ -24,13 +24,14 @@ class SubmissionsList extends Component
         } else {
             $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
         }
-        $this->dispatch('audioControlsInitialized');
+        
 
     }
 
     public function loadMore(){
         $this->totalVisible += 7;
         $this->fetchSubmissions();
+        $this->dispatch('audioControlsInitialized');
     }
 
     public function render(){
