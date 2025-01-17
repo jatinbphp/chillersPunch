@@ -509,7 +509,7 @@ img {
 	position: absolute;
 	top: -60px;
 	left: 50px;
-	opacity: 0.2;
+	opacity: 0.1;
 }
 
 .listen-vote-main {
@@ -1052,9 +1052,6 @@ img {
 	border-bottom: none;
 }
 .the-finalists .song-list-left .submissions-btn {
-	display: none;
-}
-.the-finalists-banner .listen-now-btn {
 	display: none;
 }
 .the-finalists .song-progress .progress {
