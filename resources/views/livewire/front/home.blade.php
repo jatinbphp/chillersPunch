@@ -1,19 +1,10 @@
 <div class="main-section">
-    <!-- <section class="from-your">
-        <div class="left">
-            <img class="from-your-img" data-aos="fade-up" src="{{url('assets/dist/front/img/from-your.png') }}" alt="" />
-        </div>
-        <div class="right">
-            <img class="products-img" data-aos="fade-up" src="{{url('assets/dist/front/img/products-img.png') }}" alt="" />
-        </div>
-    </section> -->
-
     <section class="listen-vote-banner">
-        <div class="listen-now-btn">
+        <div class="listen-now-btn" data-aos="zoom-in">
             <a href="#"></a>
         </div>
-        <div class="submit-entry-btn">
-            <button type="button" data-toggle="modal" data-target="#listen-now"></button>
+        <div class="submit-entry-btn" data-aos="zoom-in">
+            <button type="button" data-toggle="modal" data-target="#myModal"></button>
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>
