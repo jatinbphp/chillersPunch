@@ -8,7 +8,7 @@ use App\Models\Submission;
 class SubmissionsList extends Component
 {
     public $submissionsList = [];
-    public $totalVisible = 5;
+    public $totalVisible = 10;
 
     public function mount(){
         $this->fetchSubmissions();
@@ -19,7 +19,7 @@ class SubmissionsList extends Component
     }
 
     public function loadMore(){
-        $this->totalVisible += 5;
+        $this->totalVisible += 10;
         $this->fetchSubmissions();
     }
 
