@@ -612,6 +612,7 @@ img {
 .song-list-left ul li .right {
 	display: flex;
 	align-items: center;
+	width: 50%;
 }
 .song-list-left ul li .icon {
 	display: flex;
@@ -653,7 +654,7 @@ img {
 	color: #fff;
 }
 .song-progress {
-	width: 240px;
+	width: calc(100% - 58px);
 	margin: 0 20px;
 }
 .song-progress .progress-bar {
@@ -686,7 +687,7 @@ img {
 	height: 13px;
 }
 .song-list-left ul li .song-name {
-	max-width: 240px;
+	width: calc(100% - 108px);
 }
 .song-list-left ul li .song-name h6 {
 	font-size: 26px;
@@ -823,7 +824,7 @@ img {
 }
 .corrent-top-song ul li .song-name {
 	padding-right: 15px;
-	max-width: 40%;
+	width: calc(60% - 165px);
 }
 .corrent-top-song ul li .song-name h6 {
 	font-size: 26px;
@@ -848,9 +849,11 @@ img {
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	width: 40%;
 }
 .corrent-top-song ul li .play-progress .song-progress {
 	margin: 0;
+	width: 100%;
 }
 .corrent-top-song ul li .play-button {
 	background: transparent;
@@ -1255,7 +1258,7 @@ img {
 		margin-right: 20px;
 	}
 	.corrent-top-song ul li .song-img img {
-		width: 85px;
+		width: 80px;
 		border-radius: 6px;
 	}
 	.corrent-top-song ul li {
@@ -1265,6 +1268,10 @@ img {
 	.corrent-top-song ul li .play-button svg {
 		width: 36px;
 		height: 36px;
+	}
+	.corrent-top-song ul li .song-name {
+		padding-right: 10px;
+    	width: calc(60% - 110px);
 	}
 	.song-list-left ul li {
 		padding: 20px 10px;
@@ -1302,10 +1309,10 @@ img {
 		margin-right: 15px;
 	}
 	.song-list-left ul li .song-name {
-		max-width: 140px;
+		width: calc(100% - 77px);
 	}
 	.song-progress {
-		width: 170px;
+		width: calc(100% - 118px);
 		margin: 0 15px;
 	}
 	.song-list-left ul li .song-btn button {
@@ -1379,6 +1386,7 @@ img {
 	.the-charts-title-img {
 		margin-top: -60px;
 	}
+
 }
 
 @media screen and (max-width: 1300px) {
