@@ -1,7 +1,7 @@
 <div class="main-section">
     <section class="listen-vote-banner">
         <div class="listen-now-btn" data-aos="zoom-in">
-            <a href="#"></a>
+            <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
         </div>
         <div class="submit-entry-btn" data-aos="zoom-in">
             <button type="button" data-toggle="modal" data-target="#myModal"></button>
@@ -30,7 +30,7 @@
                                         @if (isset($value->thumbnail) && file_exists(public_path($value->thumbnail)))
                                             <img src="{{ asset($value->thumbnail) }}" style="width: 110px;">
                                         @else
-                                            <img src="{{url('assets/dist/front/img/default-image.png') }}" alt="" />
+                                            <img src="{{url('assets/dist/front/img/default-song-cover.png') }}" alt="" />
                                         @endif
                                     </div>
                                     <div class="song-name">
