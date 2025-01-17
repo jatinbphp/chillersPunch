@@ -7,7 +7,7 @@
         </div>
         <div class="right">
         	<div class="listen-now-btn" data-aos="zoom-in">
-            	<a href="#"></a>
+            	<a href="{{ route('listen-and-vote') }}"></a>
         	</div>
 	        <div class="submit-entry-btn" data-aos="zoom-in">
 	            <button type="button" data-toggle="modal" data-target="#myModal"></button>
@@ -24,7 +24,7 @@
     			<img src="{{url('assets/dist/front/img/the-charts-title-img.png') }}" alt="" />
     		</div>
             <div class="song-list" data-aos="fade-up">
-                <livewire:front.submissions-list />
+                <livewire:front.submissions-list :isChartsPage="true" :isFinalistPage="false"/>
             </div>
             
     </section>
