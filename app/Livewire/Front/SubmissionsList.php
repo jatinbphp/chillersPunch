@@ -8,7 +8,7 @@ use App\Models\Submission;
 class SubmissionsList extends Component
 {
     public $submissionsList = [];
-    public $totalVisible = 7;
+    public $totalVisible = 10;
     public $isChartsPage = false;
     public $isFinalistPage = false;
 
@@ -29,7 +29,7 @@ class SubmissionsList extends Component
     }
 
     public function loadMore(){
-        $this->totalVisible += 7;
+        $this->totalVisible += 10;
         $this->fetchSubmissions();
         $this->dispatch('audioControlsInitialized');
     }
