@@ -466,12 +466,15 @@ img {
 	line-height: 30px;
 	margin: 0;
 	padding: 0;
-	transform: rotate(-18deg);
 	text-align: center;
 	text-decoration: none;
 	width: 100%;
 	height: 100%;
-
+	transition: all 0.3s ease;
+}
+.listen-vote-banner .listen-now-btn:hover,
+.listen-vote-banner .submit-entry-btn:hover {
+	transform: scale(1.2) !important;
 }
 .listen-vote-banner .submit-entry-btn {
 	position: absolute;
@@ -499,10 +502,10 @@ img {
 	line-height: 30px;
 	margin: 0;
 	padding: 0;
-	transform: rotate(18deg);
 	text-align: center;
 	width: 100%;
 	height: 100%;
+	transition: all 0.3s ease;
 }
 
 .circles-img {
