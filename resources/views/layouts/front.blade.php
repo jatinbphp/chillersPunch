@@ -33,7 +33,7 @@
             </div>
             <div class="menu-toggle">
                 <div class="the-charts">THE CHARTS</div>
-                <a href="#" class="toggle">
+                <a href="javascript:void(0)" class="toggle">
                     <img src="{{url('assets/dist/front/img/menu-icon.png')}}" alt="" />
                 </a>
                 <ul class="menu-list">
