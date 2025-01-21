@@ -48,14 +48,14 @@
             @endif
         </ul>
     </div>
-    @if(!empty($submissionsList))
+    {{-- @if(!empty($submissionsList))
         <input type="hidden" id="submission-add-vote" value="{{ route('submission.add.vote') }}">
         @if(count($submissionsList) >= $totalVisible)
             <button class="submissions-btn" wire:click="loadMore">
                 VIEW ALL SUBMISSIONS
             </button>
         @endif
-    @endif 
+    @endif  --}}
 
 
     <!-- Modal for sharing -->

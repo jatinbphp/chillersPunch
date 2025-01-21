@@ -28,7 +28,8 @@ class SubmissionsList extends Component
         if($this->isFinalistPage){
             $this->submissionsList = Submission::orderBy('id', 'desc')->where('isWinner',1)->take($this->totalVisible)->get();
         } else {
-            $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
+            // $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
+            $this->submissionsList = Submission::orderBy('id', 'desc')->get();
         }
     }
 
