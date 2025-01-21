@@ -12,6 +12,12 @@ class SubmissionsList extends Component
     public $isChartsPage = false;
     public $isFinalistPage = false;
 
+    // Modal-related properties
+    public $isModalOpen = false;
+    public $modalAudioFile = '';
+    public $modalAudioFileName = '';
+    public $shareableLink = '';
+
     public function mount($isChartsPage = false, $isFinalistPage = false){
         $this->isChartsPage = $isChartsPage;
         $this->isFinalistPage = $isFinalistPage;
@@ -24,14 +30,25 @@ class SubmissionsList extends Component
         } else {
             $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
         }
-        
-
     }
 
     public function loadMore(){
         $this->totalVisible += 10;
         $this->fetchSubmissions();
         $this->dispatch('audioControlsInitialized');
+    }
+
+    public function openShareModal($audioFile, $audioFileName)
+    {
+        $this->modalAudioFile = $audioFile;
+        $this->modalAudioFileName = $audioFileName;
+        $this->shareableLink = asset($audioFile);
+        $this->isModalOpen = true;
+    }
+
+    public function closeModal()
+    {
+        $this->isModalOpen = false;
     }
 
     public function render(){
