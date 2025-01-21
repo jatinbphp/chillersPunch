@@ -60,24 +60,27 @@
 
     <!-- Modal for sharing -->
     @if ($isModalOpen)
-    <div class="modal show" style="display: block;" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true" wire:ignore.self>
-        <div class="modal-dialog" role="document">
+    <div class="modal show shareModalPopup" style="display: block;" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true" wire:ignore.self>
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" wire:click="closeModal">&times;</button>
-                    <h4 class="modal-title">Share item</h4>
+                    <h3 class="modal-title">Share item</h3>
                 </div>
+                <div class="modal-body">
                 <a href="https://api.whatsapp.com/send?text={{ urlencode($modalAudioFileName . ' - ' . $shareableLink) }}" target="_blank" class="btn btn-whatsapp">
-                    Share on WhatsApp
+                    <img src="{{url('assets/dist/front/img/whatsapp-icon.svg') }}" alt="" /> <span>Share on WhatsApp</span>
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($shareableLink) }}&quote={{ urlencode($modalAudioFileName) }}" target="_blank" class="btn btn-facebook">
-                    Share on Facebook
+                    <img src="{{url('assets/dist/front/img/facebook-icon.svg') }}" alt="" /> <span>Share on Facebook</span>
                 </a>
+            </div>
             </div>
         </div>
     </div>
     @endif
 </div>
+
 
 <script type="text/javascript">
 const audioElements = {}; // Store all audio elements
