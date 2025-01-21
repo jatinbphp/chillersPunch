@@ -59,20 +59,24 @@
 
 
     <!-- Modal for sharing -->
-    <div x-data="{ open: @entangle('isModalOpen') }" x-show="open" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" wire:click="closeModal">&times;</button>
-                <h4 class="modal-title">Share Audio File</h4>
+    @if ($isModalOpen)
+    <div class="modal show" style="display: block;" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true" wire:ignore.self>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" wire:click="closeModal">&times;</button>
+                    <h4 class="modal-title">Share item</h4>
+                </div>
+                <a href="https://api.whatsapp.com/send?text={{ urlencode($modalAudioFileName . ' - ' . $shareableLink) }}" target="_blank" class="btn btn-whatsapp">
+                    Share on WhatsApp
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($shareableLink) }}&quote={{ urlencode($modalAudioFileName) }}" target="_blank" class="btn btn-facebook">
+                    Share on Facebook
+                </a>
             </div>
-            <a href="https://api.whatsapp.com/send?text={{ urlencode($shareableLink) }}" target="_blank" class="btn btn-whatsapp">
-                Share on WhatsApp
-            </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($shareableLink) }}" target="_blank" class="btn btn-facebook">
-                Share on Facebook
-            </a>
         </div>
     </div>
+    @endif
 </div>
 
 <script type="text/javascript">
