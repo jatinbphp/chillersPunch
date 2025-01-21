@@ -28,7 +28,7 @@ class SubmissionsList extends Component
 
     }
 
-    public function loadMore(){
+    public function loadMore(){ 
         $this->totalVisible += 10;
         $this->fetchSubmissions();
         $this->dispatch('audioControlsInitialized');
