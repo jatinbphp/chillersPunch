@@ -62,11 +62,11 @@ class CompetitionShow extends Component
             ->addColumn('submission_info', function ($row) {
                 $submission = $row->submission;
 
-                $submissionTitle = $submission->submissionTitle ?? '-';
-                $fullName = '<b>Name: </b>'.$submission->fullName ?? '-';
-                $emailAddress = '<b>Email: </b>'.$submission->emailAddress ?? '-';
-                $phoneNumber = '<b>Phone: </b>'.$submission->phoneNumber ?? '-';
-                $dateCreated = '<b>Date Created: </b>'.$submission->created_at ?? '-';
+                $submissionTitle = optional($submission)->submissionTitle ?? '-';
+                $fullName = '<b>Name: </b>' . (optional($submission)->fullName ?? '-');
+                $emailAddress = '<b>Email: </b>' . (optional($submission)->emailAddress ?? '-');
+                $phoneNumber = '<b>Phone: </b>' . (optional($submission)->phoneNumber ?? '-');
+                $dateCreated = '<b>Date Created: </b>' . (optional($submission)->created_at ?? '-');
 
                 return "{$submissionTitle}<br><small>{$fullName}</small><br><small>{$emailAddress}</small><br><small>{$phoneNumber}</small><br><small>{$dateCreated}</small>";
             })
@@ -109,5 +109,15 @@ class CompetitionShow extends Component
                 return $row->created_at;
             })
             ->make(true);
+    }
+
+    public function deleteRecord($submissionId){
+        $submission = Submission::find($submissionId);
+        if ($submission) {
+            $submission->delete();
+            return response()->json(['success' => 'Submission deleted successfully!']);
+        } else {
+            return response()->json(['error' => 'Submission not found.']);
+        }
     }
 }

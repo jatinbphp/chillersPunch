@@ -14,6 +14,7 @@ class SubmissionsList extends Component
 
     // Modal-related properties
     public $isModalOpen = false;
+    public $isLoading = false;
     public $modalAudioFile = '';
     public $modalAudioFileName = '';
     public $shareableLink = '';
@@ -31,6 +32,7 @@ class SubmissionsList extends Component
             // $this->submissionsList = Submission::orderBy('id', 'desc')->take($this->totalVisible)->get();
             $this->submissionsList = Submission::orderBy('id', 'desc')->get();
         }
+        
     }
 
     public function loadMore(){ 
@@ -44,7 +46,11 @@ class SubmissionsList extends Component
         $this->modalAudioFile = $audioFile;
         $this->modalAudioFileName = $audioFileName;
         $this->shareableLink = asset($audioFile);
+        $this->isLoading = true;
+
+        $this->isLoading = false;
         $this->isModalOpen = true;
+        $this->dispatch('isLoading');
     }
 
     public function closeModal()

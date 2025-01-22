@@ -90,7 +90,7 @@ $(document).ready(function() {
         var url = $(this).attr("data-url");
         var table = $(this).attr("data-table");
 
-        Swal.fire({
+        swal({
             title: "Are you sure?",
             text: "You want to delete this record?",
             icon: "warning",
@@ -98,8 +98,9 @@ $(document).ready(function() {
             confirmButtonColor: '#DD6B55',
             confirmButtonText: 'Yes, Delete',
             cancelButtonText: "No, cancel"
-        }).then((result) => {
-            if (result.isConfirmed) {
+        },
+        function(isConfirm){
+            if (isConfirm) {
                 $.ajax({
                     url: url,
                     type: "DELETE",

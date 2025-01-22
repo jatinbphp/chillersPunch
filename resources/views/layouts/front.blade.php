@@ -37,7 +37,7 @@
                 </button>
             </div>
             <div class="menu-toggle">
-                <div class="the-charts">THE CHARTS</div>
+                <div class="the-charts"><a href="{{ route('thecharts') }}" wire:navigate>THE CHARTS</a></div>
                 <a href="javascript:void(0)" class="toggle">
                     <img src="{{url('assets/dist/front/img/menu-icon.png')}}" alt="" />
                 </a>
@@ -62,11 +62,10 @@
             <li><a href="{{ route('home') }}" wire:navigate>© 2024 Chillers Punch</a></li>
         </ul>
         <ul class="social-media">
-            <li><a href="#" target="_blank"><img src="{{url('assets/dist/front/img/facebook-icon.png') }}" alt="" /></a></li>
-            <li><a href="#" target="_blank"><img src="{{url('assets/dist/front/img/instagram-icon.png') }}" alt="" /></a></li>
-            <li><a href="#" target="_blank"><img src="{{url('assets/dist/front/img/youtube-icon.png') }}" alt="" /></a></li>
-            <li><a href="#" target="_blank"><img src="{{url('assets/dist/front/img/x-icon.png') }}" alt="" /></a></li>
-            <li><a href="#" target="_blank"><img src="{{url('assets/dist/front/img/tiktok-icon.png') }}" alt="" /></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61567600423182" target="_blank"><img src="{{url('assets/dist/front/img/facebook-icon.png') }}" alt="" /></a></li>
+            <li><a href="https://www.instagram.com/chillerspunch/" target="_blank"><img src="{{url('assets/dist/front/img/instagram-icon.png') }}" alt="" /></a></li>
+            <li><a href="https://www.youtube.com/@podcastandchillnetwork" target="_blank"><img src="{{url('assets/dist/front/img/youtube-icon.png') }}" alt="" /></a></li>
+            <li><a href="https://x.com/ChillersPunch" target="_blank"><img src="{{url('assets/dist/front/img/x-icon.png') }}" alt="" /></a></li>
         </ul>
     </footer>
     @livewireScripts
