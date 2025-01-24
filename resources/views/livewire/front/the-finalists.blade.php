@@ -1,10 +1,18 @@
 <div class="main-section">
     <section class="listen-vote-banner the-finalists-banner">
         <div class="listen-now-btn" data-aos="zoom-in">
-            <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
+            @if(getTotalSubmission()>0)
+                <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
+            @else
+                <a href="javascript:void(0)"></a>
+            @endif
         </div>
         <div class="submit-entry-btn" data-aos="zoom-in">
-            <button type="button" data-toggle="modal" data-target="#myModal"></button>
+            @if(getTotalCompetition()>0)
+                <button type="button" data-toggle="modal" data-target="#myModal"></button>
+            @else
+                <button type="button"></button>
+            @endif
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>

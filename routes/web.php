@@ -33,7 +33,7 @@ if (App::environment('local')) {
 
 if (App::environment('production')) {
     Livewire::setUpdateRoute(function($handle) {
-        return Route::get('/chillersPunch/livewire/update', $handle);
+        return Route::get('/chillers/livewire/update', $handle);
     });
 }
 
@@ -43,12 +43,12 @@ if (App::environment('production')) {
 
 Route::middleware('guest')->group(function () {
     
-    Route::get('/', Home::class)->name('home');
+    Route::get('/', TheCharts::class)->name('home');
+    Route::get('submit-now', Home::class)->name('submit-now');
     Route::get('listen-and-vote', ListenAndVote::class)->name('listen-and-vote');
     Route::get('terms-and-conditions', TermsAndConditions::class)->name('terms-and-conditions');
     Route::get('submission-video/{id}', [ListenAndVote::class, 'getSubmissioInfo'])->name('submission.video');
     Route::post('submission-add-vote', [ListenAndVote::class, 'addSubmissioVote'])->name('submission.add.vote');
-    Route::get('the-charts', TheCharts::class)->name('thecharts');
     Route::get('the-finalists', TheFinalists::class)->name('thefinalists');
 
     Route::get('admin/login', Login::class)->name('login');

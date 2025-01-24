@@ -37,15 +37,27 @@
                 </button>
             </div>
             <div class="menu-toggle">
-                <div class="the-charts"><a href="{{ route('thecharts') }}" wire:navigate>THE CHARTS</a></div>
+                <div class="the-charts">
+                    @if(getTotalSubmission()>0)
+                        <a href="{{ route('listen-and-vote') }}" wire:navigate>THE CHARTS</a>
+                    @else
+                        <a href="{{ route('home') }}" wire:navigate>THE CHARTS</a>
+                    @endif
+                </div>
                 <a href="javascript:void(0)" class="toggle">
                     <img src="{{url('assets/dist/front/img/menu-icon.png')}}" alt="" />
                 </a>
                 <ul class="menu-list">
-                    <li><a href="{{ route('home') }}" wire:navigate>Submit Now</a></li>
+                    <li><a href="{{ route('home') }}" wire:navigate>The Charts</a></li>
+
+                    @if(getTotalSubmission()>0)
+                    <li><a href="{{ route('submit-now') }}" wire:navigate>Submit Now</a></li>
                     <li><a href="{{ route('listen-and-vote') }}" wire:navigate>Listen & Vote</a></li>
-                    <li><a href="{{ route('thecharts') }}" wire:navigate>The Charts</a></li>
-                    {{-- <li><a href="{{ route('thefinalists') }}" wire:navigate>The Finalists</a></li> --}}
+                    @endif
+
+                    @if(getTotalSubmissionWinners()>0)
+                    <li><a href="{{ route('thefinalists') }}" wire:navigate>The Finalists</a></li>
+                    @endif
                 </ul>
             </div>
         </div>

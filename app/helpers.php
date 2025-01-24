@@ -1,8 +1,8 @@
 <?php
 
 use Carbon\Carbon;
-use App\Models\QuestionAnswer;
-use App\Models\InstitutionsCompletedSection;
+use App\Models\Submission;
+use App\Models\Competition;
 
 if (!function_exists('formatCreatedAt')) {
     function formatCreatedAt($createdAt)
@@ -42,5 +42,35 @@ if (!function_exists('getYears')) {
     function getYears()
     {
         return ['2019', '2020', '2021', '2022', '2023'];
+    }
+}
+
+if (!function_exists('getTotalCompetition')) {
+    function getTotalCompetition(){
+        return Competition::select('id')->where('status','active')->count();
+    }
+}
+
+if (!function_exists('getTotalSubmission')) {
+    function getTotalSubmission(){
+        $competition = Competition::select('id')->where('status','active')->first();
+
+        if(!empty($competition)){
+            return Submission::where('competitionId', $competition->id)->count();    
+        }
+        
+        return 0;
+    }
+}
+
+if (!function_exists('getTotalSubmissionWinners')) {
+    function getTotalSubmissionWinners(){
+        $competition = Competition::select('id')->where('status','active')->first();
+
+        if(!empty($competition)){
+            return Submission::where('competitionId', $competition->id)->where('isWinner', 1)->count();
+        }
+        
+        return 0;
     }
 }

@@ -1,10 +1,18 @@
 <div class="main-section">
     <section class="listen-vote-banner">
         <div class="listen-now-btn" data-aos="zoom-in">
-            <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
+            @if(getTotalSubmission()>0)
+                <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
+            @else
+                <a href="javascript:void(0)"></a>
+            @endif
         </div>
         <div class="submit-entry-btn" data-aos="zoom-in">
-            <button type="button" data-toggle="modal" data-target="#myModal"></button>
+            @if(getTotalCompetition()>0)
+                <button type="button" data-toggle="modal" data-target="#myModal"></button>
+            @else
+                <button type="button"></button>
+            @endif
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>
@@ -20,10 +28,10 @@
             <div class="song-list">
                 <livewire:front.submissions-list />
                 
-                <div class="corrent-top-song" data-aos="zoom-in">
-                    <h2>CURRENT TOP 5</h2>
-                    <ul>
-                        @if(!empty($topSubmissions))
+                @if(!empty($topSubmissions))
+                    <div class="corrent-top-song" data-aos="zoom-in">
+                        <h2>CURRENT TOP 5</h2>
+                        <ul>
                             @foreach ($topSubmissions as $key => $value)
                                 <li>
                                     <div class="song-img">
@@ -53,13 +61,9 @@
                                     </div>
                                 </li>
                             @endforeach
-                        @else
-                            <li>
-                                <div class="song-name"><h6>No submissions found.</h6></div>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
