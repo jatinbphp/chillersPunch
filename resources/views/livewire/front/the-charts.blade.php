@@ -6,12 +6,20 @@
             <img class="black-img" data-aos="fade-up" src="{{url('assets/dist/front/img/black-img.png') }}" alt="" />
         </div>
         <div class="right">
-        	<div class="listen-now-btn" data-aos="zoom-in">
-            	<a href="{{ route('listen-and-vote') }}" wire:navigate></a>
-        	</div>
-	        <div class="submit-entry-btn" data-aos="zoom-in">
-	            <button type="button" data-toggle="modal" data-target="#myModal"></button>
-	        </div>
+            <div class="listen-now-btn" data-aos="zoom-in">
+                @if(getTotalSubmission()>0)
+                    <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
+                @else
+                    <a href="javascript:void(0)"></a>
+                @endif
+            </div>
+            <div class="submit-entry-btn" data-aos="zoom-in">
+                @if(getTotalSubmission()>0)
+                    <button type="button" data-toggle="modal" data-target="#myModal"></button>
+                @else
+                    <button type="button"></button>
+                @endif
+            </div>
             <img class="products-img" data-aos="fade-up" src="{{url('assets/dist/front/img/products-img.png') }}" alt="" />
         </div>
     </section>
