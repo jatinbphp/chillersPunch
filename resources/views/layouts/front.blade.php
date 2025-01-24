@@ -37,7 +37,13 @@
                 </button>
             </div>
             <div class="menu-toggle">
-                <div class="the-charts"><a href="{{ route('home') }}" wire:navigate>THE CHARTS</a></div>
+                <div class="the-charts">
+                    @if(getTotalSubmission()>0)
+                        <a href="{{ route('listen-and-vote') }}" wire:navigate>THE CHARTS</a>
+                    @else
+                        <a href="{{ route('home') }}" wire:navigate>THE CHARTS</a>
+                    @endif
+                </div>
                 <a href="javascript:void(0)" class="toggle">
                     <img src="{{url('assets/dist/front/img/menu-icon.png')}}" alt="" />
                 </a>

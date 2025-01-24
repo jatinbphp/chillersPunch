@@ -45,6 +45,12 @@ if (!function_exists('getYears')) {
     }
 }
 
+if (!function_exists('getTotalCompetition')) {
+    function getTotalCompetition(){
+        return Competition::select('id')->where('status','active')->count();
+    }
+}
+
 if (!function_exists('getTotalSubmission')) {
     function getTotalSubmission(){
         $competition = Competition::select('id')->where('status','active')->first();

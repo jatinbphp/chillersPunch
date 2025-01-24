@@ -14,7 +14,7 @@
                 @endif
             </div>
             <div class="submit-entry-btn" data-aos="zoom-in">
-                @if(getTotalSubmission()>0)
+                @if(getTotalCompetition()>0)
                     <button type="button" data-toggle="modal" data-target="#myModal"></button>
                 @else
                     <button type="button"></button>
