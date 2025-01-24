@@ -61,4 +61,9 @@ class SubmissionsList extends Component
     public function render(){
         return view('livewire.front.submissions-list');
     }
+
+    public function rendered()
+    {
+        $this->dispatch('audioControlsInitialized');
+    }
 }
