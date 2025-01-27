@@ -491,7 +491,7 @@ img {
 	align-items: center;
 	justify-content: center; 
 }
-.listen-vote-banner .submit-entry-btn button {
+.listen-vote-banner .submit-entry-btn a {
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 30px;
