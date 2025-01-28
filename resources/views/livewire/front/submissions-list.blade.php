@@ -51,15 +51,6 @@
             @endif
         </ul>
     </div>
-    {{-- @if (!empty($submissionsList))
-        <input type="hidden" id="submission-add-vote" value="{{ route('submission.add.vote') }}">
-        @if (count($submissionsList) >= $totalVisible)
-            <button class="submissions-btn" wire:click="loadMore">
-                VIEW ALL SUBMISSIONS
-            </button>
-        @endif
-    @endif  --}}
-
 
     @if ($isLoading)
         <div class="fullscreen-loader">
@@ -96,9 +87,14 @@
     @endif
 </div>
 
-
 <script type="text/javascript">
     const audioElements = {}; // Store all audio elements
+    let isDragging = false; // Declare isDragging variable at the top
+
+    // Listen for Livewire updates and initialize audio controls
+    document.addEventListener('livewire:load', function () {
+        initializeAudioControls();
+    });
 
     document.addEventListener("DOMContentLoaded", () => {
         // Initialize audio controls after DOM content is loaded
@@ -112,67 +108,56 @@
         });
     });
 
-    // Reinitialize audio controls after Livewire updates
+    // Reinitialize audio controls after Livewire navigation
     document.addEventListener("livewire:navigated", () => {
-
-        initializeAudioControls();
-
-        Livewire.on('audioControlsInitialized', () => {
-            setTimeout(() => {
-                initializeAudioControls();
-            }, 600);
-        });
+        setTimeout(() => {
+            initializeAudioControls();
+        }, 600);
     });
-
 
     function initializeAudioControls() {
         document.querySelectorAll(".play-pause-btn").forEach((button) => {
             const key = button.id.split("-").pop();
             const audioUrl = button.getAttribute("data-audio");
-
+            
             // Create audio object for each button
             const audio = new Audio(audioUrl);
             audioElements[key] = audio;
 
-            // Get progress bar and buttons
             const progressBar = document.getElementById(`progress-bar-${key}`);
-            const progressBox = progressBar.parentElement.parentElement;
+            const progressBox = progressBar?.parentElement?.parentElement; // Safe navigation operator
             const fastForwardBtn = document.getElementById(`fast-forward-btn-${key}`);
             const playPauseBtn = document.getElementById(`play-pause-btn-${key}`);
 
-            // Play/Pause button event
-            playPauseBtn.addEventListener("click", () => {
-                if (audio.paused) {
-                    // Play the current audio and pause all other audios
-                    playAudio(key, audio, playPauseBtn);
-                } else {
-                    // Pause the current audio
-                    pauseAudio(key, audio, playPauseBtn);
-                }
-            });
+            if (playPauseBtn) {
+                playPauseBtn.addEventListener("click", () => {
+                    if (audio.paused) {
+                        playAudio(key, audio, playPauseBtn);
+                    } else {
+                        pauseAudio(key, audio, playPauseBtn);
+                    }
+                });
+            }
 
-            // Fast forward button event (Play Next)
             if (fastForwardBtn) {
                 fastForwardBtn.addEventListener("click", () => {
-                    // Pause all audio elements and reset their play button icons
                     Object.keys(audioElements).forEach((k) => {
                         audioElements[k].pause();
-                        document.getElementById(`play-pause-btn-${k}`).innerHTML =
-                            "<i class='fa-regular fa-circle-play'></i>";
+                        const button = document.getElementById(`play-pause-btn-${k}`);
+                        if (button) {
+                            button.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
+                        }
                     });
 
-                    // Pause the current audio and reset its play button icon
                     audio.pause();
                     playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
 
-                    // Find the current `<li>` and the next `<li>`
                     const currentLi = playPauseBtn.closest("li");
-                    const nextLi = currentLi.nextElementSibling;
+                    const nextLi = currentLi?.nextElementSibling;
 
-                    // If there's a next `<li>`, play its audio
                     if (nextLi) {
                         const nextPlayPauseBtn = nextLi.querySelector(".play-pause-btn");
-                        const nextKey = nextPlayPauseBtn.id.split("-").pop();
+                        const nextKey = nextPlayPauseBtn?.id.split("-").pop();
                         const nextAudio = audioElements[nextKey];
 
                         if (nextAudio) {
@@ -183,21 +168,19 @@
                 });
             }
 
-            // Update progress bar as audio plays
             audio.addEventListener("timeupdate", () => {
                 const progress = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = `${progress}%`;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
             });
 
-            // Dragging functionality for progress bar
-            let isDragging = false;
-
-            progressBox.addEventListener("mousedown", (e) => {
+            progressBox?.addEventListener("mousedown", (e) => {
                 isDragging = true;
                 updateProgressBar(e);
             });
 
-            progressBox.addEventListener("mousemove", (e) => {
+            progressBox?.addEventListener("mousemove", (e) => {
                 if (isDragging) {
                     updateProgressBar(e);
                 }
@@ -215,16 +198,22 @@
                 const width = rect.width;
                 const percentage = Math.min(Math.max((offsetX / width) * 100, 0), 100);
 
-                progressBar.style.width = `${percentage}%`;
-                audio.currentTime = (percentage / 100) * audio.duration;
+                if (progressBar) {
+                    progressBar.style.width = `${percentage}%`;
+                    audio.currentTime = (percentage / 100) * audio.duration;
+                }
             }
 
-            // Reset progress bar when audio ends
             audio.addEventListener("ended", () => {
-                progressBar.style.width = "0%";
-                playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
+                if (progressBar) {
+                    progressBar.style.width = "0%";
+                }
+                if (playPauseBtn) {
+                    playPauseBtn.innerHTML = "<i class='fa-regular fa-circle-play'></i>";
+                }
             });
         });
+
     }
 
     // Separate function to play the audio

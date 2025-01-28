@@ -9,9 +9,11 @@
         </div>
         <div class="submit-entry-btn" data-aos="zoom-in">
             @if(getTotalCompetition()>0)
-                <button type="button" data-toggle="modal" data-target="#myModal"></button>
+                {{-- <button type="button" data-toggle="modal" data-target="#myModal"></button> --}}
+                <a href="{{ route('submit-now') }}" wire:navigate></a>
             @else
-                <button type="button"></button>
+                {{-- <button type="button"></button> --}}
+                <a href="{{ route('submit-now') }}" wire:navigate></a>
             @endif
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
@@ -57,7 +59,7 @@
                 <h3>Ground Rule: Song must mention Chillers Punch at least once.</h3>
                 <p>Submit your anthem now and join the rhythm of the Chillers community.</p>
                 @if(!empty($activeCompetition))
-                    <button type="button" data-toggle="modal" data-target="#myModal">DOWNLOAD SUBMISSION FORM</button>
+                    <button type="button" data-toggle="modal" data-target="#myModal">COMPLETE SUBMISSION FORM</button>
                 @endif
             </div>
         </div>
