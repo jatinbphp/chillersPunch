@@ -50,8 +50,11 @@
                 <ul class="menu-list">
                     <li><a href="{{ route('home') }}" wire:navigate>The Charts</a></li>
 
-                    @if(getTotalSubmission()>0)
+                    @if(getTotalCompetition()>0)
                     <li><a href="{{ route('submit-now') }}" wire:navigate>Submit Now</a></li>
+                    @endif
+
+                    @if(getTotalSubmission()>0)
                     <li><a href="{{ route('listen-and-vote') }}" wire:navigate>Listen & Vote</a></li>
                     @endif
 
