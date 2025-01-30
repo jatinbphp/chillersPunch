@@ -1,20 +1,18 @@
 <div class="main-section">
     <section class="listen-vote-banner the-finalists-banner">
         <div class="listen-now-btn" data-aos="zoom-in">
-            @if(getTotalSubmission()>0)
+            <!-- @if(getTotalSubmission()>0)
                 <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
-            @else
+            @else -->
                 <a href="javascript:void(0)"></a>
-            @endif
+            <!-- @endif -->
         </div>
         <div class="submit-entry-btn" data-aos="zoom-in">
-            @if(getTotalCompetition()>0)
-                {{-- <button type="button" data-toggle="modal" data-target="#myModal"></button> --}}
+            <!-- @if(getTotalCompetition()>0)
                 <a href="{{ route('submit-now') }}" wire:navigate></a>
-            @else
-                {{-- <button type="button"></button> --}}
+            @else -->
                 <a href="{{ route('submit-now') }}" wire:navigate></a>
-            @endif
+            <!-- @endif -->
         </div>
         <img src="{{url('assets/dist/front/img/listen-vote-banner.png') }}" alt="" />
     </section>
@@ -24,7 +22,7 @@
 	    <img class="circles-img" src="{{url('assets/dist/front/img/circles.png') }}" alt="" />
     	
 		<h2 data-aos="fade-up">THE FINALISTS</h2>
-        <div class="song-list" data-aos="fade-up">
+        <div class="song-list" data-aos="fade-up" style="display: none;">
             <livewire:front.submissions-list :isChartsPage="false" :isFinalistPage="true"/>
         </div>
     </section>
