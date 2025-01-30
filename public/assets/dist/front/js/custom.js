@@ -39,7 +39,7 @@
 document.addEventListener('livewire:init', function () {
     Livewire.on('showsuccessalert', () => {
         $('#myModal').modal('hide');
-        swal("Success!", "Your submission has been successfully submitted!", "success");
+        swal("Success!", "Thank you for your submission! We've received your entry, and once approved, it will be displayed on our website. Stay tuned!", "success");
     });
 
     Livewire.on('exitsErroralert', () => {

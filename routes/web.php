@@ -51,6 +51,7 @@ Route::middleware('guest')->group(function () {
     Route::post('submission-add-vote', [ListenAndVote::class, 'addSubmissioVote'])->name('submission.add.vote');
     Route::get('the-finalists', TheFinalists::class)->name('thefinalists');
 
+    Route::get('admin/', Login::class)->name('login');
     Route::get('admin/login', Login::class)->name('login');
     Route::get('admin/forgot-password', ForgotPassword::class)->name('forgot-password');
     Route::get('admin/reset-password/{token}', ResetPassword::class)->name('password.reset');
