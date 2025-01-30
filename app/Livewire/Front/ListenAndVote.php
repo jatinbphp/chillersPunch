@@ -166,7 +166,7 @@ class ListenAndVote extends Component
             'thumbnail' => $thumbnail,
         ]);
 
-        session()->flash('message', 'Your submission has been successfully submitted!');
+        session()->flash('message', "Thank you for your submission! We've received your entry, and once approved, it will be displayed on our website. Stay tuned!");
 
         $this->reset(['submissionTitle', 'fullName', 'emailAddress', 'phoneNumber', 'videoFile']);
         $this->dispatch('showsuccessalert');
