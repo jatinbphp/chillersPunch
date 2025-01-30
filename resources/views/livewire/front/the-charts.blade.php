@@ -7,18 +7,18 @@
         </div>
         <div class="right">
             <div class="listen-now-btn" data-aos="zoom-in">
-                <!-- @if(getTotalSubmission()>0)
-                    <a href="{{ route('listen-and-vote') }}" wire:navigate></a>
-                @else -->
-                    <a href="javascript:void(0)"></a>
-                <!-- @endif -->
+                @if(getTotalSubmission()>0)
+                    <a class="hidden" href="{{ route('listen-and-vote') }}" wire:navigate></a>
+                @else
+                @endif
+                <a href="javascript:void(0)"></a>
             </div>
             <div class="submit-entry-btn" data-aos="zoom-in">
-                <!-- @if(getTotalCompetition()>0)
-                    <a href="{{ route('submit-now') }}" wire:navigate></a>
-                @else -->
-                    <a href="{{ route('submit-now') }}" wire:navigate></a>
-                <!-- @endif -->
+                @if(getTotalCompetition()>0)
+                    <a class="hidden" href="{{ route('submit-now') }}" wire:navigate></a>
+                @else
+                @endif
+                <a href="{{ route('submit-now') }}" wire:navigate></a>
             </div>
             <img class="products-img" data-aos="fade-up" src="{{url('assets/dist/front/img/products-img.png') }}" alt="" />
         </div>
