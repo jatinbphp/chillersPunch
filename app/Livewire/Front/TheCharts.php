@@ -32,7 +32,7 @@ class TheCharts extends Component
     ];
 
     public function render(){        
-        return view('livewire.front.the-charts')->extends('layouts.front', ['menu' => 'The Charts'])->section('content');
+        return view('livewire.front.the-charts')->extends('layouts.front', ['menu' => 'Home'])->section('content');
     }
 
     public function submitForm(){

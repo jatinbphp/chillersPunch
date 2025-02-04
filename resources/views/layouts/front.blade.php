@@ -48,7 +48,7 @@
                     <img src="{{url('assets/dist/front/img/menu-icon.png')}}" alt="" />
                 </a>
                 <ul class="menu-list">
-                    <li><a href="{{ route('home') }}" wire:navigate>The Charts</a></li>
+                    <li><a href="{{ route('home') }}" wire:navigate>Home</a></li>
 
                     @if(getTotalCompetition()>0)
                     <li><a href="{{ route('submit-now') }}" wire:navigate>Submit Now</a></li>
